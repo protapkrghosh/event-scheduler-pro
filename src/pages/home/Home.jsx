@@ -1,7 +1,9 @@
+import Bookings from "./home/bookings/Bookings";
+
 const Home = () => {
   return (
     <div>
-      <h1 className="text-red-800">this is home</h1>
+      <Bookings></Bookings>
     </div>
   );
 };
