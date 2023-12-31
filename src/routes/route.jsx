@@ -7,7 +7,7 @@ import Sinup from "../pages/login_and_sinup/sinup/Sinup";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element: <Main />,
     children: [
       {
         path: "/",
