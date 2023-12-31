@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bookingBg {
+  position: relative;
+  background-color: #F4F5F7;
+}
+
+.bookingBg::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #F4F5F7;
+  rotate: 2deg;
+  z-index: -10;
+}
+
+.bookingBg::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #F4F5F7;
+  rotate: -2deg;
+  z-index: -10;
+}
