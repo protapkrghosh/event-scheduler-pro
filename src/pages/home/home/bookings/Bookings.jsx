@@ -1,7 +1,10 @@
 import { TiTick } from "react-icons/ti";
 import { HiArrowLongRight } from "react-icons/hi2";
+import { useState } from "react";
 
 const Bookings = () => {
+    const [open, setOpen] = useState(false)
+
   const cards = [
     {
       heading: "Free",
@@ -62,16 +65,16 @@ const Bookings = () => {
           scheduling app gives your business the freedom to grow.
         </p>
         <div className="flex justify-center items-center gap-x-2 font-semibold mb-4 lg:mb-8">
-          <p>Monthly billing</p>
+          <p className={`${open && "text-gray-500"}`}>Monthly billing</p>
           {/* toggle start*/}
 
           <label className="relative inline-flex items-center cursor-pointer">
-            <input type="checkbox" value="" className="sr-only peer" />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-[#1E90F5] rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#1E90F5]"></div>
+            <input type="checkbox" value="" className="sr-only peer" onClick={() => setOpen(!open)}/>
+            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-[#1E90F5] rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#1E90F5]"></div>
           </label>
 
           {/* toggle end */}
-          <p>Annual billing</p>
+          <p className={`${!open && "text-gray-500"}`}>Annual billing</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-5 place-items-center">
         {cards.map((card) => (
