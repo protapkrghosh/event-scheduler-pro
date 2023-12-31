@@ -1,5 +1,6 @@
 import BannerVideo from "./home/BannerVideo/BannerVideo";
 import Banner from "./home/banner/banner";
+import Bookings from "./home/bookings/Bookings";
 import ContactUs from "./home/contact_us/ContactUs";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner />
       <BannerVideo />
       <ContactUs />
+      <Bookings></Bookings>
     </div>
   );
 };
