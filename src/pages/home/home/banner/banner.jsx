@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
     <div className="hero md:pt-[200px] pt-[200px] md:w-7/12 mx-auto">
@@ -11,7 +13,9 @@ const Banner = () => {
             selection of experiences, tailor your social calendar, and make
             every moment extraordinary. Ready to redefine the way you celebrate?
           </p>
-          <button className=" btn-primary">Get started with free now</button>
+          <Link to={"/sinup"}>
+            <button className=" btn-primary">Get started with free now</button>
+          </Link>
         </div>
       </div>
     </div>

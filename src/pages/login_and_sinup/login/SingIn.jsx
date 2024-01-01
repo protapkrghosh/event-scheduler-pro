@@ -17,7 +17,7 @@ const SingIn = () => {
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="flex pt-4 md:hidden text-center lg:text-left md:mr-4">
+        <div className="flex pt-8 md:hidden text-center lg:text-left md:mr-4">
           <div>
             <h1 className="text-primary">
               Welcome Back! <br /> Log in to Your Account

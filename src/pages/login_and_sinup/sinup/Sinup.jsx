@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
+import useContexts from "../../../hooks/useContexts";
 
 const Sinup = () => {
   const {
@@ -12,9 +13,17 @@ const Sinup = () => {
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const { handleSinup, updateUserProfile } = useContexts();
+  const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log(data);
+    const { name, email, password, photo } = data;
+    handleSinup(email, password)
+      .then((result) => {
+        console.log(result.user);
+        updateUserProfile(name, photo);
+        navigate("/");
+      })
+      .catch((err) => console.error(err));
   };
   return (
     <div className="hero min-h-screen pt-16">
