@@ -1,6 +1,6 @@
 const BannerVideo = () => {
   return (
-    <div className="relative shadow-2xl  md:w-7/12 mx-auto md:mt-6">
+    <div className="relative md:w-7/12 mx-auto md:mt-6">
       <video
         autoPlay
         loop
