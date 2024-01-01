@@ -13,7 +13,7 @@ const Sinup = () => {
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { handleSinup, updateUserProfile } = useContexts();
+  const { handleSinup, updateUserProfile, handleGoogleSinin } = useContexts();
   const navigate = useNavigate();
   const onSubmit = (data) => {
     const { name, email, password, photo } = data;
@@ -21,6 +21,14 @@ const Sinup = () => {
       .then((result) => {
         console.log(result.user);
         updateUserProfile(name, photo);
+        navigate("/");
+      })
+      .catch((err) => console.error(err));
+  };
+  const handleGoogleLogin = () => {
+    handleGoogleSinin()
+      .then((result) => {
+        console.log(result.user);
         navigate("/");
       })
       .catch((err) => console.error(err));
@@ -44,12 +52,15 @@ const Sinup = () => {
           data-aos="fade-right"
           className="card flex-shrink-0 p-4 w-full max-w-md shadow-2xl border "
         >
-          <button className=" btn-nav flex mt-4  gap-4 w-full items-center justify-center">
+          <button
+            onClick={handleGoogleLogin}
+            className=" btn-nav flex mt-4  gap-4 w-full items-center justify-center"
+          >
             <img
               src="https://assets.setmore.com/website/v2/images/icons/icon-google.svg"
               className="h-6 w-6"
               alt=""
-            />{" "}
+            />
             Continue with google
           </button>
           <button className=" btn-nav flex  mt-4 gap-2 w-full items-center justify-center">
@@ -57,7 +68,7 @@ const Sinup = () => {
               src="https://assets.setmore.com/website/v2/images/icons/icon-facebook-blue.svg"
               className="h-6 w-6"
               alt=""
-            />{" "}
+            />
             Continue with facebook
           </button>
           <div className="divider">OR</div>

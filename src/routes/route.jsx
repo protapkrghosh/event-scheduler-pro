@@ -4,6 +4,8 @@ import Home from "../pages/home/Home";
 import SingIn from "../pages/login_and_sinup/login/SingIn";
 import Error from "../pages/error/error";
 import Sinup from "../pages/login_and_sinup/sinup/Sinup";
+import LandingPage from "../pages/dashboard/landingPage/LandingPage";
+import Features from "../pages/features/Features";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: "/sinup",
         element: <Sinup />,
+      },
+      {
+        path: "/dashboard",
+        element: <LandingPage></LandingPage>
+      },
+      {
+        path: "/features",
+        element: <Features></Features>
       },
     ],
   },
