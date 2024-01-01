@@ -19,6 +19,7 @@ const Bookings = () => {
         "Email reminders",
         "Integrate with your favorite apps",
       ],
+      button: "Start Free"
     },
     {
       heading: "Pro",
@@ -33,6 +34,7 @@ const Bookings = () => {
         "Email reminders",
         "Integrate with your favorite apps",
       ],
+      button: "Start Pro"
     },
     {
       heading: "Team",
@@ -47,6 +49,7 @@ const Bookings = () => {
         "Email reminders",
         "Integrate with your favorite apps",
       ],
+      button: "Start Team"
     },
   ];
   return (
@@ -90,13 +93,13 @@ const Bookings = () => {
               key={card.heading}
               className="bg-white py-6 px-10 rounded-lg w-[340px]"
             >
-              <h4 className="text-4xl font-bold mb-2">{card.heading}</h4>
+              <h4 className="text-4xl font-bold mb-2 text-[#0b3558]">{card.heading}</h4>
               <p className="tracking-tighter text-gray-500">{card.para}</p>
               <div className="flex mt-2">
                 <h4 className="text-4xl font-bold">${card.rate}</h4>
                 <p className=" text-gray-500">user / month</p>
               </div>
-              <button className="btn-card">Start Free</button>
+              <button className="btn-card w-full rounded-md">{card.button}</button>
               <p className="bg-[#EEFCF6] rounded-full text-center py-1 mb-5 text-[12px] font-semibold">
                 24/7 HUMAN SUPPORT
               </p>
@@ -107,7 +110,7 @@ const Bookings = () => {
                     key={descriptionText}
                   >
                     <TiTick></TiTick>
-                    <p className="text-gray-500">{descriptionText}</p>{" "}
+                    <p className="text-[#477eb8]">{descriptionText}</p>{" "}
                   </div>
                 ))}
               </div>

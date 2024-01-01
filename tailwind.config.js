@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
+    fontFamily: {
+      cursive: ["Space Grotesk", "sans-serif"],
+    },
   },
+  
   plugins: [require("daisyui")],
 };
