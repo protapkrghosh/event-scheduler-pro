@@ -52,10 +52,10 @@ const Connecting = () => {
   ];
   return (
     <div className="bg-[#EDF0F2] py-16 px-5 my-10">
-      <h1 className="text-4xl text-center font-bold mb-8">
+      <h1 className="text-center text-primary mb-8">
         It’s all about connecting 🤝
       </h1>
-      <p className="text-center mb-8 hidden lg:block">
+      <p className="text-center text-secondary mb-8 hidden lg:block">
         Integrate your free appointment scheduler with your website, <br />{" "}
         social media, sales CRM, and a range of the world’s most popular apps.{" "}
       </p>

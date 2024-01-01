@@ -5,6 +5,9 @@
 .btn-nav {
   @apply border  border-[#0069ff] hover:border-blue-600 text-[#0069ff] text-xl  font-bold py-2 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
 }
+.btn-card {
+  @apply w-full text-[#066DD3] text-xl border border-[#066DD3] rounded-md text-center my-5 py-3 hover:bg-[#096CD0] hover:text-white transition-colors duration-200;
+}
 .btn-contact {
   @apply border ml-4  text-xl border-[#FFF] hover:border-blue-600 text-[#FFF] font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
 }

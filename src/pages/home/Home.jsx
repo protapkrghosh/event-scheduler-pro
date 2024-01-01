@@ -12,8 +12,8 @@ const Home = () => {
       <BannerVideo />
       <Connecting></Connecting>
       <BookingTime></BookingTime>
-      <ContactUs />
       <Bookings></Bookings>
+      <ContactUs />
     </div>
   );
 };
