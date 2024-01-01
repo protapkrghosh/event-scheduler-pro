@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
+import useContexts from "../../../hooks/useContexts";
 const SingIn = () => {
+  const { handleGoogleSinin, handleLogin } = useContexts();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -11,7 +14,22 @@ const SingIn = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = (data) => {
-    console.log(data);
+    const { email, password } = data;
+    handleLogin(email, password)
+      .then((result) => {
+        console.log(result.user);
+        navigate("/");
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleGoogleLogin = () => {
+    handleGoogleSinin()
+      .then((result) => {
+        console.log(result.user);
+        navigate("/");
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -33,12 +51,15 @@ const SingIn = () => {
           data-aos="fade-right"
           className=" flex-shrink-0 w-full max-w-md p-4 bg-[#ffffff] shadow-2xl  border"
         >
-          <button className=" btn-nav flex  mt-4 gap-4 w-full items-center justify-center">
+          <button
+            onClick={handleGoogleLogin}
+            className=" btn-nav flex  mt-4 gap-4 w-full items-center justify-center"
+          >
             <img
               src="https://assets.setmore.com/website/v2/images/icons/icon-google.svg"
               className="h-6 w-6"
               alt=""
-            />{" "}
+            />
             Continue with google
           </button>
           <button className=" btn-nav flex  mt-4 gap-2 w-full items-center justify-center">
