@@ -8,7 +8,7 @@ import ReactTabs from "./home/reactTabs/ReactTabs";
 
 const Home = () => {
   return (
-    <div className="">
+    <div>
       <Banner />
       <BannerVideo />
       <ReactTabs></ReactTabs>
