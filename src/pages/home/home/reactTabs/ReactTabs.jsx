@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+
 const ReactTabs = () => {
   const [active, setIsActive] = useState("Sales");
   const tabTitles = [
@@ -96,7 +97,7 @@ const ReactTabs = () => {
     },
   ];
   return (
-    <div className="my-24 py-16 bg-slate-50">
+    <div className="my-24 py-16 bg-[#F8FAFC]">
       <Tabs>
         <TabList className="lg:w-1/2 mx-auto grid grid-cols-2 lg:grid-cols-6 place-items-center gap-y-3 mb-24">
           {tabTitles.map((tabTitle) => (

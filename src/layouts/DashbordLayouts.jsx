@@ -1,8 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import DasboardNavbar from "../pages/shered/navbar/DasboardNavbar";
 import {
-  FaAlignLeft,
-  FaCalendarAlt,
+    FaCalendarAlt,
   FaCodeBranch,
   FaHeadset,
   FaLevelUpAlt,
@@ -12,21 +11,22 @@ import {
   FaRandom,
   FaRegClock,
   FaUserPlus,
+  FaAngleDoubleLeft 
 } from "react-icons/fa";
+import { FaAnglesRight } from "react-icons/fa6";
+
 import DashBoardNavbarComponnets from "../componnents/DashBoardNavbarComponnets";
 const DashboardLayouts = () => {
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content  ">
+      <div className="drawer-content">
         <div className="flex justify-between items-center mr-4">
           <label
             htmlFor="my-drawer-2"
-            className=" ml-4  drawer-button lg:hidden flex items-center justify-between "
+            className=" drawer-button flex items-center justify-between cursor-pointer"
           >
-            <div>
-              <FaAlignLeft />
-            </div>
+            <FaAnglesRight className="text-2xl"></FaAnglesRight>
           </label>
           <div className="md:hidden flex items-center justify-between gap-4">
             <div>
@@ -44,26 +44,31 @@ const DashboardLayouts = () => {
       </div>
 
       <div className="drawer-side">
-        <label
-          htmlFor="my-drawer-2"
-          aria-label="close sidebar"
-          className="drawer-overlay"
-        ></label>
+        <label htmlFor="my-drawer-2" aria-label="close sidebar"></label>
         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
-          <h1 className="text-center font-bold text-4xl text-[#0069ff] mb-12">
-            lets schediule
-          </h1>
+          <div className="flex justify-between items-center mb-12">
+            <h1 className="text-center font-cursive uppercase text-2xl text-[#0b3558]">
+              lets schediule
+            </h1>
+            <label
+              htmlFor="my-drawer-2"
+              className=" drawer-button flex items-center justify-between cursor-pointer"
+            >
+              <FaAngleDoubleLeft  className="text-2xl"></FaAngleDoubleLeft>
+            </label>
+          </div>
           <button
             className="btn-event  flex items-center justify-center gap-2"
             to={"/create-event"}
           >
             <FaPlus /> create event
           </button>
+
           <li className="mt-4">
             <Link
               to={"/dashboard/create-event"}
-              className="flex items-center  text-[#0069ff] text-xl"
+              className="flex items-center  text-[#0b3558] text-xl"
             >
               <FaLink />
               Event types
@@ -71,8 +76,8 @@ const DashboardLayouts = () => {
           </li>
           <li className="mt-4">
             <Link
-              to={"/dashboard/create-event"}
-              className="flex items-center  text-[#0069ff] text-xl"
+              to={"/dashboard/schedule-event"}
+              className="flex items-center  text-[#0b3558] text-xl"
             >
               <FaCalendarAlt />
               Scheduled events
@@ -81,7 +86,7 @@ const DashboardLayouts = () => {
           <li className="mt-4">
             <Link
               to={"/dashboard/create-event"}
-              className="flex items-center  text-[#0069ff] text-xl"
+              className="flex items-center  text-[#0b3558] text-xl"
             >
               <FaCodeBranch />
               Workflows
@@ -90,23 +95,23 @@ const DashboardLayouts = () => {
           <li className="mt-4">
             <Link
               to={"/dashboard/create-event"}
-              className="flex items-center  text-[#0069ff] text-xl"
+              className="flex items-center  text-[#0b3558] text-xl"
             >
               <FaRandom />
               Routing
             </Link>
           </li>
-          <div className="border border-[#0069ff] p-4 mt-8">
-            <FaLevelUpAlt className="text-xl font-bold text-[#0069ff]" />
+          <Link to="/dashboard/subscription" className="border border-[#0069ff] p-4 mt-8">
+            <FaLevelUpAlt className="text-xl font-bold text-[#0b3558]" />
             <h1 className="text-xl font-bold rounded-3xl">
               Upgrade your subscription
             </h1>
             <p>Get even more of the features you need.</p>
-          </div>
+          </Link>
           <li className="mt-6">
             <Link
               to={"/dashboard/create-event"}
-              className="flex items-center  text-[#0069ff] text-xl"
+              className="flex items-center  text-[#0b3558] text-xl"
             >
               <FaRegClock />
               Availability
@@ -115,7 +120,7 @@ const DashboardLayouts = () => {
           <li className="mt-4">
             <Link
               to={"/dashboard/create-event"}
-              className="flex items-center  text-[#0069ff] text-xl"
+              className="flex items-center  text-[#0b3558] text-xl"
             >
               <FaQuestion />
               Help
@@ -124,7 +129,7 @@ const DashboardLayouts = () => {
           <li className="mt-4">
             <Link
               to={"/dashboard/create-event"}
-              className="flex items-center  text-[#0069ff] text-xl"
+              className="flex items-center  text-[#0b3558] text-xl"
             >
               <FaHeadset />
               contact us
