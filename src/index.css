@@ -14,6 +14,9 @@
 .btn-primary {
   @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-4  px-5 rounded-md  border-0 transition duration-100 ease-in-out;
 }
+.btn-event {
+  @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-3  px-4 rounded-full border-0 transition duration-100 ease-in-out;
+}
 .text-primary {
   @apply md:text-7xl text-4xl font-bold text-[#0b3558];
 }

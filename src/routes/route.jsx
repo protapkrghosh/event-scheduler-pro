@@ -4,8 +4,9 @@ import Home from "../pages/home/Home";
 import SingIn from "../pages/login_and_sinup/login/SingIn";
 import Error from "../pages/error/error";
 import Sinup from "../pages/login_and_sinup/sinup/Sinup";
-import LandingPage from "../pages/dashboard/landingPage/LandingPage";
 import Features from "../pages/features/Features";
+import DashboardLayouts from "../layouts/DashbordLayouts";
+import CreateEvent from "../pages/DashBoard/creatEvent/CreatEvent";
 
 const router = createBrowserRouter([
   {
@@ -26,12 +27,18 @@ const router = createBrowserRouter([
         element: <Sinup />,
       },
       {
-        path: "/dashboard",
-        element: <LandingPage></LandingPage>
-      },
-      {
         path: "/features",
-        element: <Features></Features>
+        element: <Features></Features>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayouts />,
+    children: [
+      {
+        path: "create-event",
+        element: <CreateEvent />,
       },
     ],
   },
