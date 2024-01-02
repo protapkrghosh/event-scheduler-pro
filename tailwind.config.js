@@ -5,6 +5,7 @@ export default {
     extend: {},
     fontFamily: {
       cursive: ["Space Grotesk", "sans-serif"],
+      prompt: ['Space Grotesk', "sans-serif"]
     },
   },
   
