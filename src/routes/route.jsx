@@ -6,13 +6,13 @@ import Sinup from "../pages/login_and_sinup/sinup/Sinup";
 import Features from "../pages/features/Features";
 import DashboardLayouts from "../layouts/DashbordLayouts";
 import CreateEvent from "../pages/DashBoard/creatEvent/CreatEvent";
-import Error from "../pages/error/error";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement: <Error />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
