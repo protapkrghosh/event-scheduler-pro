@@ -7,6 +7,8 @@ import Features from "../pages/features/Features";
 import DashboardLayouts from "../layouts/DashbordLayouts";
 import CreateEvent from "../pages/DashBoard/creatEvent/CreatEvent";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ScheduleEvents from "../pages/DashBoard/scheduleEvents/ScheduleEvents";
+import Bookings from "../pages/home/home/bookings/Bookings";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,11 @@ const router = createBrowserRouter([
         path: "/features",
         element: <Features></Features>,
       },
+      {
+        path: "/pricing",
+        element: <Bookings></Bookings>,
+      }
+      
     ],
   },
   {
@@ -37,8 +44,20 @@ const router = createBrowserRouter([
     element: <DashboardLayouts />,
     children: [
       {
+        path: "/dashboard",
+        element: <CreateEvent></CreateEvent>
+      },
+      {
         path: "/dashboard/create-event",
         element: <CreateEvent />,
+      },
+      {
+        path: "/dashboard/schedule-event",
+        element: <ScheduleEvents></ScheduleEvents>,
+      },
+      {
+        path: "/dashboard/subscription",
+        element: <Bookings></Bookings>,
       },
     ],
   },
