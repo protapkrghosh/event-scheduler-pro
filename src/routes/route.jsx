@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     element: <DashboardLayouts />,
     children: [
       {
-        path: "create-event",
+        path: "/dashboard/create-event",
         element: <CreateEvent />,
       },
     ],
