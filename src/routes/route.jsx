@@ -2,11 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Home from "../pages/home/Home";
 import SingIn from "../pages/login_and_sinup/login/SingIn";
-import Error from "../pages/error/error";
 import Sinup from "../pages/login_and_sinup/sinup/Sinup";
 import Features from "../pages/features/Features";
 import DashboardLayouts from "../layouts/DashbordLayouts";
 import CreateEvent from "../pages/DashBoard/creatEvent/CreatEvent";
+import Error from "../pages/error/error";
 
 const router = createBrowserRouter([
   {
