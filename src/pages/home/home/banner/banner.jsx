@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { VscStarFull } from "react-icons/vsc";
 import HomePageDegain from "../../../../componnents/HomePageDegain";
 import backgroundImage from "../../../../assets/new-clouds-2.svg";
+import HomePageDegainTwo from "../../../../componnents/HomePageDegainTwo";
 const Banner = () => {
   const backgroundStyles = {
     backgroundImage: `url(${backgroundImage})`,
@@ -26,8 +27,11 @@ const Banner = () => {
             <VscStarFull className="text-[#0069ff] text-4xl animate-pulse absolute bottom-28 right-[300px]" />
             <VscStarFull className="text-[#0069ff] text-4xl animate-pulse absolute bottom-72 right-[100px]" />
           </div>
-          <div className="animate-pulse absolute bottom-44 lg:block hidden left-[100px]">
+          <div className="animate-pulse absolute bottom-44 2xl:bottom-14 2xl:[100px] xl:bottom-14 xl:[100px] lg:block hidden left-[100px]">
             <HomePageDegain />
+          </div>
+          <div className="animate-pulse absolute bottom-40 2xl:bottom-14 xl:right-[10px] xl:bottom-14 2xl:right-[50px] lg:right-[10px] lg:top-[400px]  lg:block hidden right-[150px]">
+            <HomePageDegainTwo />
           </div>
         </div>
         <div className="text-left md:text-center">
