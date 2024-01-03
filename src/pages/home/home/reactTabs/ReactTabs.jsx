@@ -97,23 +97,28 @@ const ReactTabs = () => {
     },
   ];
   return (
-    <div className="my-24 py-16 bg-[#F8FAFC]">
+    <div className=" py-16 bg-[#F8FAFC]">
+      <h1 className="text-center text-primary pb-24 md:w-10/12 mx-auto">
+        Smarter scheduling for teams who{" "}
+        <span className="text-[#0069ff]">conduct meetings at scale</span>
+      </h1>
       <Tabs>
-        <TabList className="lg:w-1/2 mx-auto grid grid-cols-2 lg:grid-cols-6 place-items-center gap-y-3 mb-24">
+        <TabList className="lg:w-10/12 mx-auto grid grid-cols-2 lg:grid-cols-6 place-items-center gap-y-3 mb-24">
           {tabTitles.map((tabTitle) => (
             <Tab
               key={tabTitle}
               onClick={() => setIsActive(tabTitle)}
               className={`${
-                active === tabTitle && "bg-blue-50 border-b-4 border-b-blue-400"
-              } py-1 lg:py-3 px-3 lg:px-5 text-gray-500 text-xl font-semibold tracking-tight cursor-pointer w-[140px] transition-colors duration-200 text-center`}
+                active === tabTitle &&
+                "bg-blue-50 border-b-4 border-b-[#0069ff]"
+              } py-1 lg:py-3 px-3 lg:px-5 text-[#0b3558] text-xl font-semibold tracking-tight cursor-pointer w-[140px] transition-colors duration-200 text-center`}
             >
               {tabTitle}
             </Tab>
           ))}
         </TabList>
 
-        <TabPanel className="lg:w-[60%] px-2 mx-auto">
+        <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
               {salesTabPanel.map((panelContent, index) => (
@@ -121,9 +126,7 @@ const ReactTabs = () => {
                   <h1 className="text-[#0b3558] text-2xl font-semibold tracking-tight">
                     {panelContent.heading}
                   </h1>
-                  <p className="text-lg text-gray-500 font-semibold">
-                    {panelContent.para}
-                  </p>
+                  <p className="text-secondary">{panelContent.para}</p>
                 </div>
               ))}
             </div>
@@ -135,7 +138,7 @@ const ReactTabs = () => {
           </div>
         </TabPanel>
 
-        <TabPanel className="lg:w-[60%] px-2 mx-auto">
+        <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
               {marketingTabPanel.map((panelContent, index) => (
@@ -143,9 +146,7 @@ const ReactTabs = () => {
                   <h1 className="text-[#0b3558] text-2xl font-semibold tracking-tight">
                     {panelContent.heading}
                   </h1>
-                  <p className="text-lg text-gray-500 font-semibold">
-                    {panelContent.para}
-                  </p>
+                  <p className="text-secondary">{panelContent.para}</p>
                 </div>
               ))}
             </div>
@@ -156,7 +157,7 @@ const ReactTabs = () => {
             />
           </div>
         </TabPanel>
-        <TabPanel className="lg:w-[60%] px-2 mx-auto">
+        <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
               {customerSuccessTabPanel.map((panelContent, index) => (
@@ -164,9 +165,7 @@ const ReactTabs = () => {
                   <h1 className="text-[#0b3558] text-2xl font-semibold tracking-tight">
                     {panelContent.heading}
                   </h1>
-                  <p className="text-lg text-gray-500 font-semibold">
-                    {panelContent.para}
-                  </p>
+                  <p className="text-secondary">{panelContent.para}</p>
                 </div>
               ))}
             </div>
@@ -177,7 +176,7 @@ const ReactTabs = () => {
             />
           </div>
         </TabPanel>
-        <TabPanel className="lg:w-[60%] px-2 mx-auto">
+        <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
               {recruitingTabPanel.map((panelContent, index) => (
@@ -185,9 +184,7 @@ const ReactTabs = () => {
                   <h1 className="text-[#0b3558] text-2xl font-semibold tracking-tight">
                     {panelContent.heading}
                   </h1>
-                  <p className="text-lg text-gray-500 font-semibold">
-                    {panelContent.para}
-                  </p>
+                  <p className="text-secondary">{panelContent.para}</p>
                 </div>
               ))}
             </div>
@@ -199,7 +196,7 @@ const ReactTabs = () => {
           </div>
         </TabPanel>
 
-        <TabPanel className="lg:w-[60%] px-2 mx-auto">
+        <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
               {informationTechnologyTabPanel.map((panelContent, index) => (
@@ -207,9 +204,7 @@ const ReactTabs = () => {
                   <h1 className="text-[#0b3558] text-2xl font-semibold tracking-tight">
                     {panelContent.heading}
                   </h1>
-                  <p className="text-lg text-gray-500 font-semibold">
-                    {panelContent.para}
-                  </p>
+                  <p className="text-secondary">{panelContent.para}</p>
                 </div>
               ))}
             </div>
@@ -220,7 +215,7 @@ const ReactTabs = () => {
             />
           </div>
         </TabPanel>
-        <TabPanel className="lg:w-[60%] px-2 mx-auto">
+        <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
               {educationTabPanel.map((panelContent, index) => (
@@ -228,9 +223,7 @@ const ReactTabs = () => {
                   <h1 className="text-[#0b3558] text-2xl font-semibold tracking-tight">
                     {panelContent.heading}
                   </h1>
-                  <p className="text-lg text-gray-500 font-semibold">
-                    {panelContent.para}
-                  </p>
+                  <p className="text-secondary">{panelContent.para}</p>
                 </div>
               ))}
             </div>
