@@ -53,21 +53,21 @@ const Connecting = () => {
   return (
     <div className="bg-[#EDF0F2] py-16 px-5 my-10">
       <h1 className="text-center text-primary mb-8">
-        It’s all about connecting 🤝
+        It’s all about <span className="text-[#0069ff]">connecting</span> 🤝
       </h1>
       <p className="text-center text-secondary mb-8 hidden lg:block">
         Integrate your free appointment scheduler with your website, <br />{" "}
         social media, sales CRM, and a range of the world’s most popular apps.{" "}
       </p>
       <p className="text-center mb-8 lg:hidden">
-        Integrate your free appointment scheduler with your website,
-        social media, sales CRM, and a range of the world’s most popular apps.
+        Integrate your free appointment scheduler with your website, social
+        media, sales CRM, and a range of the world’s most popular apps.
       </p>
       <Swiper
         breakpoints={{
           320: {
             slidesPerView: 1,
-            centeredSlides: true
+            centeredSlides: true,
           },
           1024: {
             slidesPerView: 5,
@@ -77,7 +77,7 @@ const Connecting = () => {
         freeMode={true}
         modules={[Autoplay, FreeMode]}
         autoplay={{
-          delay: 2000
+          delay: 2000,
         }}
         initialSlide={0}
         className="mySwiper"

@@ -24,26 +24,37 @@ const Scheduling = () => {
 
   return (
     <div className=" bg-gray-50">
-      <div className="lg:w-[70%] px-5 lg:px-0 mx-auto py-24">
-      <h1 className="text-primary font-cursive text-center tracking-tighter mb-24 ">Streamline your scheduling workflow</h1>
-      <div className="flex flex-col lg:flex-row justify-center items-center gap-x-10">
-        <img
-          src="https://www.appointlet.com/wp-content/uploads/2022/06/section-visual-8-768x749-1.png"
-          className="lg:h-[424px] lg:w-[413px]"
-          alt=""
-        />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {schedulingWorkflows.map((schedulingWorkflow) => (
-            <div key={schedulingWorkflow.heading} className="flex gap-x-5">
-              <img src={schedulingWorkflow.img} className="w-[48px] h-[48px] mt-2" alt="" />
-              <div>
-                <h5 className="text-2xl font-cursive tracking-tighter mb-3">{schedulingWorkflow.heading}</h5>
-                <p className="font-cursive text-gray-500 text-lg">{schedulingWorkflow.para}</p>
+      <div className="lg:w-10/12 px-5 lg:px-0 mx-auto py-24">
+        <h1 className="text-primary font-cursive text-center tracking-tighter mb-24 ">
+          Streamline your{" "}
+          <span className="text-[#0069ff]">scheduling workflow</span>
+        </h1>
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-x-10">
+          <img
+            src="https://www.appointlet.com/wp-content/uploads/2022/06/section-visual-8-768x749-1.png"
+            className="lg:h-[424px] lg:w-[413px]"
+            alt=""
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {schedulingWorkflows.map((schedulingWorkflow) => (
+              <div key={schedulingWorkflow.heading} className="flex gap-x-5">
+                <img
+                  src={schedulingWorkflow.img}
+                  className="w-[48px] h-[48px] mt-2"
+                  alt=""
+                />
+                <div>
+                  <h5 className="text-2xl font-cursive tracking-tighter mb-3">
+                    {schedulingWorkflow.heading}
+                  </h5>
+                  <p className="font-cursive text-gray-500 text-lg">
+                    {schedulingWorkflow.para}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );
