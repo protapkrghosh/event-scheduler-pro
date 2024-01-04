@@ -38,7 +38,8 @@ const SingIn = () => {
         <div className="flex pt-8 md:hidden text-center lg:text-left md:mr-4">
           <div>
             <h1 className="text-primary">
-              Welcome Back! <br /> Log in to Your Account
+              <span className="text-[#0069ff]">Welcome Back!</span> <br /> Log
+              in to Your Account
             </h1>
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
@@ -136,7 +137,8 @@ const SingIn = () => {
         <div className="hidden md:flex text-center lg:text-left md:mr-4">
           <div>
             <h1 className="text-primary">
-              Welcome Back! <br /> Log in to Your Account
+              <span className="text-[#0069ff]">Welcome Back!</span> <br /> Log
+              in to Your Account
             </h1>
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
