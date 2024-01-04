@@ -1,7 +1,9 @@
+import SolutionsHero from "./solutions/SolutionsHero";
+
 const Solutions = () => {
   return (
     <div>
-      <h1>this is Soluctions</h1>
+      <SolutionsHero />
     </div>
   );
 };

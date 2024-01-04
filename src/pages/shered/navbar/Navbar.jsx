@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
 import useContexts from "../../../hooks/useContexts";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { user, handleLogout } = useContexts();
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const isScrolling = scrollTop > 0;
+
+      setScrolling(isScrolling);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const handleLogouts = () => {
     handleLogout();
   };
@@ -11,21 +29,50 @@ const Navbar = () => {
       <li>
         <Link to={"/"}>Home</Link>
       </li>
-      <li>
+      <li className="md:ml-4">
         <Link to={"/features"}>Features</Link>
       </li>
-      <li>
-        <Link to={"/classes"}>Solutions</Link>
+      <li className="md:ml-4">
+        <div className="dropdown dropdown-hover">
+          <div tabIndex={0} className="">
+            Solutions
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[1]  p-2 shadow bg-base-100  rounded-box "
+          >
+            <li className="my-2">
+              <Link to={"/solutions/sales"}>Sales</Link>
+            </li>
+            <li className="my-2">
+              <Link to={"/solutions/marketing"}>Marketing</Link>
+            </li>
+            <li className="my-2">
+              <Link to={"/solutions/success"}>Success</Link>
+            </li>
+            <li className="my-2">
+              <Link to={"/solutions/recruiting"}>Recruiting</Link>
+            </li>
+            <li className="my-2">
+              <Link to={"/solutions/technology"}>Technology</Link>
+            </li>
+            <li className="my-2">
+              <Link to={"/solutions/education"}>Education</Link>
+            </li>
+          </ul>
+        </div>
       </li>
-      {user && (
-        <li>
-          <Link to={"/pricing"}>Pricing</Link>
-        </li>
-      )}
+      <li className="md:ml-4">
+        <Link to={"/pricing"}>Pricing</Link>
+      </li>
     </>
   );
   return (
-    <div className="navbar px-8 md:px-24 fixed shadow-md bg-slate-50 py-4 z-10 shadow-indigo-300">
+    <div
+      className={`navbar px-8 md:px-24 fixed py-4 z-10 ${
+        scrolling ? "shadow-md bg-slate-50 " : "bg-transparent"
+      }`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,7 +101,7 @@ const Navbar = () => {
         <Link to={"/"}>Lets schedule</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-bold text-[#0b3558] text-xl">
+        <ul className=" menu-horizontal px-1 font-bold text-[#0b3558] text-xl">
           {navItem}
         </ul>
       </div>

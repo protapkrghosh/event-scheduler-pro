@@ -9,6 +9,12 @@ import CreateEvent from "../pages/DashBoard/creatEvent/CreatEvent";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ScheduleEvents from "../pages/DashBoard/scheduleEvents/ScheduleEvents";
 import Bookings from "../pages/home/home/bookings/Bookings";
+import Sales from "../componnents/solutionsComponents/sales/Sales";
+import Marketing from "../componnents/solutionsComponents/marketing/Marketing";
+import Sucsses from "../componnents/solutionsComponents/Sucsses/Sucsses";
+import Recruiting from "../componnents/solutionsComponents/recruiting/Recruiting";
+import Technology from "../componnents/solutionsComponents/technology/Technology";
+import Educations from "../componnents/solutionsComponents/education/Educations";
 
 const router = createBrowserRouter([
   {
@@ -35,8 +41,35 @@ const router = createBrowserRouter([
       {
         path: "/pricing",
         element: <Bookings></Bookings>,
-      }
-      
+      },
+      {
+        path: "/solutions/sales",
+        element: <Sales />,
+      },
+      {
+        path: "/solutions/sales",
+        element: <Sales />,
+      },
+      {
+        path: "/solutions/marketing",
+        element: <Marketing />,
+      },
+      {
+        path: "/solutions/success",
+        element: <Sucsses />,
+      },
+      {
+        path: "/solutions/recruiting",
+        element: <Recruiting />,
+      },
+      {
+        path: "/solutions/technology",
+        element: <Technology />,
+      },
+      {
+        path: "/solutions/education",
+        element: <Educations />,
+      },
     ],
   },
   {
@@ -45,7 +78,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <CreateEvent></CreateEvent>
+        element: <CreateEvent></CreateEvent>,
       },
       {
         path: "/dashboard/create-event",
