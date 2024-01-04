@@ -39,7 +39,8 @@ const Sinup = () => {
         <div className="flex pt-4 md:hidden text-center lg:text-left md:mr-4">
           <div>
             <h1 className="text-primary">
-              Create your <br /> own booking calendar
+              <span className="text-[#0069ff]"> Create your</span> <br /> own
+              booking calendar
             </h1>
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
@@ -210,7 +211,8 @@ const Sinup = () => {
         <div className="hidden md:flex text-center lg:text-left md:mr-4">
           <div>
             <h1 className="text-primary">
-              Create your <br /> own booking calendar
+              <span className="text-[#0069ff]"> Create your</span> <br /> own
+              booking calendar
             </h1>
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda

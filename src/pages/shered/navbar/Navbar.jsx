@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useContexts from "../../../hooks/useContexts";
 import { useEffect, useState } from "react";
 
@@ -27,10 +27,24 @@ const Navbar = () => {
   const navItem = (
     <>
       <li>
-        <Link to={"/"}>Home</Link>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-[#0069ff]" : "nothing"
+          }
+          to={"/"}
+        >
+          Home
+        </NavLink>
       </li>
       <li className="md:ml-4">
-        <Link to={"/features"}>Features</Link>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-[#0069ff]" : "nothing"
+          }
+          to={"/features"}
+        >
+          Features
+        </NavLink>
       </li>
       <li className="md:ml-4">
         <div className="dropdown dropdown-hover">
@@ -42,28 +56,77 @@ const Navbar = () => {
             className="dropdown-content z-[1]  p-2 shadow bg-base-100  rounded-box "
           >
             <li className="my-2">
-              <Link to={"/solutions/sales"}>Sales</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
+                to={"/solutions/sales"}
+              >
+                Sales
+              </NavLink>
             </li>
             <li className="my-2">
-              <Link to={"/solutions/marketing"}>Marketing</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
+                to={"/solutions/marketing"}
+              >
+                Marketing
+              </NavLink>
             </li>
             <li className="my-2">
-              <Link to={"/solutions/success"}>Success</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
+                to={"/solutions/success"}
+              >
+                Success
+              </NavLink>
             </li>
             <li className="my-2">
-              <Link to={"/solutions/recruiting"}>Recruiting</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
+                to={"/solutions/recruiting"}
+              >
+                Recruiting
+              </NavLink>
             </li>
             <li className="my-2">
-              <Link to={"/solutions/technology"}>Technology</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
+                to={"/solutions/technology"}
+              >
+                Technology
+              </NavLink>
             </li>
             <li className="my-2">
-              <Link to={"/solutions/education"}>Education</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
+                to={"/solutions/education"}
+              >
+                Education
+              </NavLink>
             </li>
           </ul>
         </div>
       </li>
       <li className="md:ml-4">
-        <Link to={"/pricing"}>Pricing</Link>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-[#0069ff]" : "nothing"
+          }
+          to={"/pricing"}
+        >
+          Pricing
+        </NavLink>
       </li>
     </>
   );
