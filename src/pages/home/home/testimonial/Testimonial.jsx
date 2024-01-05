@@ -6,14 +6,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation, FreeMode } from "swiper/modules";
 
 const Testimonial = () => {
   const swiperContents = [
     {
       verified: true,
-      heading: "Setmore provides awesome Live 1:1 product demo",
-      para: "Setting up a preview video call to answer my questions about the Setmore features was just what I needed to know this was the perfect scheduling platform and app for me.",
+      heading: "Setmore provides awesome  demo",
+      para: "Setting up a preview video call to answer my questions about the Setmore features was just what ",
       DOE: "19 December 2023",
     },
     {
@@ -55,8 +55,8 @@ const Testimonial = () => {
       </h1>
 
       <div className="flex justify-center items-center gap-x-8">
-        <div className="w-9/12 flex  justify-center items-center gap-x-40 mx-auto">
-          <div className="w-[400px]">
+        <div className="w-9/12 flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 justify-center items-center gap-x-40 mx-auto">
+          <div className="lg:w-[400px]">
             <h1 className="text-2xl text-center mb-2">Excellent</h1>
             <div className="flex justify-center items-center gap-x-1 my-2">
               <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
@@ -78,34 +78,46 @@ const Testimonial = () => {
             </div>
           </div>
           <Swiper
-            spaceBetween={50}
-            initialSlide={0}
-            autoplay={true}
-            modules={[Autoplay, Pagination, Navigation]}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-                centeredSlides: true,
-              },
-              1024: {
-                slidesPerView: 3,
-                //   centeredSlides: true,
-              },
-            }}
-            className="mySwiper"
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              centeredSlides: true,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          spaceBetween={30}
+          freeMode={true}
+          modules={[Autoplay, Pagination, Navigation, FreeMode]}
+          autoplay={{
+            delay: 2000,
+          }}
+          initialSlide={0}
+          className="mySwiper"
+            // spaceBetween={10}
+            // initialSlide={0}
+            // autoplay={true}
+            // modules={[Autoplay, Pagination, Navigation]}
+            // breakpoints={{
+            //   320: {
+            //     slidesPerView: 1,
+            //     centeredSlides: true,
+            //   },
+            //   1024: {
+            //     slidesPerView: 3,
+            //   },
+            // }}
+            // className="mySwiper"
           >
             {swiperContents.map((swiperContent) => (
               <SwiperSlide key={swiperContent.heading}>
-                <div className="w-[300px]">
+                <div className="lg:w-[300px] mx-auto lg:mx-0">
                   <div className="flex items-center gap-x-1 mb-2">
                     <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
-
                     <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
-
                     <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
-
                     <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
-
                     <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
                     {swiperContent.verified && (
                       <div className="flex items-center gap-x-1">
@@ -114,14 +126,12 @@ const Testimonial = () => {
                       </div>
                     )}
                   </div>
-                  <h1 className="font-cursive ">Lorem ipsum dolor sit amet.</h1>
+                  <h1 className="font-cursive ">{swiperContent.heading}</h1>
                   <p className="text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis, recusandae.
+                    {swiperContent.para}
                   </p>
                   <p>
-                    <span className="font-cursive">Date of Experience:</span> 19
-                    December 2023
+                    <span className="font-cursive">Date of Experience:</span> {swiperContent.DOE}
                   </p>
                 </div>
               </SwiperSlide>

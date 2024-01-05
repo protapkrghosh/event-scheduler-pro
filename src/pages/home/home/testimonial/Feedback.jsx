@@ -14,7 +14,7 @@ const Feedback = () => {
                 <p className="text-gray-500 mb-2">I’ve used Setmore for over 3 years, its a brilliant booking app that does all the hard work for me!</p>
                 <p>―Rowena Gledhill</p>
             </div>
-            <div className="w-full h-24 hover:scale-105 duration-500 p-3 shadow-xl rounded-xl border border-gray-200">
+            <div className="w-full h-24 hover:scale-105 duration-500 p-3 shadow-xl rounded-xl border-t border-gray-200">
             <div className="flex items-center gap-x-1">
               <FaStar className="text-xl w-6 h-6 p-1 text-green-500"></FaStar>
 
