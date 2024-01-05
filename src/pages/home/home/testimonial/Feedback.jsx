@@ -2,12 +2,12 @@ import { FaStar } from "react-icons/fa";
 
 const Feedback = () => {
   return (
-    <div className="mt-40 mb-20">
+    <div className="mt-10 lg:mt-40 mb-20">
       <div className="w-11/12 md:w-1/2 mx-auto  ">
         <div
           data-aos="zoom-in-down"
           data-aos-duration="30  00"
-          className="grid grid-cols-2 md:grid-cols-3 gap-4 place-items-end w-full "
+          className="grid grid-cols-1 lg:grid-cols-3 gap-4 place-items-end w-full "
         >
             <div className=" w-full h-52 shadow-sm rounded-xl p-5 hover:scale-105 duration-500">
                 <h6 className="text-lg font-prompt mb-2">Facebook</h6>
@@ -40,7 +40,7 @@ const Feedback = () => {
         <div
           data-aos="zoom-in-down"
           data-aos-duration="3000"
-          className="grid grid-cols-2 md:grid-cols-2 gap-20  mt-4"
+          className="grid grid-cols-2 md:grid-cols-2 gap-4 lg:gap-20 mt-4"
         >
           <div className="bg-yellow-500 rounded-lg w-full h-52 flex items-end justify-center hover:scale-105 duration-500">
           <img
@@ -59,7 +59,7 @@ const Feedback = () => {
 
         <div
           data-aos="zoom-in-down"
-          className="grid grid-cols-2 md:grid-cols-3 gap-4  mt-4"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-4  mt-4"
         >
             <div className="w-full h-24 hover:scale-105 duration-500 p-3 shadow-xl rounded-xl border border-gray-200 flex items-center">
                 <img src="https://assets.setmore.com/website/v2/images/icons/logo-badge-capterra.png" alt="" />
