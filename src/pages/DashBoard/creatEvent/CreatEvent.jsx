@@ -4,11 +4,12 @@ import { InlineWidget } from "react-calendly";
 import useContexts from "../../../hooks/useContexts";
 import CreateMeet from "./CreateMeet";
 import { Link } from "react-router-dom";
+import BookedMeet from "./BookedMeet";
 
 const CreateEvent = () => {
   const { user } = useContexts();
   return (
-    <div className="lg:w-1/2 lg:mx-auto">
+    <div className="">
       <h3 className="font-prompt text-3xl font-semibold mb-16 mt-5">Event types</h3>
       <div className="flex flex-col items-start lg:flex-row lg:items-center gap-x-3 mb-12">
         <div className="dropdown">
@@ -44,7 +45,7 @@ const CreateEvent = () => {
           </div>
         </form>
       </div>
-      <div className="flex flex-row justify-between items-center border-b border-gray-300 pb-5">
+      <div className="flex flex-row justify-between items-center border-b border-gray-300 pb-5 mb-8">
         <div className="flex items-center gap-x-3">          
                 <img
                   alt="profile picture"
@@ -66,7 +67,7 @@ const CreateEvent = () => {
           <IoIosSettings className="text-3xl cursor-pointer"></IoIosSettings>
         </div>
       </div>
-      
+      <BookedMeet></BookedMeet>
     </div>
   );
 };

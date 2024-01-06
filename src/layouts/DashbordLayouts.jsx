@@ -26,7 +26,9 @@ const DashboardLayouts = () => {
           </label>
         </div>
         {/* <DasboardNavbar /> */}
+        <div className="w-1/2 mx-auto mt-40">
         <Outlet />
+        </div>
       </div>
 
       <div className="drawer-side">
@@ -44,7 +46,7 @@ const DashboardLayouts = () => {
             </h1>
             <label
               htmlFor="my-drawer-3"
-              className="hidden drawer-button lg:flex items-center justify-between cursor-pointer"
+              className="hidden drawer-button lg:flex items-center ml-5 cursor-pointer"
             >
               <FaAngleDoubleLeft className="text-2xl"></FaAngleDoubleLeft>
             </label>
@@ -92,18 +94,6 @@ const DashboardLayouts = () => {
                 Routing
               </Link>
             </li>
-            <Link
-              to="/dashboard/subscription"
-              className="flex flex-col gap-y-2 rounded-lg border border-[#0069ff] p-4 mt-8"
-            >
-              <FaLevelUpAlt className="text-xl font-bold text-blue-500"></FaLevelUpAlt>
-              <div>
-                <h1 className="font-cursive text-black">
-                  Upgrade your subscription
-                </h1>
-                <p>Get even more of the features you need.</p>
-              </div>
-            </Link>
             <li className="mt-6">
               <Link
                 to={"/dashboard/create-event"}
