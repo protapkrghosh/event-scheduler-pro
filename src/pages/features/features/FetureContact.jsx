@@ -10,8 +10,8 @@ const FetureContact = () => {
             className="w-full h-full"
           />
         </div>
-        <div className="mr-auto  pt-10 pl-4">
-          <h1 className="text-primary">
+        <div className="mr-auto  py-12  pl-4">
+          <h1 className="text-third">
             For business big <br />{" "}
             <span className="text-[#0069ff]">and small</span>
           </h1>
@@ -22,7 +22,9 @@ const FetureContact = () => {
             <br />
             strategic goals.
           </p>
-          <Link to='/contactUs' className=" btn-primary">Contact us</Link>
+          <Link to="/contactUs" className=" btn-primary">
+            Contact us
+          </Link>
         </div>
       </div>
     </div>

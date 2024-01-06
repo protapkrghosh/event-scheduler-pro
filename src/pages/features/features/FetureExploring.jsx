@@ -10,8 +10,8 @@ const FetureExploring = () => {
             className="w-full h-full"
           />
         </div>
-        <div className="mr-auto  pt-10 pl-4">
-          <h1 className="text-primary">
+        <div className="mr-auto  pt-10 pb-2 pl-4">
+          <h1 className="text-third">
             Speaking <br />{" "}
             <span className="text-[#0069ff]">of connecting</span>
           </h1>
@@ -22,7 +22,9 @@ const FetureExploring = () => {
             <br />
             scheduling is just the beginning. strategic goals.
           </p>
-          <Link to="/contactUs" className=" btn-primary">Contact Us</Link>
+          <Link to="/contactUs" className=" btn-primary">
+            Contact Us
+          </Link>
         </div>
       </div>
     </div>

@@ -9,9 +9,9 @@ const BookingTime = () => {
           />
         </div>
         <div className="md:w-[50%]">
-          <h1 className="text-primary">
-            Give customers the power to{" "}
-            <span className=" text-[#0069ff]">book any time</span>
+          <h1 className="text-third">
+            Give customers the power{" "}
+            <span className=" text-[#0069ff]">to book any time</span>
           </h1>
           <p className="py-6 text-secondary">
             Feature your free QR code on marketing, merch, and more. One scan
