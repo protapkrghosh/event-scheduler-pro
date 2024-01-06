@@ -2,15 +2,17 @@ import { FaAngleDown,FaSearch } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
 import { InlineWidget } from "react-calendly";
 import useContexts from "../../../hooks/useContexts";
+import CreateMeet from "./CreateMeet";
+import { Link } from "react-router-dom";
 
 const CreateEvent = () => {
   const { user } = useContexts();
   return (
-    <div className="w-1/2 mx-auto">
-      <h3 className="font-prompt text-3xl font-semibold mb-16">Event types</h3>
-      <div className="flex items-center  gap-x-3 mb-12">
+    <div className="lg:w-1/2 lg:mx-auto">
+      <h3 className="font-prompt text-3xl font-semibold mb-16 mt-5">Event types</h3>
+      <div className="flex flex-col items-start lg:flex-row lg:items-center gap-x-3 mb-12">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="flex items-center gap-x-2 bg-gray-50 py-2 px-5 rounded-md font-prompt border border-gray-400 m-1">
+          <div tabIndex={0} role="button" className="w-full flex items-center gap-x-2 bg-gray-50 py-2 px-5 rounded-md font-prompt border border-gray-400 m-1">
             My Calendly  <FaAngleDown></FaAngleDown>
           </div>
           <ul
@@ -42,13 +44,11 @@ const CreateEvent = () => {
           </div>
         </form>
       </div>
-      <div className="flex justify-between items-center border-b border-gray-300 pb-5">
-        <div className="flex items-center gap-x-3">
-          {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDRlp-KGr_M94k_oor4Odjn2UzbAS7n1YoA&usqp=CAU" className="w-14 h-14 rounded-full" alt="" /> */}
-          
+      <div className="flex flex-row justify-between items-center border-b border-gray-300 pb-5">
+        <div className="flex items-center gap-x-3">          
                 <img
                   alt="profile picture"
-                  className="w-14 h-14 rounded-full"
+                  className="w-10 lg:w-14 h-10 lg:h-14 rounded-full"
                   src={
                     user?.photoURL
                       ? user?.photoURL
@@ -57,16 +57,16 @@ const CreateEvent = () => {
                 />
               
           <div>
-            <h5 className="text-lg font-cursive">{user && user.displayName}</h5>
+            <h5 className="lg:text-lg font-cursive">{user && user.displayName}</h5>
             <p className="text-blue-500">mrrafi5869@gmail.com</p>
           </div>
         </div>
         <div className="flex items-center gap-x-3">
-          <button className="py-1 px-2 border border-blue-500 text-blue-500 rounded-full text-[15px]">New Event Type</button>
+          <Link to="/dashboard/create-meet" className="hidden lg:flex py-1 px-2 border border-blue-500 text-blue-500 rounded-full text-[15px]">New Event Type</Link>
           <IoIosSettings className="text-3xl cursor-pointer"></IoIosSettings>
         </div>
       </div>
-      <InlineWidget url="https://calendly.com/mrrafi5869" />
+      
     </div>
   );
 };
