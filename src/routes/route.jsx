@@ -16,6 +16,7 @@ import Recruiting from "../componnents/solutionsComponents/recruiting/Recruiting
 import Technology from "../componnents/solutionsComponents/technology/Technology";
 import Educations from "../componnents/solutionsComponents/education/Educations";
 import CreateMeet from "../pages/DashBoard/creatEvent/CreateMeet";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/pricing",
         element: <Bookings></Bookings>,
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs></ContactUs>,
       },
       {
         path: "/solutions/sales",

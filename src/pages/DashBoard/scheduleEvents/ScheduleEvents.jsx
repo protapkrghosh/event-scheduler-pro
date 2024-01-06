@@ -8,7 +8,7 @@ const ScheduleEvents = () => {
   const [active, setIsActive] = useState("upcoming");
   const [open, setOpen] = useState(false);
   return (
-    <div className="w-1/2 mt-40 mx-auto">
+    <div className="">
       <h1 className="font-prompt text-3xl font-semibold mb-16">Scheduled events</h1>
       <div className="flex justify-between items-center mb-5">
         <div className="dropdown">
@@ -50,7 +50,7 @@ const ScheduleEvents = () => {
           <img src="https://assets.calendly.com/assets/frontend/media/no-events-2ed89b6c6379caebda4e.svg" alt="" />
           <h4 className="text-2xl font-prompt text-gray-500">No Events Yet</h4>
           <p>Share Event Type links to schedule events.</p>
-          <Link to="/dashboard/create-event" className="bg-blue-600 text-white px-5 py-1 font-semibold rounded-full">View Events Type</Link>
+          <Link to="/dashboard/create-event" className="bg-blue-600 text-white px-5 py-1 font-semibold rounded-full cursor-pointer">View Events Type</Link>
         </TabPanel>
         <TabPanel className="flex flex-col justify-center items-center gap-y-3">
           <img src="https://assets.calendly.com/assets/frontend/media/no-events-2ed89b6c6379caebda4e.svg" alt="" />
