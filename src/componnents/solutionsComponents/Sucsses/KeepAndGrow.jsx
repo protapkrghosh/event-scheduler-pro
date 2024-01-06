@@ -4,11 +4,11 @@ const KeepAndGrow = () => {
   return (
     <div>
       <EasyScheduleFirstPart
-        title="FILL YOUR PIPELINE FASTER"
-        heading="Get instant speed to lead"
-        para="Connect with your top leads before a competitor does. Don’t miss out on opportunities — instantly book qualified meetings from your website and match inbound leads to the right sales"
-        link="Screen and book from your website"
-        img="https://images.ctfassets.net/k0lk9kiuza3o/47ELRKmZZdpjpLHOAxHEwK/98bd01d677e748cd255f0d252c78f5d0/outbound.png?q=85&fm=webp"
+        title="BUILD TRUST AND LOYALTY"
+        heading="Deliver your best customer experience"
+        para="Meet 1:1 with customers to build relationships, book joint meetings with teammates and customers for onboarding, bring groups of customers together for education and networking sessions, and meet quickly with customers to prevent a churn risk."
+        link="See How Teams Use Calendly"
+        img="https://images.ctfassets.net/k0lk9kiuza3o/1DVLMiNRw3GFKjNEgJXIAw/b6b67ce55bab4004e73489dac08807d7/Calendly-Onboarding__1_.png?q=85&fm=webp"
       ></EasyScheduleFirstPart>
     </div>
   );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import backgroundImage from "../../../assets/new-clouds-2.svg";
 const SolutionsHero = ({ image, title, span, discriptions }) => {
   const backgroundStyles = {
@@ -20,9 +21,9 @@ const SolutionsHero = ({ image, title, span, discriptions }) => {
           </h1>
           <p className="text-secondary py-6">{discriptions}</p>
           <button className=" btn-primary">Get Started</button>
-          <button className=" btn-fetures text-[#0069ff] ml-4">
-            Get Started
-          </button>
+          <Link to="/contactUs" className=" btn-fetures text-[#0069ff] ml-4">
+            Contact Us
+          </Link>
         </div>
       </div>
     </div>
