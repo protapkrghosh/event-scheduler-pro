@@ -13,7 +13,7 @@ const ContactUs = () => {
       <Link to={"/sinup"}>
         <button className=" btn-primary">Sign up for free</button>
       </Link>
-      <button className=" btn-contact text-[#FFF]">Contact sales</button>
+      <Link to="/contactUs" className=" btn-contact text-[#FFF]">Contact sales</Link>
     </div>
   );
 };
