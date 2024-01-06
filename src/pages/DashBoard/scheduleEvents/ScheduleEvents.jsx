@@ -13,7 +13,7 @@ const ScheduleEvents = () => {
   const [active, setIsActive] = useState("upcoming");
   const [open, setOpen] = useState(false);
   return (
-    <div className="w-1/2 mt-40 mx-auto">
+    <div className="">
       <h1 className="font-prompt text-3xl font-semibold mb-16">
         Scheduled events
       </h1>
@@ -110,7 +110,7 @@ const ScheduleEvents = () => {
           <p>Share Event Type links to schedule events.</p>
           <Link
             to="/dashboard/create-event"
-            className="bg-blue-600 text-white px-5 py-1 font-semibold rounded-full"
+            className="bg-blue-600 text-white px-5 py-1 font-semibold rounded-full cursor-pointer"
           >
             View Events Type
           </Link>

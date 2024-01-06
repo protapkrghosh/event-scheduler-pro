@@ -44,7 +44,7 @@ const CreateMeet = () => {
   };
 
   return (
-    <div className="w-1/2 mx-auto my-20">
+    <div>
       <form className="border border-gray-200 p-5 mt-5 rounded-lg">
         <div>
           <label className="text-xl font-cursive my-5 block mb-3 text-[#3e5063]" htmlFor="eventName">
