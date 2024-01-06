@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useContexts from "../../../hooks/useContexts";
 import { useEffect, useState } from "react";
-
+import logo from "../../../assets/logo.png";
 const Navbar = () => {
   const { user, handleLogout } = useContexts();
   const [scrolling, setScrolling] = useState(false);
@@ -132,7 +132,7 @@ const Navbar = () => {
   );
   return (
     <div
-      className={`navbar px-8 md:px-24 fixed py-4 z-10 ${
+      className={`navbar px-8 md:px-36 fixed  py-4 z-10 ${
         scrolling ? "shadow-md bg-slate-50 " : "bg-transparent"
       }`}
     >
@@ -161,7 +161,14 @@ const Navbar = () => {
             {navItem}
           </ul>
         </div>
-        <Link to={"/"}>Lets schedule</Link>
+        <Link to={"/"}>
+          {" "}
+          <img
+            src={logo}
+            alt="img logo"
+            className="h-14 w-14 rounded-full "
+          />{" "}
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className=" menu-horizontal px-1 font-bold text-[#0b3558] text-xl">
