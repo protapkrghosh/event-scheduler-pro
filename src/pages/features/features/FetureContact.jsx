@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const FetureContact = () => {
   return (
     <div className="hero  py-40 md:w-10/12 mx-auto ">
@@ -20,7 +22,7 @@ const FetureContact = () => {
             <br />
             strategic goals.
           </p>
-          <button className=" btn-primary">Contact us</button>
+          <Link to='/contactUs' className=" btn-primary">Contact us</Link>
         </div>
       </div>
     </div>

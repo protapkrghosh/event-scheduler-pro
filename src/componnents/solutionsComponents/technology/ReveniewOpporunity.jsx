@@ -1,4 +1,3 @@
-import React from "react";
 import EasyScheduleFirstPart from "../../../pages/solutions/solutions/EasyScheduleFirstPart";
 
 const ReveniewOpporunity = () => {
