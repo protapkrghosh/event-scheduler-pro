@@ -3,7 +3,6 @@ import {
   FaCalendarAlt,
   FaCodeBranch,
   FaHeadset,
-  FaLevelUpAlt,
   FaLink,
   FaPlus,
   FaQuestion,
@@ -27,7 +26,7 @@ const DashboardLayouts = () => {
         </div>
         {/* <DasboardNavbar /> */}
         <div className="w-1/2 mx-auto mt-40">
-        <Outlet />
+          <Outlet />
         </div>
       </div>
 
@@ -52,7 +51,7 @@ const DashboardLayouts = () => {
             </label>
           </div>
           <button
-            className="btn-event  flex items-center justify-center gap-2"
+            className="btn-primary   flex items-center justify-center gap-2"
             to={"/create-event"}
           >
             <FaPlus /> create event

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const FetureContact = () => {
   return (
     <div className="hero  py-40 md:w-10/12 mx-auto ">
@@ -8,8 +10,8 @@ const FetureContact = () => {
             className="w-full h-full"
           />
         </div>
-        <div className="mr-auto  pt-10 pl-4">
-          <h1 className="text-primary">
+        <div className="mr-auto  py-12  pl-4">
+          <h1 className="text-third">
             For business big <br />{" "}
             <span className="text-[#0069ff]">and small</span>
           </h1>
@@ -20,7 +22,9 @@ const FetureContact = () => {
             <br />
             strategic goals.
           </p>
-          <button className=" btn-primary">Contact us</button>
+          <Link to="/contactUs" className=" btn-primary">
+            Contact us
+          </Link>
         </div>
       </div>
     </div>

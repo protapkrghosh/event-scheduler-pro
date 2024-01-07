@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const FetureExploring = () => {
   return (
     <div className="hero  py-40 md:w-10/12 mx-auto">
@@ -8,8 +10,8 @@ const FetureExploring = () => {
             className="w-full h-full"
           />
         </div>
-        <div className="mr-auto  pt-10 pl-4">
-          <h1 className="text-primary">
+        <div className="mr-auto  pt-10 pb-2 pl-4">
+          <h1 className="text-third">
             Speaking <br />{" "}
             <span className="text-[#0069ff]">of connecting</span>
           </h1>
@@ -20,7 +22,9 @@ const FetureExploring = () => {
             <br />
             scheduling is just the beginning. strategic goals.
           </p>
-          <button className=" btn-primary">Explore all integrations</button>
+          <Link to="/contactUs" className=" btn-primary">
+            Contact Us
+          </Link>
         </div>
       </div>
     </div>

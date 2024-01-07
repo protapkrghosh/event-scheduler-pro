@@ -15,8 +15,9 @@ import Sucsses from "../componnents/solutionsComponents/Sucsses/Sucsses";
 import Recruiting from "../componnents/solutionsComponents/recruiting/Recruiting";
 import Technology from "../componnents/solutionsComponents/technology/Technology";
 import Educations from "../componnents/solutionsComponents/education/Educations";
-import CreateMeet from "../pages/DashBoard/creatEvent/CreateMeet";
 import ContactUs from "../pages/ContactUs/ContactUs";
+import CreateMeet from "../pages/DashBoard/creatEvent/CreateMeet";
+import CreatRoom from "../pages/DashBoard/creatCustomMeet/CreatRoom";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/contactUs",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/room/:roomID",
+        element: <CreatRoom />,
       },
       {
         path: "/solutions/sales",
