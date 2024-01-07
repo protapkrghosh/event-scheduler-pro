@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 const CreatRoom = () => {
   const { roomID } = useParams();
-  console.log(roomID);
   const myMeeting = async (element) => {
     const appID = 1669259197;
     const serverSecret = "beb58ff89926213161d53b407af53994";
