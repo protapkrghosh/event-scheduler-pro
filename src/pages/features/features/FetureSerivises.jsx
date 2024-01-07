@@ -19,7 +19,7 @@ const FetureSerivises = () => {
           {servicesData.map((service) => (
             <div key={service.id} className="card w-full shadow-xl border p-2">
               <div className="card-body">
-                <p className="text-[#0069ff] text-4xl font-bold">
+                <p className="text-[#0069ff] text-5xl font-bold">
                   {service.img}
                 </p>
                 <h2 className="card-title text-2xl text-[#0069ff] ">

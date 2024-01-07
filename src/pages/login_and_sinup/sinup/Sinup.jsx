@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
 import useContexts from "../../../hooks/useContexts";
+import axios from "axios";
 
 const Sinup = () => {
   const {
@@ -17,11 +18,28 @@ const Sinup = () => {
   const navigate = useNavigate();
   const onSubmit = (data) => {
     const { name, email, password, photo } = data;
+    const id = Math.floor(Math.random() * 9000) + 1000;
+
+    console.log(id);
     handleSinup(email, password)
       .then((result) => {
         console.log(result.user);
         updateUserProfile(name, photo);
-        navigate("/");
+        axios
+          .post("http://localhost:5000/api/v1/users/creat-user", {
+            user: {
+              id,
+              email,
+              name,
+              photo,
+            },
+          })
+          .then((data) => {
+            console.log(data.data.massage);
+            if (data.data.sucsees === true) {
+              navigate("/dashboard");
+            }
+          });
       })
       .catch((err) => console.error(err));
   };

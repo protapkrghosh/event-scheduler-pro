@@ -71,7 +71,7 @@ const CreateEvent = () => {
             <h5 className="lg:text-lg font-cursive">
               {user && user.displayName}
             </h5>
-            <p className="text-blue-500">mrrafi5869@gmail.com</p>
+            <p className="text-blue-500">{user && user.email}</p>
           </div>
         </div>
         <div className="flex items-center gap-x-3">
