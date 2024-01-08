@@ -1,22 +1,21 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import useContexts from "./useContexts";
 
 const useSingleEventData = () => {
-  const [events, setEvents] = useState([]);
   const { user } = useContexts();
 
-  useEffect(() => {
-    const handleFach = async () => {
-      const data = await axios.get(
+  const { data: events = [], refetch } = useQuery({
+    queryKey: ["events"],
+    queryFn: async () => {
+      const res = await axios.get(
         `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
       );
-      setEvents(data.data);
-      console.log(data.data);
-    };
-    handleFach();
-  }, [user?.email]);
-  return events;
+      return res.data;
+    },
+  });
+
+  return { events, refetch };
 };
 
 export default useSingleEventData;

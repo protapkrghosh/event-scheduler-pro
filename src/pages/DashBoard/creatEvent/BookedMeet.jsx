@@ -1,26 +1,42 @@
-import useContexts from "../../../hooks/useContexts";
-import { useEffect, useState } from "react";
 import axios from "axios";
 import { CiSettings } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdContentCopy } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
+import useSingleEventData from "../../../hooks/useSingleEventData";
+import Swal from "sweetalert2";
 
 const BookedMeet = () => {
-  const [events, setEvents] = useState([]);
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const { user } = useContexts();
-  useEffect(() => {
-    const handleFach = async () => {
-      const data = await axios.get(
-        `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
-      );
-      setEvents(data.data);
-    };
-    handleFach();
-  }, [user?.email]);
-  console.log(events);
+  const { events, refetch } = useSingleEventData();
+  const handleDeleteEvents = async (id) => {
+    try {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await axios.delete(
+            `http://localhost:3000/api/v1/events/delete-event?id=${id}`
+          );
+          refetch();
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        }
+      });
+    } catch (error) {
+      console.error("Error deleting event:", error);
+    }
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-5">
@@ -32,7 +48,6 @@ const BookedMeet = () => {
               className="lg:w-[320px] 2xl:w-[370px] h-full rounded-md border border-gray-200 border-t-8 border-t-[#912DEF] shadow-xl "
             >
               <div className="px-5 py-3">
-
                 <div className="flex justify-between items-center mb-3">
                   <input
                     type="checkbox"
@@ -60,7 +75,13 @@ const BookedMeet = () => {
                       <li>
                         <span>
                           <MdDelete></MdDelete>
-                          <Link>Delete</Link>
+                          <Link
+                            onClick={() =>
+                              handleDeleteEvents(event?.scheduleId)
+                            }
+                          >
+                            Delete
+                          </Link>
                         </span>
                       </li>
                     </ul>
