@@ -6,7 +6,6 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { MdContentCopy } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const BookedMeet = () => {
   const [events, setEvents] = useState([]);
@@ -33,6 +32,7 @@ const BookedMeet = () => {
               className="lg:w-[320px] 2xl:w-[370px] h-full rounded-md border border-gray-200 border-t-8 border-t-[#912DEF] shadow-xl "
             >
               <div className="px-5 py-3">
+
                 <div className="flex justify-between items-center mb-3">
                   <input
                     type="checkbox"
@@ -70,6 +70,7 @@ const BookedMeet = () => {
                   <h1 className="text-lg font-cursive mb-3">
                     {event.eventName}
                   </h1>
+
                   <p className="text-gray-500 mb-3">{`${event.duretion} minute, ${event.eventTypes}`}</p>
                   <Link className="text-blue-500 hover:underline">
                     View booking page
