@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import {
   FaCalendarAlt,
   FaCodeBranch,
@@ -14,22 +14,14 @@ import DasboardNavbar from "../pages/shered/navbar/DasboardNavbar";
 
 const DashboardLayouts = () => {
   return (
-    <div className="drawer">
+    <div className="drawer drawer-open">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex">
-        <div className="flex justify-between mr-4">
-          <label
-            htmlFor="my-drawer-3"
-            className=" drawer-button cursor-pointer"
-          >
-            <FaAngleDoubleLeft className="text-2xl rotate-180 mt-5"></FaAngleDoubleLeft>
-          </label>
-        </div>
-        <div className="w-full xl:ml-[250px] xl:mr-[100px] mt-8">
-        <DasboardNavbar />  
+        <div className="flex justify-between mr-4"></div>
+        <div className="w-full  mt-8">
+          <DasboardNavbar />
           <div className="mt-10 lg:mt-[100px] -ml-10 xl:-ml-0 px-4">
-
-          <Outlet />
+            <Outlet />
           </div>
         </div>
       </div>
@@ -38,21 +30,9 @@ const DashboardLayouts = () => {
         <label htmlFor="my-drawer-2" aria-label="close sidebar"></label>
         <div className="menu p-4 w-64 min-h-full bg-base-200 text-base-content">
           <div className="flex justify-betweenitems-center mb-12">
-            <label
-              htmlFor="my-drawer-3"
-              className="lg:hidden drawer-button  cursor-pointer"
-            >
-              <FaAngleDoubleLeft className="text-2xl"></FaAngleDoubleLeft>
-            </label>
             <h1 className="text-center font-cursive uppercase text-2xl">
               lets schedule
             </h1>
-            <label
-              htmlFor="my-drawer-3"
-              className="hidden drawer-button lg:flex items-center ml-5 cursor-pointer"
-            >
-              <FaAngleDoubleLeft className="text-2xl"></FaAngleDoubleLeft>
-            </label>
           </div>
           <button
             className="btn-primary   flex items-center justify-center gap-2"
@@ -62,67 +42,67 @@ const DashboardLayouts = () => {
           </button>
           <ul>
             <li className="mt-4">
-              <Link
+              <NavLink
                 to={"/dashboard/create-event"}
                 className="flex items-center  text-xl"
               >
                 <FaLink />
                 Event types
-              </Link>
+              </NavLink>
             </li>
             <li className="mt-4">
-              <Link
+              <NavLink
                 to={"/dashboard/schedule-event"}
                 className="flex items-center  text-xl"
               >
                 <FaCalendarAlt />
                 Scheduled events
-              </Link>
+              </NavLink>
             </li>
             <li className="mt-4">
-              <Link
+              <NavLink
                 to={"/dashboard/create-event"}
                 className="flex items-center  text-xl"
               >
                 <FaCodeBranch />
                 Workflows
-              </Link>
+              </NavLink>
             </li>
             <li className="mt-4">
-              <Link
+              <NavLink
                 to={"/dashboard/create-event"}
                 className="flex items-center  text-xl"
               >
                 <FaRandom />
                 Routing
-              </Link>
+              </NavLink>
             </li>
             <li className="mt-6">
-              <Link
+              <NavLink
                 to={"/dashboard/create-event"}
                 className="flex items-center  text-xl"
               >
                 <FaRegClock />
                 Availability
-              </Link>
+              </NavLink>
             </li>
             <li className="mt-4">
-              <Link
+              <NavLink
                 to={"/dashboard/create-event"}
                 className="flex items-center  text-xl"
               >
                 <FaQuestion />
                 Help
-              </Link>
+              </NavLink>
             </li>
             <li className="mt-4">
-              <Link
+              <NavLink
                 to={"/dashboard/create-event"}
                 className="flex items-center  text-xl"
               >
                 <FaHeadset />
                 contact us
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -90,14 +90,7 @@ const CreateEvent = () => {
           <IoIosSettings className="text-3xl cursor-pointer"></IoIosSettings>
         </div>
       </div>
-      <div className="flex justify-center lg:justify-start mb-8">
-        <button
-          className="bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          creat new event
-        </button>
-      </div>
+      <div className="flex justify-center lg:justify-start mb-8"></div>
       <BookedMeet></BookedMeet>
 
       <AddEventModal isOpen={isOpen} setIsOpen={setIsOpen} />
