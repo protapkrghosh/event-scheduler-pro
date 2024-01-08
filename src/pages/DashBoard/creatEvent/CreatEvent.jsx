@@ -1,10 +1,8 @@
 import { FaAngleDown, FaSearch } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
 import useContexts from "../../../hooks/useContexts";
-import { Link } from "react-router-dom";
 import BookedMeet from "./BookedMeet";
 import { useState } from "react";
-import MyModal from "../../../componnents/modal/modal";
 import AddEventModal from "../../../componnents/modal/AddEventModal";
 
 const CreateEvent = () => {

@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactDatePicker from "react-datepicker";
-import { Navigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 const CreateMeet = () => {
+  const nevigat = useNavigate();
   const { register, handleSubmit, reset, watch, setValue } = useForm();
   const { eventType } = useParams();
   const eventTypes = eventType;
@@ -36,9 +37,10 @@ const CreateMeet = () => {
         }
       )
       .then((data) => {
-        console.log(data.data.massage);
-        if (data.data.sucsees === true) {
-          Navigate("/dashboard");
+        console.log(data.data.sucsees);
+        if (data.data.sucsees) {
+          nevigat("/dashboard");
+          reset();
         }
       });
   };
