@@ -4,7 +4,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { event } from "../../data/Data";
 import { Link } from "react-router-dom";
 
-const AddEventModal = ({ isOpen, setIsOpen, children }) => {
+const AddEventModal = ({ isOpen, setIsOpen }) => {
   return (
     <div>
       <MyModal isOpen={isOpen} setIsOpen={setIsOpen}>
