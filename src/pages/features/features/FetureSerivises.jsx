@@ -2,7 +2,7 @@ import { servicesData } from "../../../data/Data";
 
 const FetureSerivises = () => {
   return (
-    <div className=" flex items-center justify-center md:w-10/12 mx-auto">
+    <div className=" flex items-center justify-center md:w-10/12 mx-auto px-3 lg:px-0">
       <div>
         <div className="text-center">
           <h1 className="text-primary ">

@@ -9,14 +9,16 @@ const EasyScheduleFirstPart = ({ title, heading, para, link, img, span }) => {
           <img src={img} className="" />
         </div>
         <div className="md:w-[50%]">
-          <h5 className="font-cursive text-blue-500 mb-5">{title}</h5>
-          <h3 className="text-third font-prompt mb-5">
+          <h5 className="font-cursive text-blue-500 mb-5  text-center lg:text-left">{title}</h5>
+          <h3 className="text-third font-prompt mb-5 text-center lg:text-left">
             {heading} <span className="text-[#0069ff]">{span}</span>{" "}
           </h3>
-          <p className="text-secondary my-5">{para}</p>
-          <Link className="font-cursive text-blue-500 flex items-center gap-x-2">
+          <p className="text-secondary my-5 text-center lg:text-left">{para}</p>
+         <div className="flex justify-center lg:justify-start">
+         <Link className="font-cursive text-blue-500 flex items-center gap-x-2">
             {link} <FaLongArrowAltRight></FaLongArrowAltRight>
           </Link>
+         </div>
         </div>
       </div>
     </div>

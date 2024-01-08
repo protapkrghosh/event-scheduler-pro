@@ -24,12 +24,12 @@ const Scheduling = () => {
 
   return (
     <div className=" bg-gray-50">
-      <div className="lg:w-10/12 px-5 lg:px-0 mx-auto py-24">
-        <h1 className="text-primary font-cursive text-center tracking-tighter mb-24 ">
+      <div className="lg:w-10/12 px-5 lg:px-0 mx-auto py-10 xl:py-24">
+        <h1 className="text-primary font-cursive text-center tracking-tighter mb-10 xl:mb-24 ">
           Streamline your{" "}
           <span className="text-[#0069ff]">scheduling workflow</span>
         </h1>
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-x-10">
+        <div className="flex flex-col xl:flex-row justify-center items-center gap-x-10">
           <img
             src="https://www.appointlet.com/wp-content/uploads/2022/06/section-visual-8-768x749-1.png"
             className="lg:h-[424px] lg:w-[413px]"

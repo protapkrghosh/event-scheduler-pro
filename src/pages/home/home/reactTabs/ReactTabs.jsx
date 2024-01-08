@@ -131,7 +131,7 @@ const ReactTabs = () => {
               ))}
             </div>
             <img
-              className="lg:w-[500px] lg:h-[418px]"
+              className="lg:w-[400px] xl:w-[500px] lg:h-[318px] xl:h-[418px]"
               src="https://images.ctfassets.net/k0lk9kiuza3o/2rG4thXSvKkcjfy96bmbWa/5efef2a0b21095c5333d41ea650b6fd3/Calendly-Sales-Small-new_io.png?q=85&fm=webp"
               alt=""
             />
@@ -151,7 +151,7 @@ const ReactTabs = () => {
               ))}
             </div>
             <img
-              className="lg:w-[500px] lg:h-[418px]"
+              className="lg:w-[400px] xl:w-[500px] lg:h-[318px] xl:h-[418px]"
               src="https://images.ctfassets.net/k0lk9kiuza3o/6MaOVZrhlUGMwh5xszyWl8/2aaeec70d4e44490f150e28ea21d3165/Calendly-Demand-Gen-Small.png?q=85&fm=webp"
               alt=""
             />
@@ -170,7 +170,7 @@ const ReactTabs = () => {
               ))}
             </div>
             <img
-              className="lg:w-[500px] lg:h-[418px]"
+              className="lg:w-[400px] xl:w-[500px] lg:h-[318px] xl:h-[418px]"
               src="https://images.ctfassets.net/k0lk9kiuza3o/47xznwNRRuHE6gx1VSbhee/2f9ad09c15c55a4a252239f2e915c459/Calendly-Customer-Success.png?q=85&fm=webp"
               alt=""
             />
@@ -189,7 +189,7 @@ const ReactTabs = () => {
               ))}
             </div>
             <img
-              className="lg:w-[500px] lg:h-[418px]"
+              className="lg:w-[400px] xl:w-[500px] lg:h-[318px] xl:h-[418px]"
               src="https://images.ctfassets.net/k0lk9kiuza3o/1kDKK7sXKlgYglms0bWvmh/832a633866ff496a90261876f026d5fd/Calendly-Recruiting-Small.png?q=85&fm=webp"
               alt=""
             />
@@ -209,7 +209,7 @@ const ReactTabs = () => {
               ))}
             </div>
             <img
-              className="lg:w-[500px] lg:h-[418px]"
+              className="lg:w-[400px] xl:w-[500px] lg:h-[318px] xl:h-[418px]"
               src="https://images.ctfassets.net/k0lk9kiuza3o/2Vw1fqn2KMdFMULRX84jgx/5149a01af4dc9951f752a972aaa77b6c/Calendly-IT_Small__3_io.png?q=85&fm=webp"
               alt=""
             />
@@ -228,7 +228,7 @@ const ReactTabs = () => {
               ))}
             </div>
             <img
-              className="lg:w-[500px] lg:h-[418px]"
+              className="lg:w-[400px] xl:w-[500px] lg:h-[318px] xl:h-[418px]"
               src="https://images.ctfassets.net/k0lk9kiuza3o/1nFkpdx4ok8zrMu4ZCkIxV/2d9761a58b2d846458fa27797dc2ecee/Calendly-Education.png?q=85&fm=webp"
               alt=""
             />

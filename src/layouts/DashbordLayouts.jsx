@@ -10,13 +10,14 @@ import {
   FaRegClock,
   FaAngleDoubleLeft,
 } from "react-icons/fa";
+import DasboardNavbar from "../pages/shered/navbar/DasboardNavbar";
 
 const DashboardLayouts = () => {
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex">
-        <div className="flex mr-4">
+        <div className="flex justify-between mr-4">
           <label
             htmlFor="my-drawer-3"
             className=" drawer-button cursor-pointer"
@@ -25,7 +26,7 @@ const DashboardLayouts = () => {
           </label>
         </div>
         {/* <DasboardNavbar /> */}
-        <div className="w-1/2 mx-auto mt-40">
+        <div className="w-full xl:ml-[250px] xl:mr-[100px] mt-8">
           <Outlet />
         </div>
       </div>
