@@ -24,13 +24,13 @@ const BookedMeet = () => {
   console.log(events);
 
   return (
-    <div className="md:grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-5">
       {events ? (
         events.map((event) => {
           return (
             <div
               key={event._id}
-              className="w-[382px] h-full rounded-md border border-gray-200 border-t-8 border-t-[#912DEF] shadow-xl "
+              className="lg:w-[320px] 2xl:w-[370px] h-full rounded-md border border-gray-200 border-t-8 border-t-[#912DEF] shadow-xl "
             >
               <div className="px-5 py-3">
                 <div className="flex justify-between items-center mb-3">

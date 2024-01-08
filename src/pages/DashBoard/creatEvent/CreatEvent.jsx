@@ -11,7 +11,7 @@ const CreateEvent = () => {
 
   return (
     <div className="">
-      <h3 className="font-prompt text-3xl font-semibold mb-16 mt-5">
+      <h3 className="font-prompt text-3xl font-semibold mb-8 lg:mb-16 mt-5">
         Event types
       </h3>
       <div className="flex flex-col items-start lg:flex-row lg:items-center gap-x-3 mb-12">
@@ -58,7 +58,7 @@ const CreateEvent = () => {
           </div>
         </form>
       </div>
-      <div className="flex flex-row justify-between items-center border-b border-gray-300 pb-5 mb-8">
+      <div className="flex flex-row justify-between px-2 lg:px-0 items-center border-b border-gray-300 pb-5 mb-8">
         <div className="flex items-center gap-x-3">
           <img
             alt="profile picture"
@@ -79,7 +79,7 @@ const CreateEvent = () => {
         </div>
         <div className="flex items-center gap-x-3">
           <button
-            className="bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+            className="hidden lg:inline-flex bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
             onClick={() => setIsOpen(!isOpen)}
           >
             creat new event
@@ -89,6 +89,14 @@ const CreateEvent = () => {
           </div>
           <IoIosSettings className="text-3xl cursor-pointer"></IoIosSettings>
         </div>
+      </div>
+      <div className="flex justify-center lg:justify-start mb-8">
+        <button
+          className="bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          creat new event
+        </button>
       </div>
       <BookedMeet></BookedMeet>
 
