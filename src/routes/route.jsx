@@ -104,7 +104,7 @@ const router = createBrowserRouter([
         element: <Bookings></Bookings>,
       },
       {
-        path: "/dashboard/create-meet",
+        path: "/dashboard/:eventType",
         element: <CreateMeet></CreateMeet>,
       },
     ],

@@ -25,7 +25,7 @@ const DashboardLayouts = () => {
           </label>
         </div>
         {/* <DasboardNavbar /> */}
-        <div className="w-1/2 mx-auto mt-40">
+        <div className="w-full ml-[250px] mr-[100px] mt-8">
           <Outlet />
         </div>
       </div>

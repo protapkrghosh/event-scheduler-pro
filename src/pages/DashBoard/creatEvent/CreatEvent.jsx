@@ -3,9 +3,14 @@ import { IoIosSettings } from "react-icons/io";
 import useContexts from "../../../hooks/useContexts";
 import { Link } from "react-router-dom";
 import BookedMeet from "./BookedMeet";
+import { useState } from "react";
+import MyModal from "../../../componnents/modal/modal";
+import AddEventModal from "../../../componnents/modal/AddEventModal";
 
 const CreateEvent = () => {
   const { user } = useContexts();
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="">
       <h3 className="font-prompt text-3xl font-semibold mb-16 mt-5">
@@ -75,16 +80,21 @@ const CreateEvent = () => {
           </div>
         </div>
         <div className="flex items-center gap-x-3">
-          <Link
-            to="/dashboard/create-meet"
-            className="hidden lg:flex py-1 px-2 border border-blue-500 text-blue-500 rounded-full text-[15px]"
+          <button
+            className="bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+            onClick={() => setIsOpen(!isOpen)}
           >
-            New Event Type
-          </Link>
+            creat new event
+          </button>
+          <div>
+            <AddEventModal isOpen={isOpen} setIsOpen={setIsOpen} />
+          </div>
           <IoIosSettings className="text-3xl cursor-pointer"></IoIosSettings>
         </div>
       </div>
       <BookedMeet></BookedMeet>
+
+      <AddEventModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };
