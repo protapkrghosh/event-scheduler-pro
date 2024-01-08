@@ -25,9 +25,12 @@ const DashboardLayouts = () => {
             <FaAngleDoubleLeft className="text-2xl rotate-180 mt-5"></FaAngleDoubleLeft>
           </label>
         </div>
-        {/* <DasboardNavbar /> */}
         <div className="w-full xl:ml-[250px] xl:mr-[100px] mt-8">
+        <DasboardNavbar />  
+          <div className="mt-10 lg:mt-[100px] -ml-10 xl:-ml-0 px-4">
+
           <Outlet />
+          </div>
         </div>
       </div>
 
