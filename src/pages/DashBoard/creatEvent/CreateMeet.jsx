@@ -1,15 +1,53 @@
 import { useForm } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactDatePicker from "react-datepicker";
+import { Navigate, useParams } from "react-router-dom";
+import useContexts from "../../../hooks/useContexts";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 const CreateMeet = () => {
   const { register, handleSubmit, reset, watch, setValue } = useForm();
-
+  const { eventType } = useParams();
+  const eventTypes = eventType;
+  const selectedMethod = watch("method");
+  const { user } = useContexts();
+  const email = user?.email;
+  const scheduleId = uuidv4();
   const onSubmit = (data) => {
-    console.log(data);
+    const { date, descriptions, duretion, eventName, meetLink, method } = data;
+    const userEmail = email;
+    const events = {
+      scheduleId,
+      date,
+      descriptions,
+      duretion,
+      eventTypes,
+      meetLink,
+      method,
+      userEmail,
+      eventName,
+    };
+    console.log(events);
+    axios
+      .post(
+        "https://lets-sheduleit-backend.vercel.app/api/v1/events/creat-event",
+        {
+          event: events,
+        }
+      )
+      .then((data) => {
+        console.log(data.data.massage);
+        if (data.data.sucsees === true) {
+          Navigate("/dashboard");
+        }
+      });
   };
 
   return (
     <div>
+      <h1 className="text-third">
+        Creat a new <span className="text-[#0069ff]">{eventType}</span> Meet
+      </h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="border border-gray-200 p-5 mt-5 rounded-lg"
@@ -31,45 +69,111 @@ const CreateMeet = () => {
         </div>
         <div>
           <label
-            className="text-xl font-cursive my-5 block mb-3 text-[#3e5063]"
-            htmlFor="eventName"
+            className="text-xl font-cursive my-5 block mt-8 mb-3 text-[#3e5063]"
+            htmlFor="select method"
           >
-            Meet Link:*
+            select method:*
           </label>
-          <input
-            placeholder="Meet Link..."
-            required
-            className="input block w-full input-bordered"
-            id="meetLink"
-            {...register("meetLink")}
-          />
+          <select
+            id="duretion"
+            defaultValue={15}
+            className="select select-bordered w-full "
+            {...register("method")}
+          >
+            <option className="flex items-center text-xl" value="">
+              slect method
+            </option>
+            <option className="flex items-center text-xl" value="custom-meet">
+              custom meet event
+            </option>
+            <option className="flex items-center text-xl" value="google-meet">
+              Google Meet
+            </option>
+            <option className="flex items-center text-xl" value="zoom">
+              zoom
+            </option>
+            <option className="flex items-center text-xl" value="In-person">
+              In person
+            </option>
+          </select>
         </div>
+        {selectedMethod === "zoom" && (
+          <div>
+            <label
+              className="text-xl font-cursive my-5 block mt-8 mb-3 text-[#3e5063]"
+              htmlFor="zoomLink"
+            >
+              Zoom Link:*
+            </label>
+            <input
+              placeholder="Enter Zoom Link..."
+              required
+              className="input block w-full input-bordered"
+              id="zoomLink"
+              {...register("meetLink")}
+            />
+          </div>
+        )}
+        {selectedMethod === "custom-meet" && (
+          <div>
+            <label
+              className="text-xl font-cursive my-5 block mt-8 mb-3 text-[#3e5063]"
+              htmlFor="zoomLink"
+            >
+              Room id:*
+            </label>
+            <input
+              placeholder="Enter Room id..."
+              required
+              className="input block w-full input-bordered"
+              id="zoomLink"
+              {...register("meetLink")}
+            />
+          </div>
+        )}
+        {selectedMethod === "google-meet" && (
+          <div>
+            <label
+              className="text-xl font-cursive my-5 block mt-8 mb-3 text-[#3e5063]"
+              htmlFor="googleMeetLink"
+            >
+              Google Meet Link:*
+            </label>
+            <input
+              placeholder="Enter Google Meet Link..."
+              required
+              className="input block w-full input-bordered"
+              id="googleMeetLink"
+              {...register("meetLink")}
+            />
+          </div>
+        )}
         <div>
           <label
             className="text-xl font-cursive my-5 block mt-8 mb-3 text-[#3e5063]"
-            htmlFor="description"
+            htmlFor="descriptions"
           >
             Description:
           </label>
           <textarea
             placeholder="Write your schedule details...."
-            id="description"
+            id="descriptions"
             className="input block w-full input-bordered min-h-[200px] resize-none"
-            {...register("description")}
+            {...register("descriptions")}
           ></textarea>
         </div>
         <div>
           <label
             className="text-xl font-cursive my-5 block mt-8 mb-3 text-[#3e5063]"
-            htmlFor="duration"
+            htmlFor="duretion"
           >
             Duration:*
           </label>
           <select
-            id="duration"
+            id="duretion"
             defaultValue={15}
             className="select select-bordered w-full "
-            {...register("duration")}
+            {...register("duretion")}
           >
             <option value="15">15</option>
             <option value="30">30</option>

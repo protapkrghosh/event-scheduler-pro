@@ -3,10 +3,10 @@ import { FaStar } from "react-icons/fa";
 const Feedback = () => {
   return (
     <div className="mt-10 lg:mt-40 mb-20">
-      <div className="w-11/12 md:w-1/2 mx-auto  ">
+      <div className="w-11/12 xl:w-9/12 mx-auto  ">
         <div
           data-aos="zoom-in-down"
-          data-aos-duration="30  00"
+          data-aos-duration="3000"
           className="grid grid-cols-1 lg:grid-cols-3 gap-4 place-items-end w-full "
         >
           <div className=" w-full h-52 shadow-sm rounded-xl p-5 hover:scale-105 duration-500">

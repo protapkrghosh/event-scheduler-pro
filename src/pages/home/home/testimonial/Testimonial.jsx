@@ -15,7 +15,7 @@ const Testimonial = () => {
     {
       verified: true,
       heading: "Setmore provides awesome  demo",
-      para: "Setting up a preview video call to answer my questions about the Setmore features was just what ",
+      para: "Setting up a preview video call to answer my questions about the rework. ",
       DOE: "19 December 2023",
     },
     {
@@ -27,7 +27,7 @@ const Testimonial = () => {
     {
       verified: false,
       heading: "Thank you for an incredible…",
-      para: "Thank you for an incredible presentation and experience. Precisely what we need for our kids dental practice!",
+      para: "Thank you for an incredible presentation and experience.",
       DOE: "19 December 2023",
     },
     {
@@ -39,13 +39,13 @@ const Testimonial = () => {
     {
       verified: true,
       heading: "Thank you for an incredible…",
-      para: "Thank you for an incredible presentation and experience. Precisely what we need for our kids dental practice!",
+      para: "Thank you for an incredible presentation and experience.",
       DOE: "19 December 2023",
     },
     {
       verified: false,
       heading: "Thank you for an incredible…",
-      para: "Thank you for an incredible presentation and experience. Precisely what we need for our kids dental practice!",
+      para: "Thank you for an incredible presentation and experience.",
       DOE: "19 December 2023",
     },
   ];
@@ -56,7 +56,7 @@ const Testimonial = () => {
         People <span className="text-red-500">❤</span> Rework AI
       </h1>
 
-        <div className="lg:w-9/12 px-5 lg:px-0 lg:flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 justify-center items-center gap-x-40 mx-auto">
+        <div className="lg:w-11/12 xl:w-9/12 px-5 lg:px-0 lg:flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 justify-center items-center lg:gap-x-20 xl:gap-x-5 2xl:gap-x-40 mx-auto">
           <div className="lg:w-[400px] mb-10">
             <h1 className="text-2xl text-center mb-2">Excellent</h1>
             <div className="flex justify-center items-center gap-x-1 my-2">
@@ -85,6 +85,9 @@ const Testimonial = () => {
               centeredSlides: true,
             },
             1024: {
+              slidesPerView: 2,
+            },
+            1440: {
               slidesPerView: 3,
             },
           }}
@@ -99,7 +102,7 @@ const Testimonial = () => {
           >
             {swiperContents.map((swiperContent, index) => (
               <SwiperSlide key={index}>
-                <div className="w-[350px] mx-auto lg:mx-0">
+                <div className="w-[350px] md:w-[300px] xl:w-[280px] mx-auto lg:mx-0">
                   <div className="flex items-center gap-x-1 mb-2">
                     <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
                     <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
