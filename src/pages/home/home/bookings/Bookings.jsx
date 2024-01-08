@@ -54,7 +54,7 @@ const Bookings = () => {
   ];
   return (
     <div className=" bg-[#EDF0F2] px-1 lg:px-0 py-24">
-      <div className="lg:w-[60%] mx-auto">
+      <div className="lg:w-11/12 xl:w-9/12 mx-auto">
         <h1 className="text-primary mb-4 lg:mb-8 text-center tracking-wide">
           Bookings <span className="text-[#096CD0] "> simplified</span>
         </h1>
@@ -78,7 +78,7 @@ const Bookings = () => {
               className="sr-only peer"
               onClick={() => setOpen(!open)}
             />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-[#1E90F5] rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#1E90F5]"></div>
+            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-[#1E90F5] rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#1E90F5]"></div>
           </label>
 
           {/* toggle end */}
@@ -88,7 +88,7 @@ const Bookings = () => {
           {cards.map((card) => (
             <div
               key={card.heading}
-              className="bg-white py-6 px-10 rounded-lg w-[340px]"
+              className="bg-white py-6 px-10 rounded-lg xl:w-[340px] 2xl:w-[350px]"
             >
               <h4 className="text-4xl font-bold mb-2 text-[#0b3558]">
                 {card.heading}

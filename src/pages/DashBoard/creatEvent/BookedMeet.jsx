@@ -13,7 +13,7 @@ const BookedMeet = () => {
   useEffect(() => {
     const handleFach = async () => {
       const data = await axios.get(
-        `http://localhost:3000/api/v1/events/get-event?email=${user?.email}`
+        `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
       );
       setEvents(data.data);
     };
