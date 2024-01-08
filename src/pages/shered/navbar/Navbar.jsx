@@ -48,7 +48,7 @@ const Navbar = () => {
       </li>
       <li className="md:ml-4">
         <div className="dropdown dropdown-hover">
-          <div tabIndex={0} className="">
+          <div tabIndex={0}>
             Solutions
           </div>
           <ul

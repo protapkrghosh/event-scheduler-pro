@@ -3,10 +3,12 @@ import { TiTick } from "react-icons/ti";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
+// Import Swiper styles
 import "swiper/css";
+import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation, FreeMode } from "swiper/modules";
+// import required modules
+import { FreeMode, Autoplay } from "swiper/modules";
 
 const Testimonial = () => {
   const swiperContents = [
@@ -54,9 +56,8 @@ const Testimonial = () => {
         People <span className="text-red-500">❤</span> Rework AI
       </h1>
 
-      <div className="flex justify-center items-center gap-x-8">
-        <div className="w-9/12 flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 justify-center items-center gap-x-40 mx-auto">
-          <div className="lg:w-[400px]">
+        <div className="lg:w-9/12 px-5 lg:px-0 lg:flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 justify-center items-center gap-x-40 mx-auto">
+          <div className="lg:w-[400px] mb-10">
             <h1 className="text-2xl text-center mb-2">Excellent</h1>
             <div className="flex justify-center items-center gap-x-1 my-2">
               <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
@@ -89,30 +90,16 @@ const Testimonial = () => {
           }}
           spaceBetween={30}
           freeMode={true}
-          modules={[Autoplay, Pagination, Navigation, FreeMode]}
+          modules={[Autoplay, FreeMode]}
           autoplay={{
             delay: 2000,
           }}
           initialSlide={0}
           className="mySwiper"
-            // spaceBetween={10}
-            // initialSlide={0}
-            // autoplay={true}
-            // modules={[Autoplay, Pagination, Navigation]}
-            // breakpoints={{
-            //   320: {
-            //     slidesPerView: 1,
-            //     centeredSlides: true,
-            //   },
-            //   1024: {
-            //     slidesPerView: 3,
-            //   },
-            // }}
-            // className="mySwiper"
           >
-            {swiperContents.map((swiperContent) => (
-              <SwiperSlide key={swiperContent.heading}>
-                <div className="lg:w-[300px] mx-auto lg:mx-0">
+            {swiperContents.map((swiperContent, index) => (
+              <SwiperSlide key={index}>
+                <div className="w-[350px] mx-auto lg:mx-0">
                   <div className="flex items-center gap-x-1 mb-2">
                     <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
                     <FaStar className="text-xl w-6 h-6 p-1 bg-green-500 text-white"></FaStar>
@@ -137,7 +124,6 @@ const Testimonial = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
       </div>
     </div>
   );

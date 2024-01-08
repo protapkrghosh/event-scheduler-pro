@@ -27,7 +27,7 @@ const FeaturesHero = () => {
           </p>
           <button className=" btn-primary">Get Started</button>
           <button className=" btn-fetures text-[#0069ff] ml-4">
-            Get Started
+            Contact Us
           </button>
         </div>
       </div>

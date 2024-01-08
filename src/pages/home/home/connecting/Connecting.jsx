@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import "./Connecting.css";
 // import required modules
 import { FreeMode, Autoplay } from "swiper/modules";
 const Connecting = () => {
@@ -84,7 +83,7 @@ const Connecting = () => {
       >
         {connectings.map((connecting) => (
           <SwiperSlide key={connecting.img}>
-            <div className="swiper-custom-slide mx-auto lg:mx-0">
+            <div className="w-[350px] mx-auto lg:mx-0">
               <div className="bg-white py-6 px-8 rounded-lg">
                 <div className="flex gap-x-3">
                   <img
