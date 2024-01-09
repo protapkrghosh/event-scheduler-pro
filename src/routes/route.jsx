@@ -20,6 +20,7 @@ import CreateMeet from "../pages/DashBoard/creatEvent/CreateMeet";
 import CreatRoom from "../pages/DashBoard/creatCustomMeet/CreatRoom";
 import ConfirmSchedule from "../pages/DashBoard/confirmSchedule/ConfirmSchedule";
 import EventDtailsLayouts from "../layouts/EventDtailsLayouts";
+import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
 
 const router = createBrowserRouter([
   {
@@ -108,6 +109,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/:eventType",
         element: <CreateMeet></CreateMeet>,
+      },
+      {
+        path: "/dashboard/confirmBooking",
+        element: <ConfirmBooking></ConfirmBooking>,
       },
     ],
   },
