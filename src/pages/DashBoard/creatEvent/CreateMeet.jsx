@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import toast from "react-hot-toast";
 const CreateMeet = () => {
   const nevigat = useNavigate();
   const { register, handleSubmit, reset, watch, setValue } = useForm();
@@ -40,6 +41,7 @@ const CreateMeet = () => {
         console.log(data.data.sucsees);
         if (data.data.sucsees) {
           nevigat("/dashboard");
+          toast.success("Schedule added!");
           reset();
         }
       });

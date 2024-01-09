@@ -1,15 +1,29 @@
+import { useState } from "react";
 import axios from "axios";
+import copy from "clipboard-copy";
 import { CiSettings } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { MdContentCopy } from "react-icons/md";
-import { MdModeEdit } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
+import { MdContentCopy, MdModeEdit, MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import useSingleEventData from "../../../hooks/useSingleEventData";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const BookedMeet = () => {
   const { events, refetch } = useSingleEventData();
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = (customLink) => {
+    copy(customLink)
+      .then(() => {
+        toast.success("Link copy to the clipboard!");
+        setCopied(true);
+      })
+      .catch((err) => {
+        console.error("Failed to copy text: ", err);
+      });
+  };
+
   const handleDeleteEvents = async (id) => {
     try {
       Swal.fire({
@@ -17,7 +31,7 @@ const BookedMeet = () => {
         text: "You won't be able to revert this!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#0069ff",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!",
       }).then(async (result) => {
@@ -42,6 +56,8 @@ const BookedMeet = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-5">
       {events ? (
         events.map((event) => {
+          const customLink = `https://example.com/${event.scheduleId}`;
+
           return (
             <div
               key={event._id}
@@ -98,9 +114,14 @@ const BookedMeet = () => {
                   </Link>
                 </div>
                 <div className="flex justify-between items-center gap-x-2">
-                  <div className="flex justify-center items-center gap-x-1 text-blue-500 cursor-pointer">
+                  <div
+                    className="flex justify-center items-center gap-x-1 text-blue-500 cursor-pointer"
+                    onClick={() => copyToClipboard(customLink)}
+                  >
                     <MdContentCopy></MdContentCopy>
-                    <p className="hover:underline">Copy Link</p>
+                    <p className="hover:underline">
+                      {copied ? "Link Copied!" : "Copy Link"}
+                    </p>
                   </div>
                   <button className="px-3 border border-blue-500 rounded-full uppercase text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-200">
                     Share
