@@ -56,7 +56,7 @@ const BookedMeet = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-5">
       {events ? (
         events.map((event) => {
-          const customLink = `https://example.com/${event.scheduleId}`;
+          const customLink = `http://localhost:5173/confirm-schedule/${event.scheduleId}`;
 
           return (
             <div
@@ -109,7 +109,10 @@ const BookedMeet = () => {
                   </h1>
 
                   <p className="text-gray-500 mb-3">{`${event.duretion} minute, ${event.eventTypes}`}</p>
-                  <Link className="text-blue-500 hover:underline">
+                  <Link
+                    to={`/confirm-schedule/${event.scheduleId}`}
+                    className="text-blue-500 hover:underline"
+                  >
                     View booking page
                   </Link>
                 </div>

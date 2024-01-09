@@ -116,7 +116,7 @@ const router = createBrowserRouter([
     element: <EventDtailsLayouts />,
     children: [
       {
-        path: "/confirm-schedule/confirmBooking/:id",
+        path: "/confirm-schedule/:id",
         element: <ConfirmBooking />,
       },
     ],
