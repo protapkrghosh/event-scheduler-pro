@@ -183,14 +183,14 @@ const ConfirmBooking = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <input
                 placeholder="Enter your Name....."
-                className="input_field my-5"
+                className="input input-bordered mr-4 my-5"
                 required
                 {...register("inviteeName")}
               />
 
               <input
                 placeholder="Enter your Email...."
-                className="input_field my-5"
+                className="input input-bordered mr-4 my-5"
                 required
                 type="email"
                 {...register("inviteeEmail")}
