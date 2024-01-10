@@ -9,6 +9,7 @@ import { FaRegClock, FaTimesCircle } from "react-icons/fa";
 import meetlogo from '../../../assets/meet.png'
 import phoneLogo from '../../../assets/phone.png'
 import locationLogo from '../../../assets/location.png'
+import './ConfirmBooking.css'
 const ConfirmBooking = () => {
   const { register, handleSubmit, reset } = useForm();
   const [scheduleInfo, setScheduleInfo] = useState({});
@@ -98,7 +99,7 @@ const ConfirmBooking = () => {
       <div className="pt-10 my-10">
         <div className="flex flex-wrap items-center justify-center gap-5">
           {/*=============== Event details ===================*/}
-          <div className="w-full sm:w-[515px] lg:w-[40%] border rounded-md p-5">
+          <div className="w-full sm:w-[515px] h-[397px] lg:w-[40%] border rounded-md p-5 flex flex-col justify-center gap-2">
             <h3 className="text-lg font-bold">Invitee:</h3>
             <p className="mt-1 text-xl font-medium">{hostName}</p>
             <h3 className="mt-4 text-lg font-bold">Meeting Name:</h3>
@@ -153,7 +154,6 @@ const ConfirmBooking = () => {
               timeIntervals={duration}
               inline
               fixedHeight
-              wrapperClassName="datepicker"
             />
           </div>
         </div>

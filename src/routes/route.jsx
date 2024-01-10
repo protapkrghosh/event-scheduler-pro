@@ -18,7 +18,6 @@ import Educations from "../componnents/solutionsComponents/education/Educations"
 import ContactUs from "../pages/ContactUs/ContactUs";
 import CreateMeet from "../pages/DashBoard/creatEvent/CreateMeet";
 import CreatRoom from "../pages/DashBoard/creatCustomMeet/CreatRoom";
-import ConfirmSchedule from "../pages/DashBoard/confirmSchedule/ConfirmSchedule";
 import EventDtailsLayouts from "../layouts/EventDtailsLayouts";
 import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
 
@@ -110,10 +109,6 @@ const router = createBrowserRouter([
         path: "/dashboard/:eventType",
         element: <CreateMeet></CreateMeet>,
       },
-      {
-        path: "/dashboard/confirmBooking",
-        element: <ConfirmBooking></ConfirmBooking>,
-      },
     ],
   },
   {
@@ -121,8 +116,8 @@ const router = createBrowserRouter([
     element: <EventDtailsLayouts />,
     children: [
       {
-        path: "/confirm-schedule/event-confirm",
-        element: <ConfirmSchedule />,
+        path: "/confirm-schedule/confirmBooking/:id",
+        element: <ConfirmBooking />,
       },
     ],
   },

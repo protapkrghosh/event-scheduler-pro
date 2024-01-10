@@ -3,7 +3,7 @@ import EventNavbar from "../pages/shered/navbar/EventNavbar";
 
 const EventDtailsLayouts = () => {
   return (
-    <div>
+    <div className="">
       <EventNavbar />
       <Outlet />
     </div>
