@@ -20,6 +20,7 @@ import CreateMeet from "../pages/DashBoard/creatEvent/CreateMeet";
 import CreatRoom from "../pages/DashBoard/creatCustomMeet/CreatRoom";
 import EventDtailsLayouts from "../layouts/EventDtailsLayouts";
 import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
+import Payment from "../pages/DashBoard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <CreateEvent></CreateEvent>,
+      },
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment></Payment>,
+        loader: ({params}) => fetch(`https://doctors-portal-server-lemon.vercel.app/bookings/${params.id}`)
       },
       {
         path: "/dashboard/create-event",

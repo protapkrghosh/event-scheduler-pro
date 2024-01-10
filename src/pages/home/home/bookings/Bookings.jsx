@@ -1,6 +1,7 @@
 import { TiTick } from "react-icons/ti";
 import { HiArrowLongRight } from "react-icons/hi2";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Bookings = () => {
   const [open, setOpen] = useState(false);
@@ -98,9 +99,11 @@ const Bookings = () => {
                 <h4 className="text-4xl font-bold">${card.rate}</h4>
                 <p className=" text-gray-500">user / month</p>
               </div>
-              <button className="btn-card w-full rounded-md">
-                {card.button}
-              </button>
+              <Link to="/dashboard/payment">
+                <button className="btn-card w-full rounded-md">
+                  {card.button}
+                </button>
+              </Link>
               <p className="bg-[#EEFCF6] rounded-full text-center py-1 mb-5 text-[12px] font-semibold">
                 24/7 HUMAN SUPPORT
               </p>
