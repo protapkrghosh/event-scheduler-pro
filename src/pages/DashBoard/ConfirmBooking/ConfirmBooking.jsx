@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 const ConfirmBooking = () => {
   const [singleEvent, setSingleEvent] = useState(null);
   const [scheduleDate, setScheduleDate] = useState(null);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const ConfirmBooking = () => {
       }
     };
     handleFetch();
-  }, [id]); // Add id as a dependency to re-run effect when id changes
+  }, [id]);
 
   if (!singleEvent) {
     return <p>Loading...</p>;
@@ -48,7 +49,7 @@ const ConfirmBooking = () => {
               <FaRegClock className="text-2xl font-medium" />
               <span className="text-lg font-medium">{duretion} minutes</span>
             </div>
-            <h3 className="mt-4 text-lg font-bold">{`Location: ${method}n `}</h3>
+            <h3 className="mt-4 text-lg font-bold">{`Location: ${method} `}</h3>
             {/* Add your location rendering logic here */}
           </div>
           <div className="">
