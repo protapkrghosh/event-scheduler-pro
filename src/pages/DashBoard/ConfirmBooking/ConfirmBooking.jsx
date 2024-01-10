@@ -153,7 +153,7 @@ const ConfirmBooking = () => {
               timeIntervals={duration}
               inline
               fixedHeight
-              
+              wrapperClassName="datepicker"
             />
           </div>
         </div>
