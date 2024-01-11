@@ -21,6 +21,8 @@ import CreatRoom from "../pages/DashBoard/creatCustomMeet/CreatRoom";
 import EventDtailsLayouts from "../layouts/EventDtailsLayouts";
 import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
 import Payment from "../pages/DashBoard/Payment/Payment";
+import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
+import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
 
 const router = createBrowserRouter([
   {
@@ -122,8 +124,16 @@ const router = createBrowserRouter([
     element: <EventDtailsLayouts />,
     children: [
       {
-        path: "/confirm-schedule/confirmBooking/:id",
+        path: "/confirm-schedule/:id",
         element: <ConfirmBooking />,
+      },
+      {
+        path: "/confirm-schedule/bookingDetails/:id",
+        element: <BookingDetails></BookingDetails>,
+      },
+      {
+        path: "/confirm-schedule/scheduleConfirmed/:id",
+        element: <ScheduleConfirmed></ScheduleConfirmed>,
       },
     ],
   },
