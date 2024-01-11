@@ -15,21 +15,23 @@ const CreateMeet = () => {
   const { user } = useContexts();
   const email = user?.email;
   const scheduleId = uuidv4();
+  const userName = user?.displayName;
   const onSubmit = (data) => {
-    const { date, descriptions, duretion, eventName, meetLink, method } = data;
+    const { date, descriptions, duration, eventName, meetLink, method } = data;
     const userEmail = email;
     const events = {
       scheduleId,
       date,
       descriptions,
-      duretion,
+      duration,
       eventTypes,
       meetLink,
       method,
       userEmail,
       eventName,
+      userName,
     };
-    console.log(events);
+
     axios
       .post(
         "https://lets-sheduleit-backend.vercel.app/api/v1/events/creat-event",
@@ -79,7 +81,7 @@ const CreateMeet = () => {
             select method:*
           </label>
           <select
-            id="duretion"
+            id="duration"
             defaultValue={15}
             className="select select-bordered w-full "
             {...register("method")}
@@ -169,15 +171,15 @@ const CreateMeet = () => {
         <div>
           <label
             className="text-xl font-cursive my-5 block mt-8 mb-3 text-[#3e5063]"
-            htmlFor="duretion"
+            htmlFor="duration"
           >
             Duration:*
           </label>
           <select
-            id="duretion"
+            id="duration"
             defaultValue={15}
             className="select select-bordered w-full "
-            {...register("duretion")}
+            {...register("duration")}
           >
             <option value="15">15</option>
             <option value="30">30</option>

@@ -108,7 +108,7 @@ const BookedMeet = () => {
                     {event.eventName}
                   </h1>
 
-                  <p className="text-gray-500 mb-3">{`${event.duretion} minute, ${event.eventTypes}`}</p>
+                  <p className="text-gray-500 mb-3">{`${event.duration} minute, ${event.eventTypes}`}</p>
                   <Link
                     to={`/confirm-schedule/${event.scheduleId}`}
                     className="text-blue-500 hover:underline"
