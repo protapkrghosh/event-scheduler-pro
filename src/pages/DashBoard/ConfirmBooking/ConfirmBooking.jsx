@@ -36,7 +36,7 @@ const ConfirmBooking = () => {
     const handleFetch = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/events/get-SingleEvents?id=${id}`
+          `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-SingleEvents?id=${id}`
         );
         setSingleEvent(response.data);
       } catch (error) {
@@ -110,9 +110,9 @@ const ConfirmBooking = () => {
           <h3 className="mt-4 text-lg font-bold">{`Location: ${method} `}</h3>
 
           {scheduleDate && (
-            <button className="py-2 px-8 text-xl text-[#FFF] mr-auto bg-[#066DD3]">
+            <Link to="/confirm-schedule/bookingDetails/:id" className="py-2 px-8 text-xl text-[#FFF] mr-auto bg-[#066DD3]">
               next
-            </button>
+            </Link>
           )}
         </div>
         <div className="">
