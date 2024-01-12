@@ -99,7 +99,8 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
-        loader: ({params}) => fetch(`https://doctors-portal-server-lemon.vercel.app/bookings/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/bookings/${params.id}`),
       },
       {
         path: "/dashboard/create-event",
