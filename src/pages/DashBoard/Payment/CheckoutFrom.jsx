@@ -14,7 +14,7 @@ const CheckoutForm = ({ booking }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("https://doctors-portal-server-lemon.vercel.app/create-payment-intent", {
+    fetch("http://localhost:3000/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ const CheckoutForm = ({ booking }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setClientSecret(data.clientSecret)
+        setClientSecret(data.clientSecret);
       });
   }, [price]);
 
@@ -37,59 +37,59 @@ const CheckoutForm = ({ booking }) => {
     if (card === null) {
       return;
     }
-  
+
     try {
       setCardError("");
       setSuccess("");
       setProcessing(true);
-  
-      const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: card,
-          billing_details: {
-            name: patient,
-            email: email,
+
+      const { paymentIntent, error: confirmError } =
+        await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: card,
+            billing_details: {
+              name: patient,
+              email: email,
+            },
           },
-        },
-      });
-  
+        });
+
       if (confirmError) {
         setCardError(confirmError.message);
         setProcessing(false);
         return;
       }
-  
-      if (paymentIntent.status === 'succeeded') {
+
+      if (paymentIntent.status === "succeeded") {
         const payment = {
           price,
           transactionId: paymentIntent.id,
-          bookingId: _id
-        }
-  
-        const response = await fetch('https://doctors-portal-server-lemon.vercel.app/payments', {
+          bookingId: _id,
+        };
+
+        const response = await fetch("http://localhost:3000/payments", {
           method: "POST",
           headers: {
-            'content-type': 'application/json',
+            "content-type": "application/json",
           },
-          body: JSON.stringify(payment)
+          body: JSON.stringify(payment),
         });
-  
+
         const data = await response.json();
-  
+
         if (data.insertedId) {
           console.log(data);
-          setSuccess('Congratulations! Your payment is completed');
+          setSuccess("Congratulations! Your payment is completed");
           setTransactionId(paymentIntent.id);
         }
       }
     } catch (error) {
-      console.error('Error confirming payment:', error);
-      setCardError('Error confirming payment. Please try again.');
+      console.error("Error confirming payment:", error);
+      setCardError("Error confirming payment. Please try again.");
     } finally {
       setProcessing(false);
     }
   };
-  
 
   return (
     <>
@@ -119,12 +119,14 @@ const CheckoutForm = ({ booking }) => {
         </button>
       </form>
       <p className="text-red-500">{cardError}</p>
-      {
-        success && <div>
+      {success && (
+        <div>
           <p className="text-green-400">{success}</p>
-          <p>TransactionId: <span className="font-bold">{transactionId}</span></p>
+          <p>
+            TransactionId: <span className="font-bold">{transactionId}</span>
+          </p>
         </div>
-      }
+      )}
     </>
   );
 };
