@@ -3,7 +3,9 @@ import { VscStarFull } from "react-icons/vsc";
 import HomePageDegain from "../../../../componnents/HomePageDegain";
 import backgroundImage from "../../../../assets/new-clouds-2.svg";
 import HomePageDegainTwo from "../../../../componnents/HomePageDegainTwo";
+import useContexts from "../../../../hooks/useContexts";
 const Banner = () => {
+  const { user } = useContexts();
   const backgroundStyles = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
@@ -44,9 +46,25 @@ const Banner = () => {
             selection of experiences, tailor your social calendar, and make
             every moment extraordinary. Ready to redefine the way you celebrate?
           </p>
-          <Link to={"/sinup"}>
-            <button className=" btn-primary">Get started with free now</button>
-          </Link>
+          {!user && (
+            <Link to={"/sinup"}>
+              <button className=" btn-primary">
+                Get started with free now
+              </button>
+            </Link>
+          )}
+          {user && (
+            <Link to={"/dashboard"}>
+              <button className=" btn-primary">my account</button>
+            </Link>
+          )}
+          {user && (
+            <Link to={"/dashboard"}>
+              <button className=" btn-fetures ml-4">
+                create new event type
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

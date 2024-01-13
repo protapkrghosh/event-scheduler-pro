@@ -52,6 +52,12 @@ const BookedMeet = () => {
     }
   };
 
+  const handleRedirect = (id) => {
+    const curentUrl = `http://localhost:5173/confirm-schedule/${id}`;
+
+    window.open(curentUrl, "_blank");
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-5">
       {events ? (
@@ -109,12 +115,12 @@ const BookedMeet = () => {
                   </h1>
 
                   <p className="text-gray-500 mb-3">{`${event.duration} minute, ${event.eventTypes}`}</p>
-                  <Link
-                    to={`/confirm-schedule/${event.scheduleId}`}
+                  <button
                     className="text-blue-500 hover:underline"
+                    onClick={() => handleRedirect(event.scheduleId)}
                   >
                     View booking page
-                  </Link>
+                  </button>
                 </div>
                 <div className="flex justify-between items-center gap-x-2">
                   <div

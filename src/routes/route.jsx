@@ -139,7 +139,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/confirm-schedule/bookingConfirmed/:id",
-        element: <BookingConfirmationsPage />,
+        element: <ScheduleConfirmed />,
       },
     ],
   },

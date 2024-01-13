@@ -7,12 +7,12 @@ import axios from "axios";
 
 const BookingDetails = () => {
   const { id } = useParams();
-  const { SingleEvent } = useSingleEvents(id);
+  const { SingleEvent, refetch } = useSingleEvents(id);
   const { register, handleSubmit } = useForm();
   const navigat = useNavigate();
 
   if (!SingleEvent) {
-    return <p>Loading...</p>;
+    return <span className="loading loading-dots loading-lg"></span>;
   }
 
   const {
@@ -37,7 +37,7 @@ const BookingDetails = () => {
         eventName,
         dateAndTime,
         method,
-        meetLink, // There is no definition for 'meetLink' in your code
+        meetLink,
         detailsLink,
         email,
       };
@@ -49,6 +49,7 @@ const BookingDetails = () => {
 
       if (response.data.success === true) {
         navigat(`/confirm-schedule/bookingConfirmed/${scheduleId}`);
+        refetch();
       }
       console.log(response.data);
 
@@ -72,19 +73,27 @@ const BookingDetails = () => {
               {userName}
             </p>
           </div>
-          <h3 className="text-gray-500 text-xl mb-5 font-prompt hidden lg:block">
+          <h3 className="text-lg font-bold text-secondary">Invitee:</h3>
+          <h3 className=" text-xl mt-4 mb-5 font-prompt hidden lg:block">
             {userName}
           </h3>
-          <h3 className="text-gray-500 text-2xl mb-5 font-prompt hidden lg:block">
+          <h3 className="mt-4 text-lg font-bold text-secondary">
+            Meeting Name:
+          </h3>
+          <h3 className=" text-2xl mt-4 mb-5 font-prompt hidden lg:block">
             {eventName}
           </h3>
-          <p className="flex items-center gap-x-3 text-gray-500 mb-5 font-prompt">
+          <h3 className="mt-4 text-lg font-bold text-secondary">
+            Meeting duration:
+          </h3>
+          <p className="flex items-center mt-4 gap-x-3  mb-5 font-prompt">
             <IoIosTime className="text-xl"></IoIosTime>
-            {duration}
+            {duration} minutes
           </p>
-          <p className="lg:flex items-center gap-x-3 text-gray-500 mb-5 font-prompt hidden ">
+          <h3 className="mt-4 font-bold text-secondary">Date And Time</h3>
+          <p className="lg:flex items-center gap-x-3 mt-4  mb-5 font-prompt hidden ">
             <SlCalender className="text-xl"></SlCalender>
-            <p>{dateAndTime}</p>
+            <p className="">{dateAndTime}</p>
           </p>
           <p className="flex items-center gap-x-3 text-gray-500 mb-5 font-prompt lg:hidden">
             <SlCalender className="text-xl"></SlCalender>
@@ -108,9 +117,7 @@ const BookingDetails = () => {
             className="input input-bordered block w-full"
             {...register("email")}
           />
-          <button className="border border-blue-500 text-blue-500 hover:bg-blue-600 hover:text-white transition-colors duration-200 px-3 py-1 rounded-full mt-5">
-            Add guests
-          </button>
+
           <h6 className="font-prompt mb-1 mt-6">
             Please share anything that will help prepare for our meeting.
           </h6>

@@ -21,7 +21,7 @@ const CreateEvent = () => {
             role="button"
             className="w-full flex items-center gap-x-2 bg-gray-50 py-2 px-5 rounded-md font-prompt border border-gray-400 m-1"
           >
-            My Calendly <FaAngleDown></FaAngleDown>
+            my schedule <FaAngleDown></FaAngleDown>
           </div>
           <ul
             tabIndex={0}
