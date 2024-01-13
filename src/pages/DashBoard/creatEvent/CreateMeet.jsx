@@ -36,7 +36,6 @@ const CreateMeet = () => {
       .post("http://localhost:3000/api/v1/events/creat-event", {
         event: events,
       })
-
       .then((data) => {
         console.log(data.data.sucsees);
         if (data.data.sucsees) {
