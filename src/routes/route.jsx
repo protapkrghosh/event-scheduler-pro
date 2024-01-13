@@ -24,6 +24,7 @@ import Payment from "../pages/DashBoard/Payment/Payment";
 import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
 import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
 import BookingConfirmationsPage from "../pages/DashBoard/ConfirmBooking/BookingConfirmationsPage";
+import PrivateRoute from "./privetRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -91,7 +92,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayouts />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayouts />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -133,10 +138,7 @@ const router = createBrowserRouter([
         path: "/confirm-schedule/bookingDetails/:id",
         element: <BookingDetails></BookingDetails>,
       },
-      {
-        path: "/confirm-schedule/scheduleConfirmed/:id",
-        element: <ScheduleConfirmed></ScheduleConfirmed>,
-      },
+
       {
         path: "/confirm-schedule/bookingConfirmed/:id",
         element: <ScheduleConfirmed />,
