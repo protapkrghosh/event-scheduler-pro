@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import {
   FaCalendarAlt,
   FaCodeBranch,
@@ -30,7 +30,7 @@ const DashboardLayouts = () => {
         <div className="menu p-4 w-64 min-h-full bg-base-200 text-base-content">
           <div className="flex justify-between items-center mb-12">
             <h1 className="text-center font-cursive uppercase text-2xl">
-              lets schedule
+              <Link to={"/"}>lets schedule</Link>
             </h1>
           </div>
           <button
@@ -42,9 +42,8 @@ const DashboardLayouts = () => {
           <ul>
             <li className="mt-4">
               <NavLink
-              
                 to={"/dashboard/create-event"}
-               className={({ isActive }) =>
+                className={({ isActive }) =>
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
               >
@@ -54,9 +53,8 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-4">
               <NavLink
-              
                 to={"/dashboard/schedule-event"}
-               className={({ isActive }) =>
+                className={({ isActive }) =>
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
               >
@@ -66,9 +64,8 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-4">
               <NavLink
-              
                 to={"/dashboard/workflows"}
-               className={({ isActive }) =>
+                className={({ isActive }) =>
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
               >
@@ -78,9 +75,8 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-4">
               <NavLink
-              
                 to={"/dashboard/routing"}
-               className={({ isActive }) =>
+                className={({ isActive }) =>
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
               >
@@ -90,9 +86,8 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-6">
               <NavLink
-              
                 to={"/dashboard/availability"}
-               className={({ isActive }) =>
+                className={({ isActive }) =>
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
               >
@@ -102,9 +97,8 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-4">
               <NavLink
-              
                 to={"/dashboard/help"}
-               className={({ isActive }) =>
+                className={({ isActive }) =>
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
               >
@@ -114,9 +108,8 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-4">
               <NavLink
-              
                 to={"/dashboard/contact-us"}
-               className={({ isActive }) =>
+                className={({ isActive }) =>
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
               >
