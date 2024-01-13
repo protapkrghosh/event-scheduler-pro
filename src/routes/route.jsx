@@ -23,6 +23,7 @@ import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
 import Payment from "../pages/DashBoard/Payment/Payment";
 import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
 import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
+import BookingConfirmationsPage from "../pages/DashBoard/ConfirmBooking/BookingConfirmationsPage";
 
 const router = createBrowserRouter([
   {
@@ -99,7 +100,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
-        loader: ({params}) => fetch(`https://doctors-portal-server-lemon.vercel.app/bookings/${params.id}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://doctors-portal-server-lemon.vercel.app/bookings/${params.id}`
+          ),
       },
       {
         path: "/dashboard/create-event",
@@ -134,6 +138,10 @@ const router = createBrowserRouter([
       {
         path: "/confirm-schedule/scheduleConfirmed/:id",
         element: <ScheduleConfirmed></ScheduleConfirmed>,
+      },
+      {
+        path: "/confirm-schedule/bookingConfirmed/:id",
+        element: <BookingConfirmationsPage />,
       },
     ],
   },
