@@ -9,7 +9,7 @@ const useSingleEventData = () => {
     queryKey: ["events"],
     queryFn: async () => {
       const res = await axios.get(
-        `https://lets-schedule-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
+        `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
       );
       return res.data;
     },

@@ -14,7 +14,7 @@ const CheckoutForm = ({ booking }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("https://lets-schedule-backend.vercel.app/create-payment-intent", {
+    fetch("http://localhost:3000/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,16 +67,13 @@ const CheckoutForm = ({ booking }) => {
           bookingId: _id,
         };
 
-        const response = await fetch(
-          "https://lets-schedule-backend.vercel.app/payments",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(payment),
-          }
-        );
+        const response = await fetch("http://localhost:3000/payments", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(payment),
+        });
 
         const data = await response.json();
 

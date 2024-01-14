@@ -28,7 +28,7 @@ const ConfirmBooking = () => {
     );
 
     const response = await axios.patch(
-      `https://lets-schedule-backend.vercel.app/api/v1/events/update-date-and-time?id=${id}`,
+      `https://lets-sheduleit-backend.vercel.app/api/v1/events/update-date-and-time?id=${id}`,
       { date: { dateAndTime: formattedDate } }
     );
     refetch();

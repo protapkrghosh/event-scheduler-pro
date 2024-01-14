@@ -34,7 +34,7 @@ const CreateMeet = () => {
     console.log(events);
     axios
       .post(
-        "https://lets-schedule-backend.vercel.app/api/v1/events/creat-event",
+        "https://lets-sheduleit-backend.vercel.app/api/v1/events/creat-event",
         {
           event: events,
         }

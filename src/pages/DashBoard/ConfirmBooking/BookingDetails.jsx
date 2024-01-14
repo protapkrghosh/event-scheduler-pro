@@ -43,7 +43,7 @@ const BookingDetails = () => {
       };
 
       const response = await axios.post(
-        "https://lets-schedule-backend.vercel.app/api/v1/events/send-email",
+        "https://lets-sheduleit-backend.vercel.app/api/v1/events/send-email",
         { emailInfo: emailData }
       );
 

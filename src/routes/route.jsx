@@ -23,7 +23,6 @@ import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
 import Payment from "../pages/DashBoard/Payment/Payment";
 import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
 import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
-import BookingConfirmationsPage from "../pages/DashBoard/ConfirmBooking/BookingConfirmationsPage";
 import PrivateRoute from "./privetRoute/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -107,7 +106,7 @@ const router = createBrowserRouter([
         element: <Payment></Payment>,
         loader: ({ params }) =>
           fetch(
-            `https://lets-schedule-backend.vercel.app/bookings/${params.id}`
+            `https://lets-sheduleit-backend.vercel.app/bookings/${params.id}`
           ),
       },
       {
