@@ -6,7 +6,7 @@ const useSingleEvents = (id) => {
     queryKey: ["events", id],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/events/get-SingleEvents?id=${id}`
+        `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-SingleEvents?id=${id}`
       );
       return res.data;
     },
