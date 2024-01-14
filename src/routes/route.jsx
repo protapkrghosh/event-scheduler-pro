@@ -23,8 +23,7 @@ import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
 import Payment from "../pages/DashBoard/Payment/Payment";
 import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
 import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
-import BookingConfirmationsPage from "../pages/DashBoard/ConfirmBooking/BookingConfirmationsPage";
-import PrivateRoute from "./AdminRoute/PrivateRoute";
+import PrivateRoute from "./privetRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
