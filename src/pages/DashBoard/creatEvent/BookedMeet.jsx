@@ -37,7 +37,7 @@ const BookedMeet = () => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           await axios.delete(
-            `https://lets-sheduleit-backend.vercel.app/api/v1/events/delete-event?id=${id}`
+            `http://localhost:3000/api/v1/events/delete-event?id=${id}`
           );
           refetch();
           Swal.fire({
@@ -50,6 +50,12 @@ const BookedMeet = () => {
     } catch (error) {
       console.error("Error deleting event:", error);
     }
+  };
+
+  const handleRedirect = (id) => {
+    const curentUrl = `http://localhost:5173/confirm-schedule/${id}`;
+
+    window.open(curentUrl, "_blank");
   };
 
   return (
@@ -109,12 +115,12 @@ const BookedMeet = () => {
                   </h1>
 
                   <p className="text-gray-500 mb-3">{`${event.duration} minute, ${event.eventTypes}`}</p>
-                  <Link
-                    to={`/confirm-schedule/${event.scheduleId}`}
+                  <button
                     className="text-blue-500 hover:underline"
+                    onClick={() => handleRedirect(event.scheduleId)}
                   >
                     View booking page
-                  </Link>
+                  </button>
                 </div>
                 <div className="flex justify-between items-center gap-x-2">
                   <div

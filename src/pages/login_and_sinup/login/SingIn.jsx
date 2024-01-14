@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
 import useContexts from "../../../hooks/useContexts";
 const SingIn = () => {
-  const { handleGoogleSinin, handleLogin } = useContexts();
+  const { handleGoogleSinin, handleFacebookSignUp, handleLogin } = useContexts();
   const navigate = useNavigate();
   const {
     register,
@@ -22,6 +22,15 @@ const SingIn = () => {
       })
       .catch((err) => console.error(err));
   };
+
+  const handleFacebookLogin = () => {
+    handleFacebookSignUp()
+    .then((res) => {
+      console.log(res.user);
+      navigate("/");
+    })
+    .catch((err) => console.error(err));
+  }
 
   const handleGoogleLogin = () => {
     handleGoogleSinin()
@@ -63,7 +72,7 @@ const SingIn = () => {
             />
             Continue with google
           </button>
-          <button className=" btn-nav flex  mt-4 gap-2 w-full items-center justify-center">
+          <button onClick={handleFacebookLogin} className=" btn-nav flex  mt-4 gap-2 w-full items-center justify-center">
             <img
               src="https://assets.setmore.com/website/v2/images/icons/icon-facebook-blue.svg"
               className="h-6 w-6"

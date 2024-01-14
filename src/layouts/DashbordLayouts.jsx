@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import {
   FaCalendarAlt,
   FaCodeBranch,
@@ -30,7 +30,7 @@ const DashboardLayouts = () => {
         <div className="menu p-4 w-64 min-h-full bg-base-200 text-base-content">
           <div className="flex justify-between items-center mb-12">
             <h1 className="text-center font-cursive uppercase text-2xl">
-              lets schedule
+              <Link to={"/"}>lets schedule</Link>
             </h1>
           </div>
           <button
@@ -43,7 +43,9 @@ const DashboardLayouts = () => {
             <li className="mt-4">
               <NavLink
                 to={"/dashboard/create-event"}
-                className="flex items-center  text-xl"
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
               >
                 <FaLink />
                 Event types
@@ -52,7 +54,9 @@ const DashboardLayouts = () => {
             <li className="mt-4">
               <NavLink
                 to={"/dashboard/schedule-event"}
-                className="flex items-center  text-xl"
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
               >
                 <FaCalendarAlt />
                 Scheduled events
@@ -60,8 +64,10 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-4">
               <NavLink
-                to={"/dashboard/create-event"}
-                className="flex items-center  text-xl"
+                to={"/dashboard/workflows"}
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
               >
                 <FaCodeBranch />
                 Workflows
@@ -69,8 +75,10 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-4">
               <NavLink
-                to={"/dashboard/create-event"}
-                className="flex items-center  text-xl"
+                to={"/dashboard/routing"}
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
               >
                 <FaRandom />
                 Routing
@@ -78,8 +86,10 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-6">
               <NavLink
-                to={"/dashboard/create-event"}
-                className="flex items-center  text-xl"
+                to={"/dashboard/availability"}
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
               >
                 <FaRegClock />
                 Availability
@@ -87,8 +97,10 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-4">
               <NavLink
-                to={"/dashboard/create-event"}
-                className="flex items-center  text-xl"
+                to={"/dashboard/help"}
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
               >
                 <FaQuestion />
                 Help
@@ -96,8 +108,10 @@ const DashboardLayouts = () => {
             </li>
             <li className="mt-4">
               <NavLink
-                to={"/dashboard/create-event"}
-                className="flex items-center  text-xl"
+                to={"/dashboard/contact-us"}
+                className={({ isActive }) =>
+                  isActive ? "text-[#0069ff]" : "nothing"
+                }
               >
                 <FaHeadset />
                 contact us

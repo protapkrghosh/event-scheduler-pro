@@ -8,6 +8,7 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
+  FacebookAuthProvider 
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
@@ -18,6 +19,13 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const provider = new GoogleAuthProvider();
+  const facebookAuthProvider = new FacebookAuthProvider();
+
+
+  const handleFacebookSignUp = () => {
+    setLoading(true)
+    return signInWithPopup(auth, facebookAuthProvider)
+  }
 
   const handleSinup = (email, password) => {
     setLoading(true)
@@ -51,6 +59,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const authInfo = {
+    handleFacebookSignUp,
     handleSinup,
     handleLogin,
     handleLogout,
