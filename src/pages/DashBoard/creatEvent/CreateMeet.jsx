@@ -31,7 +31,7 @@ const CreateMeet = () => {
       eventName,
       userName,
     };
-
+    console.log(events);
     axios
       .post("http://localhost:3000/api/v1/events/creat-event", {
         event: events,

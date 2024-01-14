@@ -15,41 +15,45 @@ const ConfirmBooking = () => {
   const { id } = useParams();
   const { SingleEvent, refetch } = useSingleEvents(id);
   if (!SingleEvent) {
-    return <p>Loading...</p>;
+    return <span className="loading loading-dots loading-lg"></span>;
   }
   const { duration, eventName, userName, method, scheduleId } = SingleEvent;
   const preSelectedDate = selectedDate ? new Date(selectedDate) : null;
   const minDate = new Date(startDate);
   const maxDate = endDate ? new Date(endDate) : null;
-  console.log(scheduleDate);
 
-  const handlePatch = (id) => {
+  const handlePatch = async (id) => {
     const formattedDate = moment(scheduleDate).format(
       "h:mm a dddd, DD/MM/yyyy "
     );
-    const response = axios.patch(
+
+    const response = await axios.patch(
       `http://localhost:3000/api/v1/events/update-date-and-time?id=${id}`,
       { date: { dateAndTime: formattedDate } }
     );
-    console.log(response.data);
     refetch();
+    console.log(response.data);
   };
 
   return (
-    <div className=" md:w-8/12 mx-auto  ">
-      <div className="flex flex-wrap items-center justify-center shadow-2xl gap-5 mt-14 py-8 md:border md:border-[#0069ff] rounded-md">
+    <div className=" px-2 lg:px-0 ">
+      <div className="lg:w-8/12 md:border shadow-2xl md:border-[#0069ff] rounded-md mx-auto lg:flex gap-x-12 lg:border border-gray-300 lg:px-8 py-5">
         {/*=============== Event details ===================*/}
-        <div className="w-full sm:w-[515px] h-[397px] lg:w-[40%]   p-5 flex flex-col justify-center gap-2">
+        <div className="w-full sm:w-[515px] h-[397px] lg:w-[40%]    p-5 flex flex-col justify-center gap-2">
           <h3 className="text-lg font-bold">Invitee:</h3>
-          <p className="mt-1 text-xl font-medium">{userName}</p>
+          <p className="mt-1 text-secondary">{userName}</p>
           <h3 className="mt-4 text-lg font-bold">Meeting Name:</h3>
-          <p className="mt-1 text-3xl font-semibold">{eventName}</p>
+          <p className="mt-1 text-3xl font-semibold text-secondary">
+            {eventName}
+          </p>
           <h3 className="mt-4 text-lg font-bold">Meeting duration:</h3>
           <div className="flex items-center gap-2 my-3">
             <FaRegClock className="text-2xl font-medium" />
-            <span className="text-lg font-medium">{duration} minutes</span>
+            <span className="text-lg font-medium text-secondary">
+              {duration} minutes
+            </span>
           </div>
-          <h3 className="mt-4 text-lg font-bold">{`Location: ${method} `}</h3>
+          <h3 className="mt-4 text-lg font-bold text-secondary">{`Location: ${method} `}</h3>
 
           {scheduleDate && (
             <Link
