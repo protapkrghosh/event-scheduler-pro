@@ -24,7 +24,7 @@ import Payment from "../pages/DashBoard/Payment/Payment";
 import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
 import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
 import BookingConfirmationsPage from "../pages/DashBoard/ConfirmBooking/BookingConfirmationsPage";
-import PrivateRoute from "./privetRoute/PrivateRoute";
+import PrivateRoute from "./AdminRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -106,7 +106,9 @@ const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/bookings/${params.id}`),
+          fetch(
+            `https://lets-sheduleit-backend.vercel.app/bookings/${params.id}`
+          ),
       },
       {
         path: "/dashboard/create-event",

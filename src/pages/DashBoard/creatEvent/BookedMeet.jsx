@@ -37,7 +37,7 @@ const BookedMeet = () => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           await axios.delete(
-            `http://localhost:3000/api/v1/events/delete-event?id=${id}`
+            `https://lets-sheduleit-backend.vercel.app/api/v1/events/delete-event?id=${id}`
           );
           refetch();
           Swal.fire({
