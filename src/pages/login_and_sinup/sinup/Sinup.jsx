@@ -26,14 +26,17 @@ const Sinup = () => {
         console.log(result.user);
         updateUserProfile(name, photo);
         axios
-          .post("http://localhost:3000/api/v1/users/creat-user", {
-            user: {
-              id,
-              email,
-              name,
-              photo,
-            },
-          })
+          .post(
+            "https://lets-schedule-backend.vercel.app/api/v1/users/creat-user",
+            {
+              user: {
+                id,
+                email,
+                name,
+                photo,
+              },
+            }
+          )
           .then((data) => {
             console.log(data.data.massage);
             if (data.data.sucsees === true) {

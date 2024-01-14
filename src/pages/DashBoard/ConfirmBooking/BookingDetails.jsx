@@ -25,7 +25,7 @@ const BookingDetails = () => {
     meetLink,
     scheduleId,
   } = SingleEvent;
-  const detailsLink = `let-s-scheduled-frontend.vercel.app/confirm-schedule/${id}`;
+  const detailsLink = `https://lets-schedule-backend.vercel.app/confirm-schedule/${id}`;
   const onSubmit = async (data) => {
     try {
       const { name, email } = data;
@@ -43,7 +43,7 @@ const BookingDetails = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:3000/api/v1/events/send-email",
+        "https://lets-schedule-backend.vercel.app/api/v1/events/send-email",
         { emailInfo: emailData }
       );
 
