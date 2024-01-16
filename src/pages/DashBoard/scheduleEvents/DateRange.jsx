@@ -1,21 +1,25 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { DateRangePicker } from "react-date-range";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
-const DateRange = () => {
-  const [date, setDate] = useState({
-    startDate: new Date(),
-    endDate: new Date(),
+const DateRange = ({ startDate, endDate, setStartDate, setEndDate }) => {
+  const [localDate, setLocalDate] = useState({
+    startDate: startDate || new Date(),
+    endDate: endDate || new Date(),
     key: "selection",
   });
 
-  const handleCahange = (ranges) => {
-    setDate(ranges.selection);
+  const handleChange = (ranges) => {
+    setLocalDate(ranges.selection);
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
   };
+
   return (
     <div className="shadow-xl border border-gray-200">
-      <DateRangePicker ranges={[date]} onChange={handleCahange} />
+      <DateRangePicker ranges={[localDate]} onChange={handleChange} />
     </div>
   );
 };

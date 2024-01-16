@@ -4,12 +4,31 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import useSingleEvents from "../../../hooks/useSingleEvents";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import useContexts from "../../../hooks/useContexts";
 
 const BookingDetails = () => {
   const { id } = useParams();
+  const {user} = useContexts();
   const { SingleEvent, refetch } = useSingleEvents(id);
   const { register, handleSubmit } = useForm();
-  const navigat = useNavigate();
+  const navigate = useNavigate();
+  const [meetings, setMeetings] = useState([]);
+  
+    // get data
+    useEffect(() => {
+      fetch(
+        `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          const parsedMeetings = data.map((meeting) => ({
+            ...meeting,
+            dateAndTime: meeting?.dateAndTime,
+          }));
+          setMeetings(parsedMeetings);
+        });
+    }, [user?.email]);
 
   if (!SingleEvent) {
     return <span className="loading loading-dots loading-lg"></span>;
@@ -25,7 +44,7 @@ const BookingDetails = () => {
     meetLink,
     scheduleId,
   } = SingleEvent;
-  const detailsLink = `let-s-scheduled-frontend.vercel.app/confirm-schedule/${id}`;
+  const detailsLink = `https://lets-schedule-backend.vercel.app/confirm-schedule/${id}`;
   const onSubmit = async (data) => {
     try {
       const { name, email } = data;
@@ -48,7 +67,7 @@ const BookingDetails = () => {
       );
 
       if (response.data.success === true) {
-        navigat(`/confirm-schedule/bookingConfirmed/${scheduleId}`);
+        navigate(`/confirm-schedule/bookingConfirmed/${scheduleId}`);
         refetch();
       }
       console.log(response.data);
