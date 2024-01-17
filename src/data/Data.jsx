@@ -1,4 +1,16 @@
-import { FaMailBulk, FaUserFriends, FaRocketchat } from "react-icons/fa";
+import {
+  FaMailBulk,
+  FaUserFriends,
+  FaRocketchat,
+  FaLink,
+  FaCalendarAlt,
+  FaCodeBranch,
+  FaRandom,
+  FaRegClock,
+  FaQuestion,
+  FaHeadset,
+  FaRegUser,
+} from "react-icons/fa";
 export const servicesData = [
   {
     img: <FaUserFriends />,
@@ -51,5 +63,80 @@ export const event = [
     title: "Round Robin",
     titleTwo: "One rotating host with one invitee",
     discriptions: "Good for: distributing incoming sales leads",
+  },
+];
+
+export const userDashBoardNavData = [
+  {
+    icon: <FaLink />,
+    name: "Event types",
+    to: "/dashboard/create-event",
+  },
+  {
+    icon: <FaCalendarAlt />,
+    name: "Scheduled events",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaCodeBranch />,
+    name: "Workflows",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaRandom />,
+    name: "Routing",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaRegClock />,
+    name: "Availability",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaQuestion />,
+    name: " Help",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaHeadset />,
+    name: " contact us",
+    to: "/dashboard/schedule-event",
+  },
+];
+export const adminDashBoardNavData = [
+  {
+    icon: <FaRegUser />,
+    name: "All User",
+    to: "/dashboard/all-user",
+  },
+  {
+    icon: <FaCalendarAlt />,
+    name: "Scheduled events",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaCodeBranch />,
+    name: "Workflows",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaRandom />,
+    name: "Routing",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaRegClock />,
+    name: "Availability",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaQuestion />,
+    name: " Help",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaHeadset />,
+    name: " contact us",
+    to: "/dashboard/schedule-event",
   },
 ];

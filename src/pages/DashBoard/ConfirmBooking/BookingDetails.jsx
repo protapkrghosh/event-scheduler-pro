@@ -6,33 +6,32 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useContexts from "../../../hooks/useContexts";
+import Loading from "../../../componnents/loading/Loading";
 
 const BookingDetails = () => {
   const { id } = useParams();
-  const {user} = useContexts();
+  const { user } = useContexts();
   const { SingleEvent, refetch } = useSingleEvents(id);
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const [meetings, setMeetings] = useState([]);
-  
-    // get data
-    useEffect(() => {
-      fetch(
-        `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          const parsedMeetings = data.map((meeting) => ({
-            ...meeting,
-            dateAndTime: meeting?.dateAndTime,
-          }));
-          setMeetings(parsedMeetings);
-        });
-    }, [user?.email]);
 
-  if (!SingleEvent) {
-    return <span className="loading loading-dots loading-lg"></span>;
-  }
+  // get data
+  useEffect(() => {
+    fetch(
+      `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const parsedMeetings = data.map((meeting) => ({
+          ...meeting,
+          dateAndTime: meeting?.dateAndTime,
+        }));
+        setMeetings(parsedMeetings);
+      });
+  }, [user?.email]);
+
+  <Loading data={SingleEvent} />;
 
   const {
     duration,

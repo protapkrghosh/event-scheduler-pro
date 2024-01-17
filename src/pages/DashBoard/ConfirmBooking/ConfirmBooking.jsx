@@ -7,6 +7,7 @@ import { FaRegClock } from "react-icons/fa";
 import "./ConfirmBooking.css";
 import useSingleEvents from "../../../hooks/useSingleEvents";
 import moment from "moment";
+import Loading from "../../../componnents/loading/Loading";
 const ConfirmBooking = () => {
   const [scheduleInfo, setScheduleInfo] = useState({});
   const [scheduleDate, setScheduleDate] = useState(null);
@@ -14,6 +15,7 @@ const ConfirmBooking = () => {
   const { startDate, endDate } = timeRange || {};
   const { id } = useParams();
   const { SingleEvent, refetch } = useSingleEvents(id);
+
   if (!SingleEvent) {
     return <span className="loading loading-dots loading-lg"></span>;
   }

@@ -24,6 +24,8 @@ import Payment from "../pages/DashBoard/Payment/Payment";
 import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
 import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
 import PrivateRoute from "./privetRoute/PrivateRoute";
+import Overview from "../pages/DashBoard/admin/overview/Overview";
+import AllUser from "../pages/DashBoard/admin/allUser/AllUser";
 
 const router = createBrowserRouter([
   {
@@ -124,6 +126,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/:eventType",
         element: <CreateMeet></CreateMeet>,
+      },
+      {
+        path: "/dashboard/overview",
+        element: <Overview />,
+      },
+      {
+        path: "/dashboard/all-user",
+        element: <AllUser />,
       },
     ],
   },

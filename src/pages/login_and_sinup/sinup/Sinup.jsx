@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
 import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 const Sinup = () => {
   const {
@@ -16,31 +17,30 @@ const Sinup = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { handleSinup, updateUserProfile, handleGoogleSinin } = useContexts();
   const navigate = useNavigate();
+  const id = uuidv4();
   const onSubmit = (data) => {
     const { name, email, password, photo } = data;
-    const id = Math.floor(Math.random() * 9000) + 1000;
-
-    console.log(id);
+    const role = "user";
+    const currentPlane = "free";
     handleSinup(email, password)
       .then((result) => {
         console.log(result.user);
         updateUserProfile(name, photo);
         axios
-          .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
-            {
-              user: {
-                id,
-                email,
-                name,
-                photo,
-              },
-            }
-          )
+          .post("http://localhost:3000/api/v1/users/creat-user", {
+            user: {
+              id,
+              email,
+              name,
+              photo,
+              role,
+              currentPlane,
+            },
+          })
           .then((data) => {
             console.log(data.data.massage);
             if (data.data.sucsees === true) {
-              navigate("/dashboard");
+              navigate("/");
             }
           });
       })
@@ -50,7 +50,30 @@ const Sinup = () => {
     handleGoogleSinin()
       .then((result) => {
         console.log(result.user);
-        navigate("/");
+
+        const email = result?.user?.email;
+        const name = result?.user?.displayName;
+        const photo = result?.user?.photoURL;
+        const role = "user";
+        const currentPlane = "free";
+        const users = {
+          id,
+          email,
+          name,
+          photo,
+          role,
+          currentPlane,
+        };
+        axios
+          .post("http://localhost:3000/api/v1/users/creat-user", {
+            user: users,
+          })
+          .then((data) => {
+            console.log(data.data.massage);
+            if (data.data.sucsees === true) {
+              navigate("/");
+            }
+          });
       })
       .catch((err) => console.error(err));
   };

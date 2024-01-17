@@ -4,11 +4,19 @@ import useContexts from "../../../hooks/useContexts";
 import BookedMeet from "./BookedMeet";
 import { useState } from "react";
 import AddEventModal from "../../../componnents/modal/AddEventModal";
+import useIsBan from "../../../hooks/useIsBan";
+import toast from "react-hot-toast";
 
 const CreateEvent = () => {
   const { user } = useContexts();
   const [isOpen, setIsOpen] = useState(false);
-
+  const { isBans } = useIsBan();
+  console.log(isBans);
+  const handleCreatEvent = () => {
+    toast.error(
+      "you are not able to creat new event your account is resticted please contact customer support"
+    );
+  };
   return (
     <div className="">
       <h3 className="font-prompt text-3xl font-semibold mb-8 lg:mb-16 mt-5">
@@ -78,12 +86,21 @@ const CreateEvent = () => {
           </div>
         </div>
         <div className="flex items-center gap-x-3">
-          <button
-            className="hidden lg:inline-flex bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            creat new event
-          </button>
+          {isBans ? (
+            <button
+              className="hidden lg:inline-flex bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+              onClick={handleCreatEvent}
+            >
+              creat new event
+            </button>
+          ) : (
+            <button
+              className="hidden lg:inline-flex bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              creat new event
+            </button>
+          )}
           <div>
             <AddEventModal isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>

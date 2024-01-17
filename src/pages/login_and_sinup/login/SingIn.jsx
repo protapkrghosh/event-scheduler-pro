@@ -3,9 +3,13 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
 import useContexts from "../../../hooks/useContexts";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 const SingIn = () => {
-  const { handleGoogleSinin, handleFacebookSignUp, handleLogin } = useContexts();
+  const { handleGoogleSinin, handleFacebookSignUp, handleLogin } =
+    useContexts();
   const navigate = useNavigate();
+  const id = uuidv4();
   const {
     register,
     handleSubmit,
@@ -25,18 +29,40 @@ const SingIn = () => {
 
   const handleFacebookLogin = () => {
     handleFacebookSignUp()
-    .then((res) => {
-      console.log(res.user);
-      navigate("/");
-    })
-    .catch((err) => console.error(err));
-  }
+      .then((res) => {
+        console.log(res.user);
+        navigate("/");
+      })
+      .catch((err) => console.error(err));
+  };
 
   const handleGoogleLogin = () => {
     handleGoogleSinin()
       .then((result) => {
         console.log(result.user);
-        navigate("/");
+        const email = result?.user?.email;
+        const name = result?.user?.displayName;
+        const photo = result?.user?.photoURL;
+        const role = "user";
+        const currentPlane = "free";
+        const users = {
+          id,
+          email,
+          name,
+          photo,
+          role,
+          currentPlane,
+        };
+        axios
+          .post("http://localhost:3000/api/v1/users/creat-user", {
+            user: users,
+          })
+          .then((data) => {
+            console.log(data.data);
+            if (data.data.sucsees === true) {
+              navigate("/");
+            }
+          });
       })
       .catch((err) => console.error(err));
   };
@@ -72,7 +98,10 @@ const SingIn = () => {
             />
             Continue with google
           </button>
-          <button onClick={handleFacebookLogin} className=" btn-nav flex  mt-4 gap-2 w-full items-center justify-center">
+          <button
+            onClick={handleFacebookLogin}
+            className=" btn-nav flex  mt-4 gap-2 w-full items-center justify-center"
+          >
             <img
               src="https://assets.setmore.com/website/v2/images/icons/icon-facebook-blue.svg"
               className="h-6 w-6"

@@ -4,6 +4,7 @@ import { IoVideocamOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import { useParams } from "react-router-dom";
 import useSingleEvents from "../../../hooks/useSingleEvents";
+import Loading from "../../../componnents/loading/Loading";
 
 const ScheduleConfirmed = () => {
   const handleRedirect = () => {
@@ -12,13 +13,7 @@ const ScheduleConfirmed = () => {
   };
   const { id } = useParams();
   const { SingleEvent } = useSingleEvents(id);
-  if (!SingleEvent) {
-    return (
-      <div className="flex items-center justify-center w-2/12 mx-auto ml-[400px]">
-        <span className="loading loading-dots ml-[400px] loading-lg"></span>
-      </div>
-    );
-  }
+  <Loading data={SingleEvent} />;
   const { eventName, dateAndTime, userName } = SingleEvent;
   return (
     <div className="px-2 lg:px-0">
