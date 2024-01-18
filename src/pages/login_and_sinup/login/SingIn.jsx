@@ -54,9 +54,12 @@ const SingIn = () => {
           currentPlane,
         };
         axios
-          .post("http://localhost:3000/api/v1/users/creat-user", {
-            user: users,
-          })
+          .post(
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            {
+              user: users,
+            }
+          )
           .then((data) => {
             console.log(data.data);
             if (data.data.sucsees === true) {
