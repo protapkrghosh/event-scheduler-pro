@@ -9,14 +9,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DateRange from "./DateRange";
 import UpcomingTableContent from "./UpcomingTableContent";
-import { isBefore, addDays, parse, isSameDay, isAfter } from "date-fns";
+import { isBefore, addDays, parse, isSameDay, isAfter, startOfDay  } from "date-fns";
 import PendingTableContent from "./PendingTableContent";
 import PastTableContent from "./PastTableContent";
 import useContexts from "../../../hooks/useContexts";
 
 const ScheduleEvents = () => {
   const { user } = useContexts();
-  const [active, setIsActive] = useState("pending");
+  const [active, setIsActive] = useState("upcoming");
   const [open, setOpen] = useState(false);
   const [meetings, setMeetings] = useState([]);
   const [pastMeetings, setPastMeetings] = useState([]);
@@ -116,17 +116,20 @@ const ScheduleEvents = () => {
     const pastMeetings = meetings.filter((meeting) => {
       // Use optional chaining to safely access dateAndTime
       const [, datePart] = meeting?.dateAndTime?.split(",") || [];
-
+  
       if (datePart) {
         const formattedDate = datePart.trim();
         const meetingDate = parse(formattedDate, "dd/MM/yyyy", new Date());
-        return isBefore(meetingDate, today);
+  
+        // Check if the meetingDate is before today's date without considering the time
+        return isBefore(meetingDate, startOfDay(today));
       }
-
+  
       return false;
     });
     setPastMeetings(pastMeetings);
   };
+  
 
   // get the next day meetings
   const getTomorrowsMeetings = () => {
@@ -227,14 +230,6 @@ const ScheduleEvents = () => {
             </div>
 
           </div>
-          {/* <div className="flex justify-center items-center gap-x-4">
-            <button className="hidden lg:flex justify-center items-center gap-x-2 border border-black  py-1 px-3 rounded-full">
-              <FaDownload></FaDownload> Export
-            </button>
-            <button className="hidden lg:flex justify-center items-center gap-x-2 border border-black  py-1 px-3 rounded-full">
-              <FaAlignRight></FaAlignRight> Filter <FaAngleDown></FaAngleDown>
-            </button>
-          </div> */}
         </TabList>
 
         <TabPanel>
