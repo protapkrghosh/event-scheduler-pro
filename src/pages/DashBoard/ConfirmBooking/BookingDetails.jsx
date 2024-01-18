@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useContexts from "../../../hooks/useContexts";
+import Loading from "../../../componnents/loading/Loading";
 
 const BookingDetails = () => {
   const { id } = useParams();
@@ -14,13 +15,25 @@ const BookingDetails = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
-  if (!SingleEvent) {
-    return (
-      <div className="flex justify-center items-center">
-        <span className="loading loading-dots loading-lg"></span>
-      </div>
-    );
-  }
+  const [meetings, setMeetings] = useState([]);
+
+  // get data
+  useEffect(() => {
+    fetch(
+      `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const parsedMeetings = data.map((meeting) => ({
+          ...meeting,
+          dateAndTime: meeting?.dateAndTime,
+        }));
+        setMeetings(parsedMeetings);
+      });
+  }, [user?.email]);
+
+  <Loading data={SingleEvent} />;
+
 
   const {
     duration,
@@ -51,7 +64,7 @@ const BookingDetails = () => {
       };
 
       const response = await axios.post(
-        "https://lets-sheduleit-backend.vercel.app/api/v1/events/send-email",
+        "https://lets-sheduleit-backend.vercel.app/api/v1/mail/send-email",
         { emailInfo: emailData }
       );
 

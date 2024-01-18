@@ -20,10 +20,14 @@ import CreateMeet from "../pages/DashBoard/creatEvent/CreateMeet";
 import CreatRoom from "../pages/DashBoard/creatCustomMeet/CreatRoom";
 import EventDtailsLayouts from "../layouts/EventDtailsLayouts";
 import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
-import Payment from "../pages/DashBoard/Payment/Payment";
 import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
 import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
 import PrivateRoute from "./privetRoute/PrivateRoute";
+import Overview from "../pages/DashBoard/admin/overview/Overview";
+import AllUser from "../pages/DashBoard/admin/allUser/AllUser";
+import AllEvents from "../pages/DashBoard/admin/allEvents/AllEvents";
+import Payments from "../pages/DashBoard/Payment/Payments";
+import PymentConfirm from "../pages/DashBoard/Payment/PymentConfirm";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +91,14 @@ const router = createBrowserRouter([
         path: "/solutions/education",
         element: <Educations />,
       },
+      {
+        path: "/payment/:id",
+        element: <Payments />,
+      },
+      {
+        path: "/payment-success/:id",
+        element: <PymentConfirm />,
+      },
     ],
   },
   {
@@ -101,14 +113,7 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <CreateEvent></CreateEvent>,
       },
-      {
-        path: "/dashboard/payment/:id",
-        element: <Payment></Payment>,
-        loader: ({ params }) =>
-          fetch(
-            `https://lets-sheduleit-backend.vercel.app/bookings/${params.id}`
-          ),
-      },
+
       {
         path: "/dashboard/create-event",
         element: <CreateEvent />,
@@ -124,6 +129,18 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/:eventType",
         element: <CreateMeet></CreateMeet>,
+      },
+      {
+        path: "/dashboard/overview",
+        element: <Overview />,
+      },
+      {
+        path: "/dashboard/all-user",
+        element: <AllUser />,
+      },
+      {
+        path: "/dashboard/all-events",
+        element: <AllEvents />,
       },
     ],
   },

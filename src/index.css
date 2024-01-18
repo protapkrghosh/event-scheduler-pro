@@ -20,11 +20,14 @@
 .btn-primary {
   @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-4  px-5 rounded-md  border-0 transition duration-100 ease-in-out;
 }
+.btn-delete {
+  @apply bg-red-500 hover:bg-blue-600 text-white font-bold text-xl py-4  px-5 rounded-md  border-0 transition duration-100 ease-in-out;
+}
 .btn-event {
   @apply border text-white py-1 px-4 bg-[#0069ff] rounded-full hover:bg-gray-500 hover:text-white transition-all duration-200 my-8;
 }
 .text-primary {
-  @apply  text-4xl md:text-6xl xl:text-7xl font-bold text-[#0b3558] font-prompt;
+  @apply text-4xl md:text-6xl xl:text-7xl font-bold text-[#0b3558] font-prompt;
 }
 .text-third {
   @apply md:text-5xl text-4xl font-bold text-[#0b3558] font-prompt;

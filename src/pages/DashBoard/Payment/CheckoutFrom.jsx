@@ -1,110 +1,108 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import axios from "axios";
 import { useEffect, useState } from "react";
+import useContexts from "../../../hooks/useContexts";
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
-const CheckoutForm = ({ booking }) => {
-  const [cardError, setCardError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [processing, setProcessing] = useState(false);
-  const [transactionId, setTransactionId] = useState("");
+const CheckoutForm = ({ price, card }) => {
   const [clientSecret, setClientSecret] = useState("");
-
+  const { user } = useContexts();
+  const { heading } = card;
+  const [isPaymentIntent, setIsPaymentIntent] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  const { price, email, patient, _id } = booking;
-
+  const paymentsId = uuidv4();
+  const userName = user?.displayName;
+  const userEmail = user?.email;
+  const navigate = useNavigate();
   useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("https://lets-sheduleit-backend.vercel.app/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ price }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setClientSecret(data.clientSecret);
-      });
-  }, [price]);
+    if (!isPaymentIntent) {
+      axios
+        .post("http://localhost:3000/api/v1/payments/create-payment-intent", {
+          price,
+        })
+        .then((res) => {
+          setClientSecret(res.data.data.clientSecret);
 
+
+          setIsPaymentIntent(true);
+        });
+    }
+  }, [price, isPaymentIntent]);
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (!stripe || !elements) {
       return;
     }
     const card = elements.getElement(CardElement);
-    if (card === null) {
+
+    if (card == null) {
       return;
     }
 
-    try {
-      setCardError("");
-      setSuccess("");
-      setProcessing(true);
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card,
+    });
 
-      const { paymentIntent, error: confirmError } =
-        await stripe.confirmCardPayment(clientSecret, {
-          payment_method: {
-            card: card,
-            billing_details: {
-              name: patient,
-              email: email,
-            },
+    if (error) {
+      console.log("[error]", error);
+    } else {
+      console.log(paymentMethod.id);
+    }
+    console.log(card);
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: user?.displayName,
           },
-        });
-
-      if (confirmError) {
-        setCardError(confirmError.message);
-        setProcessing(false);
-        return;
-      }
-
-      if (paymentIntent.status === "succeeded") {
-        const payment = {
-          price,
-          transactionId: paymentIntent.id,
-          bookingId: _id,
-        };
-
-        const response = await fetch(
-          "https://lets-sheduleit-backend.vercel.app/payments",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(payment),
-          }
+        },
+      });
+    const transitionId = paymentMethod.id;
+    const date = Date.now();
+    const amount = price;
+    console.log(paymentIntent);
+    if (paymentIntent.status === "succeeded") {
+      const payments = {
+        paymentsId,
+        userName,
+        userNames: userName,
+        userEmail,
+        transitionId,
+        date,
+        amount,
+      };
+      const res = await axios.post(
+        "http://localhost:3000/api/v1/payments/save-payment-history",
+        { paymentsData: payments }
+      );
+      if (res.data.sucsees === true) {
+        const res = await axios.patch(
+          `http://localhost:3000/api/v1/users/change-user-plane?email=${user?.email}`,
+          { plane: heading }
         );
+        if (res.data.success === true) {
+          navigate(`/payment-success/${paymentsId}`);
 
-        const data = await response.json();
-
-        if (data.insertedId) {
-          console.log(data);
-          setSuccess("Congratulations! Your payment is completed");
-          setTransactionId(paymentIntent.id);
         }
       }
-    } catch (error) {
-      console.error("Error confirming payment:", error);
-      setCardError("Error confirming payment. Please try again.");
-    } finally {
-      setProcessing(false);
     }
   };
-
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="w-full  my-8">
         <CardElement
           options={{
             style: {
               base: {
                 fontSize: "16px",
-                color: "#424770",
+                color: "#0069ff",
                 "::placeholder": {
-                  color: "#aab7c4",
+                  color: "#0069ff",
                 },
               },
               invalid: {
@@ -114,22 +112,13 @@ const CheckoutForm = ({ booking }) => {
           }}
         />
         <button
-          className="border border-blue-500 px-3 py-1 hover:bg-blue-500 transition-colors duration-200 rounded-md mt-5 cursor-pointer"
+          className="btn-primary w-full mt-8"
           type="submit"
-          disabled={!stripe || !clientSecret || processing}
+          disabled={!stripe || !clientSecret}
         >
-          Pay
+          Purchase
         </button>
       </form>
-      <p className="text-red-500">{cardError}</p>
-      {success && (
-        <div>
-          <p className="text-green-400">{success}</p>
-          <p>
-            TransactionId: <span className="font-bold">{transactionId}</span>
-          </p>
-        </div>
-      )}
     </>
   );
 };

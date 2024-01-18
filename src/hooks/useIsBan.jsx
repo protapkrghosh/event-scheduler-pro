@@ -2,20 +2,20 @@ import { useQuery } from "@tanstack/react-query";
 import useContexts from "./useContexts";
 import axios from "axios";
 
-const useAdmin = () => {
+const useIsBan = () => {
   const { user } = useContexts();
 
-  const { data: isAdmin = false, refetch } = useQuery({
-    queryKey: ["isAdmins"],
+  const { data: isBans = false, refetch } = useQuery({
+    queryKey: ["isBans"],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/users/get-isAdmin?email=${user?.email}`
+        `http://localhost:3000/api/v1/users/get-isBan?email=${user?.email}`
       );
       return res.data;
     },
   });
 
-  return { isAdmin, refetch };
+  return { isBans, refetch };
 };
 
-export default useAdmin;
+export default useIsBan;
