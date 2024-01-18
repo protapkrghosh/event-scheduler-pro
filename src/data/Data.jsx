@@ -138,7 +138,7 @@ export const adminDashBoardNavData = [
 
 export const cards = [
   {
-    id: 2,
+    id: 1,
     heading: "Pro",
     para: "1 - 2 users",
     rate: 5,

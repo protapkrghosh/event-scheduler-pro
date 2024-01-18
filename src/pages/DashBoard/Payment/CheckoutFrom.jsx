@@ -2,17 +2,24 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useContexts from "../../../hooks/useContexts";
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ price, card }) => {
   const [clientSecret, setClientSecret] = useState("");
   const { user } = useContexts();
+  const { heading } = card;
   const [isPaymentIntent, setIsPaymentIntent] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  const paymentsId = uuidv4();
+  const userName = user?.displayName;
+  const userEmail = user?.email;
+  const navigate = useNavigate();
   useEffect(() => {
     if (!isPaymentIntent) {
       axios
-        .post("http://localhost:3000/api/v1/events/create-payment-intent", {
+        .post("http://localhost:3000/api/v1/payments/create-payment-intent", {
           price,
         })
         .then((res) => {
@@ -42,7 +49,7 @@ const CheckoutForm = ({ price }) => {
     if (error) {
       console.log("[error]", error);
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+      console.log(paymentMethod.id);
     }
     console.log(card);
     const { paymentIntent, error: confirmError } =
@@ -54,10 +61,34 @@ const CheckoutForm = ({ price }) => {
           },
         },
       });
-
-    console.log(confirmError);
-
-    console.log(paymentIntent.status);
+    const transitionId = paymentMethod.id;
+    const date = Date.now();
+    const amount = price;
+    console.log(paymentIntent);
+    if (paymentIntent.status === "succeeded") {
+      const payments = {
+        paymentsId,
+        userName,
+        userNames: userName,
+        userEmail,
+        transitionId,
+        date,
+        amount,
+      };
+      const res = await axios.post(
+        "http://localhost:3000/api/v1/payments/save-payment-history",
+        { paymentsData: payments }
+      );
+      if (res.data.sucsees === true) {
+        const res = await axios.patch(
+          `http://localhost:3000/api/v1/users/change-user-plane?email=${user?.email}`,
+          { plane: heading }
+        );
+        if (res.data.success === true) {
+          navigate(`/payment-success/${paymentsId}`);
+        }
+      }
+    }
   };
   return (
     <>
@@ -67,9 +98,9 @@ const CheckoutForm = ({ price }) => {
             style: {
               base: {
                 fontSize: "16px",
-                color: "#424770",
+                color: "#0069ff",
                 "::placeholder": {
-                  color: "#aab7c4",
+                  color: "#0069ff",
                 },
               },
               invalid: {

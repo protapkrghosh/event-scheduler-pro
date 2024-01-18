@@ -27,6 +27,7 @@ import Overview from "../pages/DashBoard/admin/overview/Overview";
 import AllUser from "../pages/DashBoard/admin/allUser/AllUser";
 import AllEvents from "../pages/DashBoard/admin/allEvents/AllEvents";
 import Payments from "../pages/DashBoard/Payment/Payments";
+import PymentConfirm from "../pages/DashBoard/Payment/PymentConfirm";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
       {
         path: "/payment/:id",
         element: <Payments />,
+      },
+      {
+        path: "/payment-success/:id",
+        element: <PymentConfirm />,
       },
     ],
   },

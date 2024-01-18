@@ -51,7 +51,7 @@ const Payments = () => {
           </div>
           <p className="text-secondary mt-4 ">Enter your card details</p>
           <Elements stripe={stripePromise}>
-            <CheckoutFrom price={payment}></CheckoutFrom>
+            <CheckoutFrom card={data} price={payment}></CheckoutFrom>
           </Elements>
         </div>
         <div className="divider lg:divider-horizontal"></div>
