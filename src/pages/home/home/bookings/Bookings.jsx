@@ -2,57 +2,11 @@ import { TiTick } from "react-icons/ti";
 import { HiArrowLongRight } from "react-icons/hi2";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { cards } from "../../../../data/Data";
 
 const Bookings = () => {
   const [open, setOpen] = useState(false);
 
-  const cards = [
-    {
-      heading: "Free",
-      para: "Up to 4 users",
-      rate: 0,
-      description: [
-        "Unlimited appointments",
-        "Accept payments",
-        "Your custom Booking Page",
-        "iOS and Android apps",
-        "Customized notifications",
-        "Email reminders",
-        "Integrate with your favorite apps",
-      ],
-      button: "Start Free",
-    },
-    {
-      heading: "Pro",
-      para: "1 - 2 users",
-      rate: 5,
-      description: [
-        "Unlimited appointments",
-        "Accept payments",
-        "Your custom Booking Page",
-        "iOS and Android apps",
-        "Customized notifications",
-        "Email reminders",
-        "Integrate with your favorite apps",
-      ],
-      button: "Start Pro",
-    },
-    {
-      heading: "Team",
-      para: "Infinite users",
-      rate: 12,
-      description: [
-        "Unlimited appointments",
-        "Accept payments",
-        "Your custom Booking Page",
-        "iOS and Android apps",
-        "Customized notifications",
-        "Email reminders",
-        "Integrate with your favorite apps",
-      ],
-      button: "Start Team",
-    },
-  ];
   return (
     <div className=" bg-[#EDF0F2] px-1 lg:px-0 py-24">
       <div className="lg:w-11/12 xl:w-9/12 mx-auto">
@@ -99,7 +53,7 @@ const Bookings = () => {
                 <h4 className="text-4xl font-bold">${card.rate}</h4>
                 <p className=" text-gray-500">user / month</p>
               </div>
-              <Link to="/dashboard/payment">
+              <Link to={`/payment/${card.id}`}>
                 <button className="btn-card w-full rounded-md">
                   {card.button}
                 </button>

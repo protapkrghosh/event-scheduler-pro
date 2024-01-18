@@ -111,13 +111,8 @@ export const adminDashBoardNavData = [
   },
   {
     icon: <FaCalendarAlt />,
-    name: "Scheduled events",
-    to: "/dashboard/schedule-event",
-  },
-  {
-    icon: <FaCodeBranch />,
-    name: "Workflows",
-    to: "/dashboard/schedule-event",
+    name: "All events",
+    to: "/dashboard/all-events",
   },
   {
     icon: <FaRandom />,
@@ -138,5 +133,56 @@ export const adminDashBoardNavData = [
     icon: <FaHeadset />,
     name: " contact us",
     to: "/dashboard/schedule-event",
+  },
+];
+
+export const cards = [
+  {
+    id: 2,
+    heading: "Pro",
+    para: "1 - 2 users",
+    rate: 5,
+    description: [
+      "Unlimited appointments",
+      "Accept payments",
+      "Your custom Booking Page",
+      "iOS and Android apps",
+      "Customized notifications",
+      "Email reminders",
+      "Integrate with your favorite apps",
+    ],
+    button: "Start Pro",
+  },
+  {
+    id: 2,
+    heading: "Team",
+    para: "Infinite users",
+    rate: 12,
+    description: [
+      "Unlimited appointments",
+      "Accept payments",
+      "Your custom Booking Page",
+      "iOS and Android apps",
+      "Customized notifications",
+      "Email reminders",
+      "Integrate with your favorite apps",
+    ],
+    button: "Start Team",
+  },
+  {
+    id: 3,
+    heading: "Enterprise",
+    para: "Infinite users",
+    rate: 48,
+    description: [
+      "Unlimited appointments",
+      "Accept payments",
+      "Your custom Booking Page",
+      "iOS and Android apps",
+      "Customized notifications",
+      "Email reminders",
+      "Integrate with your favorite apps",
+    ],
+    button: "Enterprise",
   },
 ];
