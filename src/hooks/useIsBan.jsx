@@ -9,7 +9,7 @@ const useIsBan = () => {
     queryKey: ["isBans"],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/users/get-isBan?email=${user?.email}`
+        `https://lets-sheduleit-backend.vercel.app/api/v1/users/get-isBan?email=${user?.email}`
       );
       return res.data;
     },

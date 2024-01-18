@@ -19,12 +19,14 @@ const CheckoutForm = ({ price, card }) => {
   useEffect(() => {
     if (!isPaymentIntent) {
       axios
-        .post("http://localhost:3000/api/v1/payments/create-payment-intent", {
-          price,
-        })
+        .post(
+          "https://lets-sheduleit-backend.vercel.app/api/v1/payments/create-payment-intent",
+          {
+            price,
+          }
+        )
         .then((res) => {
           setClientSecret(res.data.data.clientSecret);
-
 
           setIsPaymentIntent(true);
         });
@@ -77,17 +79,16 @@ const CheckoutForm = ({ price, card }) => {
         amount,
       };
       const res = await axios.post(
-        "http://localhost:3000/api/v1/payments/save-payment-history",
+        "https://lets-sheduleit-backend.vercel.app/api/v1/payments/save-payment-history",
         { paymentsData: payments }
       );
       if (res.data.sucsees === true) {
         const res = await axios.patch(
-          `http://localhost:3000/api/v1/users/change-user-plane?email=${user?.email}`,
+          `https://lets-sheduleit-backend.vercel.app/api/v1/users/change-user-plane?email=${user?.email}`,
           { plane: heading }
         );
         if (res.data.success === true) {
           navigate(`/payment-success/${paymentsId}`);
-
         }
       }
     }

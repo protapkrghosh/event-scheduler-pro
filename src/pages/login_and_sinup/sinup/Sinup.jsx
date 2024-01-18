@@ -27,16 +27,19 @@ const Sinup = () => {
         console.log(result.user);
         updateUserProfile(name, photo);
         axios
-          .post("http://localhost:3000/api/v1/users/creat-user", {
-            user: {
-              id,
-              email,
-              name,
-              photo,
-              role,
-              currentPlane,
-            },
-          })
+          .post(
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            {
+              user: {
+                id,
+                email,
+                name,
+                photo,
+                role,
+                currentPlane,
+              },
+            }
+          )
           .then((data) => {
             console.log(data.data.massage);
             if (data.data.sucsees === true) {
@@ -65,9 +68,12 @@ const Sinup = () => {
           currentPlane,
         };
         axios
-          .post("http://localhost:3000/api/v1/users/creat-user", {
-            user: users,
-          })
+          .post(
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            {
+              user: users,
+            }
+          )
           .then((data) => {
             console.log(data.data.massage);
             if (data.data.sucsees === true) {

@@ -6,7 +6,7 @@ const useAllUsers = () => {
     queryKey: ["all-user"],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/users/all-user`
+        `https://lets-sheduleit-backend.vercel.app/api/v1/users/all-user`
       );
       return res.data;
     },
