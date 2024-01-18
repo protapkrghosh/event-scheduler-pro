@@ -14,6 +14,7 @@ const ScheduleConfirmed = () => {
   const { id } = useParams();
   const { SingleEvent } = useSingleEvents(id);
   <Loading data={SingleEvent} />;
+
   const { eventName, dateAndTime, userName } = SingleEvent;
   return (
     <div className="px-2 lg:px-0">

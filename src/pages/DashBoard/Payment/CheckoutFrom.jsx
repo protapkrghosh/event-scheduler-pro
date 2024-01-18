@@ -25,6 +25,7 @@ const CheckoutForm = ({ price, card }) => {
         .then((res) => {
           setClientSecret(res.data.data.clientSecret);
 
+
           setIsPaymentIntent(true);
         });
     }
@@ -86,6 +87,7 @@ const CheckoutForm = ({ price, card }) => {
         );
         if (res.data.success === true) {
           navigate(`/payment-success/${paymentsId}`);
+
         }
       }
     }

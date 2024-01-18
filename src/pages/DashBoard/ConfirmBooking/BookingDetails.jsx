@@ -14,6 +14,7 @@ const BookingDetails = () => {
   const { SingleEvent, refetch } = useSingleEvents(id);
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+
   const [meetings, setMeetings] = useState([]);
 
   // get data
@@ -33,6 +34,7 @@ const BookingDetails = () => {
 
   <Loading data={SingleEvent} />;
 
+
   const {
     duration,
     eventName,
@@ -43,7 +45,8 @@ const BookingDetails = () => {
     meetLink,
     scheduleId,
   } = SingleEvent;
-  const detailsLink = `https://lets-schedule-backend.vercel.app/confirm-schedule/${id}`;
+
+  const detailsLink = `https://let-s-scheduled-frontend.vercel.app/confirm-schedule/${id}`;
   const onSubmit = async (data) => {
     try {
       const { name, email } = data;
