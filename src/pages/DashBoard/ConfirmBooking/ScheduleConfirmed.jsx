@@ -14,9 +14,9 @@ const ScheduleConfirmed = () => {
   const { SingleEvent } = useSingleEvents(id);
   if (!SingleEvent) {
     return (
-      <div className="flex items-center justify-center w-2/12 mx-auto ml-[400px]">
-        <span className="loading loading-dots ml-[400px] loading-lg"></span>
-      </div>
+      <div className="flex justify-center items-center">
+      <span className="loading loading-dots loading-lg"></span>
+    </div>
     );
   }
   const { eventName, dateAndTime, userName } = SingleEvent;
