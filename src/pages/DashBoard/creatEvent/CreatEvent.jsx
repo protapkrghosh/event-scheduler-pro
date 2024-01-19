@@ -1,5 +1,4 @@
-import { FaAngleDown, FaSearch } from "react-icons/fa";
-import { IoIosSettings } from "react-icons/io";
+import { FaAngleDown, FaCreativeCommonsShare, FaSearch } from "react-icons/fa";
 import useContexts from "../../../hooks/useContexts";
 import BookedMeet from "./BookedMeet";
 import { useState } from "react";
@@ -85,7 +84,7 @@ const CreateEvent = () => {
             <p className="text-blue-500">{user && user.email}</p>
           </div>
         </div>
-        <div className="flex items-center gap-x-3">
+        <div className="flex items-center ">
           {isBans ? (
             <button
               className="hidden lg:inline-flex bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
@@ -95,16 +94,30 @@ const CreateEvent = () => {
             </button>
           ) : (
             <button
-              className="hidden lg:inline-flex bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+              className="hidden  ml-1 lg:inline-flex bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
               onClick={() => setIsOpen(!isOpen)}
             >
               creat new event
             </button>
           )}
+          {isBans ? (
+            <button
+              className="  lg:inline-flex bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+              onClick={handleCreatEvent}
+            >
+              <FaCreativeCommonsShare />
+            </button>
+          ) : (
+            <button
+              className=" ml-1  lg:inline-flex bg-[#0069ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <FaCreativeCommonsShare />
+            </button>
+          )}
           <div>
             <AddEventModal isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
-          <IoIosSettings className="text-3xl cursor-pointer"></IoIosSettings>
         </div>
       </div>
       <div className="flex justify-center lg:justify-start mb-8"></div>

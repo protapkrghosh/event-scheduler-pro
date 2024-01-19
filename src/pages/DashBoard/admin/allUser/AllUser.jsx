@@ -36,7 +36,7 @@ const AllUser = () => {
             {/* head */}
             <thead>
               <tr className="text-2xl text-[#0b3558] ">
-                <th>#</th>
+                <th>No</th>
                 <th>User name</th>
                 <th>User email</th>
                 <th>Role</th>

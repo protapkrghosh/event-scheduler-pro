@@ -3,7 +3,6 @@ import useContexts from "../hooks/useContexts";
 
 const DashBoardNavbarComponnets = () => {
   const { user, handleLogout } = useContexts();
-  console.log(user);
 
   const handleLogouts = () => {
     handleLogout();

@@ -65,7 +65,7 @@ const CheckoutForm = ({ price, card }) => {
         },
       });
     const transitionId = paymentMethod.id;
-    const date = Date.now();
+    const date = new Date();
     const amount = price;
     console.log(paymentIntent);
     if (paymentIntent.status === "succeeded") {
@@ -75,8 +75,9 @@ const CheckoutForm = ({ price, card }) => {
         userNames: userName,
         userEmail,
         transitionId,
-        date,
+        date: date.toISOString(),
         amount,
+        packages: heading,
       };
       const res = await axios.post(
         "https://lets-sheduleit-backend.vercel.app/api/v1/payments/save-payment-history",
@@ -102,8 +103,9 @@ const CheckoutForm = ({ price, card }) => {
               base: {
                 fontSize: "16px",
                 color: "#0069ff",
+                padding: "24px",
                 "::placeholder": {
-                  color: "#0069ff",
+                  color: "",
                 },
               },
               invalid: {
