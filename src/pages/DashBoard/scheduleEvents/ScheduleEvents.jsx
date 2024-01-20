@@ -33,7 +33,7 @@ const ScheduleEvents = () => {
   // get data
   useEffect(() => {
     fetch(
-      `https://lets-sheduleit-backend.vercel.appapi/v1/events/get-event?email=${user?.email}`
+      `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {

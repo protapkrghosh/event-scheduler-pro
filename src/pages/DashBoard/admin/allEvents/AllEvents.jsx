@@ -18,7 +18,7 @@ const AllEvents = () => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           await axios.delete(
-            `https://lets-sheduleit-backend.vercel.appapi/v1/events/delete-event?id=${id}`
+            `https://lets-sheduleit-backend.vercel.app/api/v1/events/delete-event?id=${id}`
           );
           refetch();
           Swal.fire({
