@@ -25,7 +25,7 @@ const ConfirmBooking = () => {
     const fetchDisabledTimes = async () => {
       try {
         const response = await axios.get(
-          "https://lets-sheduleit-backend.vercel.app/api/v1/events/get-all-event"
+          "https://lets-sheduleit-backend.vercel.appapi/v1/events/get-all-event"
         );
 
         const bookedTimes = response.data
@@ -73,7 +73,7 @@ const ConfirmBooking = () => {
     );
 
     const response = await axios.patch(
-      `https://lets-sheduleit-backend.vercel.app/api/v1/events/update-date-and-time?id=${id}`,
+      `https://lets-sheduleit-backend.vercel.appapi/v1/events/update-date-and-time?id=${id}`,
       { date: { dateAndTime: formattedDate } }
     );
     refetch();

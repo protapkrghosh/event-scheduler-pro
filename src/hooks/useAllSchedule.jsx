@@ -6,7 +6,7 @@ const useAllSchedule = () => {
     queryKey: ["all-events"],
     queryFn: async () => {
       const res = await axios.get(
-        `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-all-event`
+        `https://lets-sheduleit-backend.vercel.appapi/v1/events/get-all-event`
       );
       return res.data;
     },

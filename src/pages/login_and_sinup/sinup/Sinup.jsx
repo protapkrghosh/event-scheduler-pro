@@ -28,7 +28,7 @@ const Sinup = () => {
         updateUserProfile(name, photo);
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            "https://lets-sheduleit-backend.vercel.appapi/v1/users/creat-user",
             {
               user: {
                 id,
@@ -69,7 +69,7 @@ const Sinup = () => {
         };
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            "https://lets-sheduleit-backend.vercel.appapi/v1/users/creat-user",
             {
               user: users,
             }
