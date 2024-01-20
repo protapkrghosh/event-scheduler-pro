@@ -9,7 +9,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DateRange from "./DateRange";
 import UpcomingTableContent from "./UpcomingTableContent";
-import { isBefore, addDays, parse, isSameDay, isAfter, startOfDay  } from "date-fns";
+import {
+  isBefore,
+  addDays,
+  parse,
+  isSameDay,
+  isAfter,
+  startOfDay,
+} from "date-fns";
 import PendingTableContent from "./PendingTableContent";
 import PastTableContent from "./PastTableContent";
 import useContexts from "../../../hooks/useContexts";
@@ -116,20 +123,19 @@ const ScheduleEvents = () => {
     const pastMeetings = meetings.filter((meeting) => {
       // Use optional chaining to safely access dateAndTime
       const [, datePart] = meeting?.dateAndTime?.split(",") || [];
-  
+
       if (datePart) {
         const formattedDate = datePart.trim();
         const meetingDate = parse(formattedDate, "dd/MM/yyyy", new Date());
-  
+
         // Check if the meetingDate is before today's date without considering the time
         return isBefore(meetingDate, startOfDay(today));
       }
-  
+
       return false;
     });
     setPastMeetings(pastMeetings);
   };
-  
 
   // get the next day meetings
   const getTomorrowsMeetings = () => {
@@ -151,30 +157,29 @@ const ScheduleEvents = () => {
       <h1 className="font-prompt text-3xl font-semibold mb-16">
         Scheduled events
       </h1>
-      
-        <div className="dropdown mb-5">
-          <div
-            tabIndex={0}
-            role="button"
-            className="flex items-center gap-x-2 bg-gray-50 py-2 px-5 rounded-md font-prompt border border-gray-400 m-1"
-          >
-            my schedule <FaAngleDown></FaAngleDown>
-          </div>
-          <ul
-            tabIndex={0}
-            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-64 mt-1"
-          >
-            <li>
-              <a>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                illo veniam voluptas. Praesentium aut dolor dolorem vel! Numquam
-                repellat eveniet tempore. Magnam, quis nihil, nobis suscipit
-                architecto pariatur deserunt asperiores nisi delectus voluptate
-                labore
-              </a>
-            </li>
-          </ul>
-        
+
+      <div className="dropdown mb-5">
+        <div
+          tabIndex={0}
+          role="button"
+          className="flex items-center gap-x-2 bg-gray-50 py-2 px-5 rounded-md font-prompt border border-gray-400 m-1"
+        >
+          my schedule <FaAngleDown></FaAngleDown>
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-64 mt-1"
+        >
+          <li>
+            <a>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+              illo veniam voluptas. Praesentium aut dolor dolorem vel! Numquam
+              repellat eveniet tempore. Magnam, quis nihil, nobis suscipit
+              architecto pariatur deserunt asperiores nisi delectus voluptate
+              labore
+            </a>
+          </li>
+        </ul>
       </div>
       <Tabs className="border border-gray-300 rounded-md pb-5">
         <TabList className="flex justify-between items-center px-5 border-b-2 border-gray-300 h-[55px]">
@@ -228,7 +233,6 @@ const ScheduleEvents = () => {
                 ></DateRange>
               </div>
             </div>
-
           </div>
         </TabList>
 
