@@ -3,6 +3,7 @@ import useContexts from "../hooks/useContexts";
 
 const DashBoardNavbarComponnets = () => {
   const { user, handleLogout } = useContexts();
+
   const handleLogouts = () => {
     handleLogout();
   };
@@ -18,7 +19,7 @@ const DashBoardNavbarComponnets = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
+                  alt=""
                   src={
                     user?.photoURL
                       ? user?.photoURL

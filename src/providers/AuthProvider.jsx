@@ -8,7 +8,8 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
-  FacebookAuthProvider 
+  FacebookAuthProvider,
+  deleteUser,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
@@ -21,22 +22,21 @@ const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
   const facebookAuthProvider = new FacebookAuthProvider();
 
-
   const handleFacebookSignUp = () => {
-    setLoading(true)
-    return signInWithPopup(auth, facebookAuthProvider)
-  }
+    setLoading(true);
+    return signInWithPopup(auth, facebookAuthProvider);
+  };
 
   const handleSinup = (email, password) => {
-    setLoading(true)
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const handleLogin = (email, password) => {
-    setLoading(true)
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   const handleLogout = () => {
-    setLoading(true)
+    setLoading(true);
     signOut(auth);
   };
   const updateUserProfile = (name, photo) => {
@@ -48,10 +48,11 @@ const AuthProvider = ({ children }) => {
   const handleGoogleSinin = () => {
     return signInWithPopup(auth, provider);
   };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       setUser(loggedUser);
-      setLoading(false)
+      setLoading(false);
     });
     return () => {
       unsubscribe();

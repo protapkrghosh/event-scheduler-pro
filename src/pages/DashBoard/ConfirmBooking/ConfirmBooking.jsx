@@ -8,6 +8,8 @@ import "./ConfirmBooking.css";
 import useSingleEvents from "../../../hooks/useSingleEvents";
 import moment from "moment";
 
+import Loading from "../../../componnents/loading/Loading";
+
 const ConfirmBooking = () => {
   const [scheduleInfo, setScheduleInfo] = useState({});
   const [scheduleDate, setScheduleDate] = useState(null);
@@ -17,19 +19,22 @@ const ConfirmBooking = () => {
   const { id } = useParams();
   const { SingleEvent, refetch } = useSingleEvents(id);
 
-
-  console.log("selected date", scheduleDate)
-  console.log("disabledTimes", disabledTimes)
+  console.log("selected date", scheduleDate);
+  console.log("disabledTimes", disabledTimes);
   useEffect(() => {
     const fetchDisabledTimes = async () => {
       try {
         const response = await axios.get(
           "https://lets-sheduleit-backend.vercel.app/api/v1/events/get-all-event"
         );
-    
+
         const bookedTimes = response.data
           .filter((event) => {
-            const eventMoment = moment(event.dateAndTime, "h:mm a dddd, DD/MM/YYYY ", true);
+            const eventMoment = moment(
+              event.dateAndTime,
+              "h:mm a dddd, DD/MM/YYYY ",
+              true
+            );
             console.log("eventMoment", eventMoment);
             return (
               eventMoment.isValid() &&
@@ -37,16 +42,18 @@ const ConfirmBooking = () => {
             );
           })
           .map((event) =>
-            moment(event.dateAndTime, "h:mm a dddd, DD/MM/YYYY ").format("HH:mm")
+            moment(event.dateAndTime, "h:mm a dddd, DD/MM/YYYY ").format(
+              "HH:mm"
+            )
           );
-          setDisabledTimes(bookedTimes)
+        setDisabledTimes(bookedTimes);
         console.log("Booked Times for selected date:", bookedTimes);
         console.log("disabledTimes", disabledTimes);
       } catch (error) {
         console.error("Error fetching disabled times:", error.message);
       }
     };
-    
+
     if (scheduleDate) {
       fetchDisabledTimes();
     }
@@ -72,11 +79,6 @@ const ConfirmBooking = () => {
     refetch();
     console.log(response.data);
   };
-
-
-
-  
-
 
   return (
     <div className=" px-2 lg:px-0 ">
@@ -123,7 +125,9 @@ const ConfirmBooking = () => {
             timeFormat="h:mm aa"
             inline
             fixedHeight
-            excludeTimes={disabledTimes.map(timeString => moment(timeString, 'HH:mm').toDate())}
+            excludeTimes={disabledTimes.map((timeString) =>
+              moment(timeString, "HH:mm").toDate()
+            )}
           />
         </div>
       </div>

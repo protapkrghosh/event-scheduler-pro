@@ -1,4 +1,14 @@
-import { FaMailBulk, FaUserFriends, FaRocketchat } from "react-icons/fa";
+import {
+  FaMailBulk,
+  FaUserFriends,
+  FaRocketchat,
+  FaLink,
+  FaCalendarAlt,
+  FaRegClock,
+  FaQuestion,
+  FaHeadset,
+  FaRegUser,
+} from "react-icons/fa";
 export const servicesData = [
   {
     img: <FaUserFriends />,
@@ -51,5 +61,96 @@ export const event = [
     title: "Round Robin",
     titleTwo: "One rotating host with one invitee",
     discriptions: "Good for: distributing incoming sales leads",
+  },
+];
+
+export const userDashBoardNavData = [
+  {
+    icon: <FaLink />,
+    name: "Event types",
+    to: "/dashboard/create-event",
+  },
+  {
+    icon: <FaCalendarAlt />,
+    name: "Scheduled events",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaRegClock />,
+    name: "Availability",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaQuestion />,
+    name: " Help",
+    to: "/dashboard/schedule-event",
+  },
+  {
+    icon: <FaHeadset />,
+    name: " contact us",
+    to: "/dashboard/schedule-event",
+  },
+];
+export const adminDashBoardNavData = [
+  {
+    icon: <FaRegUser />,
+    name: "All User",
+    to: "/dashboard/all-user",
+  },
+  {
+    icon: <FaCalendarAlt />,
+    name: "All events",
+    to: "/dashboard/all-events",
+  },
+];
+
+export const cards = [
+  {
+    id: 1,
+    heading: "Pro",
+    para: "1 - 2 users",
+    rate: 5,
+    description: [
+      "Unlimited appointments",
+      "Accept payments",
+      "Your custom Booking Page",
+      "iOS and Android apps",
+      "Customized notifications",
+      "Email reminders",
+      "Integrate with your favorite apps",
+    ],
+    button: "Start Pro",
+  },
+  {
+    id: 2,
+    heading: "Team",
+    para: "Infinite users",
+    rate: 12,
+    description: [
+      "Unlimited appointments",
+      "Accept payments",
+      "Your custom Booking Page",
+      "iOS and Android apps",
+      "Customized notifications",
+      "Email reminders",
+      "Integrate with your favorite apps",
+    ],
+    button: "Start Team",
+  },
+  {
+    id: 3,
+    heading: "Enterprise",
+    para: "Infinite users",
+    rate: 48,
+    description: [
+      "Unlimited appointments",
+      "Accept payments",
+      "Your custom Booking Page",
+      "iOS and Android apps",
+      "Customized notifications",
+      "Email reminders",
+      "Integrate with your favorite apps",
+    ],
+    button: "Enterprise",
   },
 ];

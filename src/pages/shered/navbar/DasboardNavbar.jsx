@@ -6,13 +6,19 @@ import InviteUserModal from "../../../componnents/modal/InviteUserModal";
 const DasboardNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="float-right hidden md:flex  items-center justify-between gap-4 mr-4">
+    <div className="float-right  flex  items-center gap-2 md:mt-4  mr-4">
       <div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="btn-nav flex items-center justify-center gap-2"
+          className="btn-nav hidden md:flex items-center justify-center gap-2"
         >
           <FaUserPlus /> invite user
+        </button>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="btn-nav md:hidden flex "
+        >
+          <FaUserPlus />
         </button>
       </div>
       <DashBoardNavbarComponnets />
