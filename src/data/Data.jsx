@@ -4,8 +4,6 @@ import {
   FaRocketchat,
   FaLink,
   FaCalendarAlt,
-  FaCodeBranch,
-  FaRandom,
   FaRegClock,
   FaQuestion,
   FaHeadset,
@@ -78,16 +76,6 @@ export const userDashBoardNavData = [
     to: "/dashboard/schedule-event",
   },
   {
-    icon: <FaCodeBranch />,
-    name: "Workflows",
-    to: "/dashboard/schedule-event",
-  },
-  {
-    icon: <FaRandom />,
-    name: "Routing",
-    to: "/dashboard/schedule-event",
-  },
-  {
     icon: <FaRegClock />,
     name: "Availability",
     to: "/dashboard/schedule-event",
@@ -113,26 +101,6 @@ export const adminDashBoardNavData = [
     icon: <FaCalendarAlt />,
     name: "All events",
     to: "/dashboard/all-events",
-  },
-  {
-    icon: <FaRandom />,
-    name: "Routing",
-    to: "/dashboard/schedule-event",
-  },
-  {
-    icon: <FaRegClock />,
-    name: "Availability",
-    to: "/dashboard/schedule-event",
-  },
-  {
-    icon: <FaQuestion />,
-    name: " Help",
-    to: "/dashboard/schedule-event",
-  },
-  {
-    icon: <FaHeadset />,
-    name: " contact us",
-    to: "/dashboard/schedule-event",
   },
 ];
 

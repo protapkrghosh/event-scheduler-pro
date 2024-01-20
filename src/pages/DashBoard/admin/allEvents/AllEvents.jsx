@@ -40,7 +40,7 @@ const AllEvents = () => {
             {/* head */}
             <thead>
               <tr className="text-2xl text-[#0b3558] ">
-                <th>#</th>
+                <th>No</th>
                 <th>Event Name</th>
                 <th>User email</th>
                 <th>Schedule Date</th>
