@@ -24,6 +24,7 @@ import Payment from "../pages/DashBoard/Payment/Payment";
 import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
 import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
 import PrivateRoute from "./privetRoute/PrivateRoute";
+import Availability from "../pages/DashBoard/Availability/Availability";
 
 const router = createBrowserRouter([
   {
@@ -120,6 +121,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/subscription",
         element: <Bookings></Bookings>,
+      },
+      {
+        path: "/dashboard/availability",
+        element: <Availability></Availability>,
       },
       {
         path: "/dashboard/:eventType",
