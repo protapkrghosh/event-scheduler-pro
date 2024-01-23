@@ -1,68 +1,60 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.bookingBg {
+  position: relative;
+  background-color: #F4F5F7;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.bookingBg::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #F4F5F7;
+  rotate: 2deg;
+  z-index: -10;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.bookingBg::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #F4F5F7;
+  rotate: -2deg;
+  z-index: -10;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.react-tabs {
+  @apply cursor-pointer font-prompt text-gray-500 hover:text-gray-700 hover:border-b-4 hover:border-gray-400 transition-all duration-75;
 }
-button:hover {
-  border-color: #646cff;
+.btn-nav {
+  @apply border  border-[#0069ff] hover:border-blue-600 text-[#0069ff] text-xl  font-bold py-2 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.btn-contact {
+  @apply border ml-4  text-xl border-[#FFF] hover:border-blue-600  font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
+}
+.btn-fetures {
+  @apply border ml-4  text-xl border-[#0069ff] hover:border-blue-600  font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.btn-primary {
+  @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-4  px-5 rounded-md  border-0 transition duration-100 ease-in-out;
+}
+.text-primary {
+  @apply text-4xl md:text-6xl xl:text-7xl font-bold text-[#0b3558] font-prompt;
+}
+.text-third {
+  @apply md:text-5xl text-4xl font-bold text-[#0b3558] font-prompt;
+}
+
+.text-secondary {
+  @apply lg:text-xl text-[#477eb8] font-semibold;
 }
