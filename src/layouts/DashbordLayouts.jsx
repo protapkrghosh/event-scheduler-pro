@@ -23,7 +23,7 @@ const DashboardLayouts = () => {
           </div>
         </div>
         <div className="w-full">
-          <div className="    px-4">
+          <div className="px-4 mt-14">
             <Outlet />
           </div>
         </div>
