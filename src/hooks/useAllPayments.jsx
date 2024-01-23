@@ -6,7 +6,7 @@ const useAllPayments = () => {
     queryKey: ["all-payments"],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/payments/all-payments`
+        `https://lets-sheduleit-backend.vercel.app/api/v1/payments/all-payments`
       );
       return res.data;
     },

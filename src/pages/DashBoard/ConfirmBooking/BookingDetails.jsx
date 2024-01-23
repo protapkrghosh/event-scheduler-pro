@@ -34,7 +34,6 @@ const BookingDetails = () => {
 
   <Loading data={SingleEvent} />;
 
-
   const {
     duration,
     eventName,
