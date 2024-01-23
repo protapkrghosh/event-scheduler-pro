@@ -32,22 +32,29 @@
   z-index: -10;
 }
 
+.react-tabs {
+  @apply cursor-pointer font-prompt text-gray-500 hover:text-gray-700 hover:border-b-4 hover:border-gray-400 transition-all duration-75;
+}
 .btn-nav {
   @apply border  border-[#0069ff] hover:border-blue-600 text-[#0069ff] text-xl  font-bold py-2 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
 }
-
 .btn-contact {
-  @apply border ml-4  text-xl border-[#FFF] hover:border-blue-600 text-[#FFF] font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
+  @apply border ml-4  text-xl border-[#FFF] hover:border-blue-600  font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
+}
+.btn-fetures {
+  @apply border ml-4  text-xl border-[#0069ff] hover:border-blue-600  font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
 }
 
 .btn-primary {
   @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-4  px-5 rounded-md  border-0 transition duration-100 ease-in-out;
 }
-
 .text-primary {
-  @apply md:text-7xl text-4xl font-bold text-[#0b3558];
+  @apply text-4xl md:text-6xl xl:text-7xl font-bold text-[#0b3558] font-prompt;
+}
+.text-third {
+  @apply md:text-5xl text-4xl font-bold text-[#0b3558] font-prompt;
 }
 
 .text-secondary {
-  @apply text-xl text-[#477eb8];
+  @apply lg:text-xl text-[#477eb8] font-semibold;
 }

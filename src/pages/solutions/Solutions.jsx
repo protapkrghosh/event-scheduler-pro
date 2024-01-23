@@ -1,7 +1,13 @@
+import EasyScheduleFirstPart from "./solutions/EasyScheduleFirstPart";
+import EasyScheduleSecondPart from "./solutions/EasyScheduleSecondPart";
+import SolutionsHero from "./solutions/SolutionsHero";
+
 const Solutions = () => {
   return (
     <div>
-      <h1>this is Soluctions</h1>
+      <SolutionsHero />
+      <EasyScheduleFirstPart></EasyScheduleFirstPart>
+      <EasyScheduleSecondPart></EasyScheduleSecondPart>
     </div>
   );
 };

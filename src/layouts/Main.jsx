@@ -4,7 +4,7 @@ import Footer from "../pages/shered/footer/Footer";
 
 const Main = () => {
   return (
-    <div className="">
+    <div>
       <Navbar />
       <Outlet />
       <Footer />
