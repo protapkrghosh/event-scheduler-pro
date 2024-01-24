@@ -8,7 +8,7 @@ const DashBoardNavbarComponnets = () => {
     handleLogout();
   };
   return (
-    <div>
+    <div className="flex">
       <div className="navbar-end">
         {user ? (
           <div className="dropdown dropdown-end">
@@ -19,7 +19,7 @@ const DashBoardNavbarComponnets = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
+                  alt=""
                   src={
                     user?.photoURL
                       ? user?.photoURL

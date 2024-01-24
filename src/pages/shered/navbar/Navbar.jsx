@@ -24,8 +24,29 @@ const Navbar = () => {
   const handleLogouts = () => {
     handleLogout();
   };
+
+
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   const navItem = (
     <>
+      <li>
+        <NavLink
+          to={"/"}
+        >
+          {" "}
+          <img
+            src={logo}
+            alt="img logo"
+            className="h-10 w-10 rounded-full lg:hidden"
+          />{" "}
+        </NavLink>
+      </li>
       <li>
         <NavLink
           className={({ isActive }) =>
@@ -46,21 +67,27 @@ const Navbar = () => {
           Features
         </NavLink>
       </li>
-      <li className="md:ml-4">
-        <div className="dropdown dropdown-hover">
-          <div tabIndex={0}>
-            Solutions
-          </div>
-          <ul
-            tabIndex={0}
-            className="dropdown-content z-[1]  p-2 shadow bg-base-100  rounded-box "
-          >
-            <li className="my-2">
+      <li
+        className="md:ml-4">
+      <div className={`dropdown cursor-pointer ${isOpen ? 'open' : ''}`}>
+      <p
+        tabIndex={0}
+        onClick={toggleDropdown}
+      >
+        Solutions
+      </p>
+      {isOpen && (
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li className="my-2">
               <NavLink
                 className={({ isActive }) =>
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
                 to={"/solutions/sales"}
+                onClick={toggleDropdown}
               >
                 Sales
               </NavLink>
@@ -71,6 +98,7 @@ const Navbar = () => {
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
                 to={"/solutions/marketing"}
+                onClick={toggleDropdown}
               >
                 Marketing
               </NavLink>
@@ -81,6 +109,7 @@ const Navbar = () => {
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
                 to={"/solutions/success"}
+                onClick={toggleDropdown}
               >
                 Success
               </NavLink>
@@ -91,6 +120,7 @@ const Navbar = () => {
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
                 to={"/solutions/recruiting"}
+                onClick={toggleDropdown}
               >
                 Recruiting
               </NavLink>
@@ -101,6 +131,7 @@ const Navbar = () => {
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
                 to={"/solutions/technology"}
+                onClick={toggleDropdown}
               >
                 Technology
               </NavLink>
@@ -111,12 +142,14 @@ const Navbar = () => {
                   isActive ? "text-[#0069ff]" : "nothing"
                 }
                 to={"/solutions/education"}
+                onClick={toggleDropdown}
               >
                 Education
               </NavLink>
             </li>
-          </ul>
-        </div>
+        </ul>
+      )}
+    </div>
       </li>
       <li className="md:ml-4">
         <NavLink
@@ -132,7 +165,7 @@ const Navbar = () => {
   );
   return (
     <div
-      className={`navbar px-8 md:px-36 fixed  py-4 z-10 ${
+      className={`navbar px-2 md:px-36 fixed  py-4 z-10 ${
         scrolling ? "shadow-md bg-slate-50 " : "bg-transparent"
       }`}
     >
@@ -156,19 +189,12 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content font-bold text-[#0b3558] text-xl mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content font-bold text-[#0b3558] text-xl z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navItem}
           </ul>
         </div>
-        <Link to={"/"}>
-          {" "}
-          <img
-            src={logo}
-            alt="img logo"
-            className="h-14 w-14 rounded-full "
-          />{" "}
-        </Link>
+
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className=" menu-horizontal px-1 font-bold text-[#0b3558] text-xl">
@@ -185,7 +211,7 @@ const Navbar = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
+                  alt=""
                   src={
                     user?.photoURL
                       ? user?.photoURL
