@@ -19,8 +19,6 @@ const ConfirmBooking = () => {
   const { id } = useParams();
   const { SingleEvent, refetch } = useSingleEvents(id);
 
-  console.log("selected date", scheduleDate);
-  console.log("disabledTimes", disabledTimes);
   useEffect(() => {
     const fetchDisabledTimes = async () => {
       try {
@@ -35,7 +33,6 @@ const ConfirmBooking = () => {
               "h:mm a dddd, DD/MM/YYYY ",
               true
             );
-            console.log("eventMoment", eventMoment);
             return (
               eventMoment.isValid() &&
               eventMoment.isSame(moment(scheduleDate).startOf("day"), "day")
@@ -47,8 +44,6 @@ const ConfirmBooking = () => {
             )
           );
         setDisabledTimes(bookedTimes);
-        console.log("Booked Times for selected date:", bookedTimes);
-        console.log("disabledTimes", disabledTimes);
       } catch (error) {
         console.error("Error fetching disabled times:", error.message);
       }
@@ -77,7 +72,6 @@ const ConfirmBooking = () => {
       { date: { dateAndTime: formattedDate } }
     );
     refetch();
-    console.log(response.data);
   };
 
   return (

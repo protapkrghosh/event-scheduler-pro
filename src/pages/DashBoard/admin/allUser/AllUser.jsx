@@ -11,21 +11,18 @@ const AllUser = () => {
     const res = await axios.get(
       `https://lets-sheduleit-backend.vercel.app/api/v1/users/make-admin?email=${email}`
     );
-    console.log(res.data);
     refetch();
   };
   const handleBanUser = async (email) => {
     const res = await axios.get(
       `https://lets-sheduleit-backend.vercel.app/api/v1/users/make-ban?email=${email}`
     );
-    console.log(res.data);
     refetch();
   };
   const handleMakeUser = async (email) => {
     const res = await axios.get(
       `https://lets-sheduleit-backend.vercel.app/api/v1/users/make-user?email=${email}`
     );
-    console.log(res.data);
     refetch();
   };
   return (

@@ -71,12 +71,8 @@ const BookingDetails = () => {
         navigate(`/confirm-schedule/bookingConfirmed/${scheduleId}`);
         refetch();
       }
-      console.log(response.data);
-
-      // Handle the response or any other logic after sending the email
     } catch (error) {
       console.error("Error sending email:", error);
-      // Handle the error, maybe show an error message to the user
     }
   };
 

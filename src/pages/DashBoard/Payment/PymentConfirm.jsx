@@ -13,7 +13,6 @@ const PymentConfirm = () => {
   const { user } = useContexts();
   const { id } = useParams();
   const { SinglePayments } = useSinglePayments(id);
-  console.log(SinglePayments);
   if (!SinglePayments) {
     return <span className="loading loading-dots loading-lg"></span>;
   }

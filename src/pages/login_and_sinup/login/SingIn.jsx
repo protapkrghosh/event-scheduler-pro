@@ -21,7 +21,6 @@ const SingIn = () => {
     const { email, password } = data;
     handleLogin(email, password)
       .then((result) => {
-        console.log(result.user);
         navigate("/");
       })
       .catch((err) => console.error(err));
@@ -30,7 +29,6 @@ const SingIn = () => {
   const handleFacebookLogin = () => {
     handleFacebookSignUp()
       .then((res) => {
-        console.log(res.user);
         navigate("/");
       })
       .catch((err) => console.error(err));
@@ -39,7 +37,6 @@ const SingIn = () => {
   const handleGoogleLogin = () => {
     handleGoogleSinin()
       .then((result) => {
-        console.log(result.user);
         const email = result?.user?.email;
         const name = result?.user?.displayName;
         const photo = result?.user?.photoURL;
@@ -61,7 +58,6 @@ const SingIn = () => {
             }
           )
           .then((data) => {
-            console.log(data.data);
             if (data.data.sucsees === true) {
               navigate("/");
             }

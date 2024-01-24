@@ -31,7 +31,6 @@ const CreateMeet = () => {
       eventName,
       userName,
     };
-    console.log(events);
     axios
       .post(
         "https://lets-sheduleit-backend.vercel.app/api/v1/events/creat-event",
@@ -40,7 +39,6 @@ const CreateMeet = () => {
         }
       )
       .then((data) => {
-        console.log(data.data.sucsees);
         if (data.data.sucsees) {
           nevigat("/dashboard");
           toast.success("Schedule added!");
