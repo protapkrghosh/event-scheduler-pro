@@ -15,10 +15,10 @@
   @apply border ml-4  text-xl border-[#FFF] hover:border-blue-600  font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
 }
 .btn-fetures {
-  @apply border ml-4  text-xl border-[#0069ff] hover:border-blue-600  font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
+  @apply border text-xl border-[#0069ff] hover:border-blue-600  font-bold py-4 px-2 rounded-md shadow-lg transition duration-100 ease-in-out;
 }
 .btn-primary {
-  @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-4  px-5 rounded-md  border-0 transition duration-100 ease-in-out;
+  @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-4  px-3 rounded-md  border-0 transition duration-100 ease-in-out;
 }
 .btn-delete {
   @apply bg-red-500 hover:bg-blue-600 text-white font-bold text-xl py-4  px-5 rounded-md  border-0 transition duration-100 ease-in-out;

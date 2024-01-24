@@ -18,7 +18,9 @@ const DashboardLayouts = () => {
           <label htmlFor="my-drawer-2" className=" drawer-button lg:hidden">
             <FaAlignJustify className="text-2xl" />
           </label>
-          <div className=" ml-auto">
+
+          <div className="lg:ml-auto 2xl:mr-10">
+
             <DasboardNavbar />
           </div>
         </div>

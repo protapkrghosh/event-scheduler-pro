@@ -26,8 +26,7 @@ const CheckoutForm = ({ price, card }) => {
           }
         )
         .then((res) => {
-          setClientSecret(res.data.data.clientSecret);
-
+          setClientSecret(res.data.data.data.clientSecret);
           setIsPaymentIntent(true);
         });
     }
@@ -54,7 +53,6 @@ const CheckoutForm = ({ price, card }) => {
     } else {
       console.log(paymentMethod.id);
     }
-    console.log(card);
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -67,7 +65,7 @@ const CheckoutForm = ({ price, card }) => {
     const transitionId = paymentMethod.id;
     const date = new Date();
     const amount = price;
-    console.log(paymentIntent);
+
     if (paymentIntent.status === "succeeded") {
       const payments = {
         paymentsId,
@@ -83,11 +81,13 @@ const CheckoutForm = ({ price, card }) => {
         "https://lets-sheduleit-backend.vercel.app/api/v1/payments/save-payment-history",
         { paymentsData: payments }
       );
-      if (res.data.sucsees === true) {
+
+      if (res.data.success === true) {
         const res = await axios.patch(
           `https://lets-sheduleit-backend.vercel.app/api/v1/users/change-user-plane?email=${user?.email}`,
           { plane: heading }
         );
+
         if (res.data.success === true) {
           navigate(`/payment-success/${paymentsId}`);
         }
@@ -103,7 +103,6 @@ const CheckoutForm = ({ price, card }) => {
               base: {
                 fontSize: "16px",
                 color: "#0069ff",
-                padding: "24px",
                 "::placeholder": {
                   color: "",
                 },
@@ -117,7 +116,7 @@ const CheckoutForm = ({ price, card }) => {
         <button
           className="btn-primary w-full mt-8"
           type="submit"
-          disabled={!stripe || !clientSecret}
+          disabled={!stripe}
         >
           Purchase
         </button>

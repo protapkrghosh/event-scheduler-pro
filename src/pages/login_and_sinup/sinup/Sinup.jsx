@@ -24,7 +24,6 @@ const Sinup = () => {
     const currentPlane = "free";
     handleSinup(email, password)
       .then((result) => {
-        console.log(result.user);
         updateUserProfile(name, photo);
         axios
           .post(
@@ -41,7 +40,6 @@ const Sinup = () => {
             }
           )
           .then((data) => {
-            console.log(data.data.massage);
             if (data.data.sucsees === true) {
               navigate("/");
             }
@@ -52,8 +50,6 @@ const Sinup = () => {
   const handleGoogleLogin = () => {
     handleGoogleSinin()
       .then((result) => {
-        console.log(result.user);
-
         const email = result?.user?.email;
         const name = result?.user?.displayName;
         const photo = result?.user?.photoURL;
@@ -75,7 +71,6 @@ const Sinup = () => {
             }
           )
           .then((data) => {
-            console.log(data.data.massage);
             if (data.data.sucsees === true) {
               navigate("/");
             }

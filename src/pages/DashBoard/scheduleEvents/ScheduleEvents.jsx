@@ -46,10 +46,6 @@ const ScheduleEvents = () => {
   }, [user?.email]);
 
   useEffect(() => {
-    console.log("startDate:", startDate);
-    console.log("endDate:", endDate);
-    console.log("meetings:", meetings);
-
     if (startDate && endDate) {
       // If both startDate and endDate are selected, filter meetings within the date range
       const filteredMeetings = meetings.filter((meeting) => {
@@ -63,8 +59,6 @@ const ScheduleEvents = () => {
         }
         return false;
       });
-
-      console.log("filteredMeetings:", filteredMeetings);
       const pastMeetings = filteredMeetings.filter((meeting) => {
         const meetingDate = parse(
           meeting?.dateAndTime?.split(",")[1]?.trim(),
