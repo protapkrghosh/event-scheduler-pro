@@ -1,12 +1,7 @@
-import { useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useContexts from "../../../hooks/useContexts";
 import useSinglePayments from "../../../hooks/useSinglePayments";
 
-import html2canvas from "html2canvas";
-import jspdf from "jspdf";
-import { FaDownload } from "react-icons/fa";
-import Loading from "../../../componnents/loading/Loading";
 import moment from "moment";
 
 const PymentConfirm = () => {
@@ -17,7 +12,7 @@ const PymentConfirm = () => {
     return <span className="loading loading-dots loading-lg"></span>;
   }
   const { amount, transitionId, paymentsId, date, packages } =
-    SinglePayments.data;
+    SinglePayments.data.data;
   const formattedDate = moment(date).format("MMMM DD, YYYY");
   return (
     <div className="py-28">
