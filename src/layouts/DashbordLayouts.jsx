@@ -9,7 +9,6 @@ import { FaChartBar } from "react-icons/fa";
 const DashboardLayouts = () => {
   const { isAdmin } = useAdmin();
   <Loading data={isAdmin} />;
-
   return (
     <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
