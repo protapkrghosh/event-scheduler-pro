@@ -20,14 +20,15 @@ const Sinup = () => {
   const id = uuidv4();
   const onSubmit = (data) => {
     const { name, email, password, photo } = data;
-    const role = "user";
-    const currentPlane = "free";
+
     handleSinup(email, password)
       .then((result) => {
         updateUserProfile(name, photo);
+        const role = "user";
+        const currentPlane = "free";
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user",
             {
               user: {
                 id,
@@ -40,7 +41,7 @@ const Sinup = () => {
             }
           )
           .then((data) => {
-            if (data.data.sucsees === true) {
+            if (data.data.success) {
               navigate("/");
             }
           });
@@ -65,13 +66,14 @@ const Sinup = () => {
         };
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user",
             {
               user: users,
             }
           )
           .then((data) => {
-            if (data.data.sucsees === true) {
+            console.log(data);
+            if (data.data.success === true) {
               navigate("/");
             }
           });

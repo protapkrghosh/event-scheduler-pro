@@ -26,7 +26,7 @@ const CheckoutForm = ({ price, card }) => {
           }
         )
         .then((res) => {
-          setClientSecret(res.data.data.data.clientSecret);
+          setClientSecret(res.data.data.clientSecret);
           setIsPaymentIntent(true);
         });
     }
@@ -53,15 +53,14 @@ const CheckoutForm = ({ price, card }) => {
     } else {
       console.log(paymentMethod.id);
     }
-    const { paymentIntent, error: confirmError } =
-      await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: card,
-          billing_details: {
-            name: user?.displayName,
-          },
+    const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: card,
+        billing_details: {
+          name: user?.displayName,
         },
-      });
+      },
+    });
     const transitionId = paymentMethod.id;
     const date = new Date();
     const amount = price;

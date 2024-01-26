@@ -12,7 +12,7 @@ const PymentConfirm = () => {
     return <span className="loading loading-dots loading-lg"></span>;
   }
   const { amount, transitionId, paymentsId, date, packages } =
-    SinglePayments.data.data;
+    SinglePayments.data;
   const formattedDate = moment(date).format("MMMM DD, YYYY");
   return (
     <div className="py-28">

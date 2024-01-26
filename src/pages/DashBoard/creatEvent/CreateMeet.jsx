@@ -7,7 +7,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 const CreateMeet = () => {
-  const nevigat = useNavigate();
+  const navigate = useNavigate();
   const { register, handleSubmit, reset, watch, setValue } = useForm();
   const { eventType } = useParams();
   const eventTypes = eventType;
@@ -39,8 +39,9 @@ const CreateMeet = () => {
         }
       )
       .then((data) => {
-        if (data.data.sucsees) {
-          nevigat("/dashboard");
+        console.log(data);
+        if (data.data.data.success) {
+          navigate("/dashboard");
           toast.success("Schedule added!");
           reset();
         }
