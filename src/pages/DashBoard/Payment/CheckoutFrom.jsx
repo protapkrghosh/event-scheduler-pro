@@ -7,15 +7,23 @@ import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ price, card }) => {
   const [clientSecret, setClientSecret] = useState("");
+
+  // get user from custom met hook useContexts()
   const { user } = useContexts();
+
+  // take the heading data from the props
   const { heading } = card;
   const [isPaymentIntent, setIsPaymentIntent] = useState(false);
+
+  // get stripe information there
   const stripe = useStripe();
   const elements = useElements();
   const paymentsId = uuidv4();
   const userName = user?.displayName;
   const userEmail = user?.email;
   const navigate = useNavigate();
+
+  // create a new payment intent
   useEffect(() => {
     if (!isPaymentIntent) {
       axios
@@ -31,6 +39,8 @@ const CheckoutForm = ({ price, card }) => {
         });
     }
   }, [price, isPaymentIntent]);
+
+  // handle to make a successful payment
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -76,11 +86,13 @@ const CheckoutForm = ({ price, card }) => {
         amount,
         packages: heading,
       };
+
+      // save the payment data in the database
       const res = await axios.post(
         "https://lets-sheduleit-backend.vercel.app/api/v1/payments/save-payment-history",
         { paymentsData: payments }
       );
-
+      // if the payment datails is saved successfully in the database then change the current plane to user selected plane
       if (res.data.success === true) {
         const res = await axios.patch(
           `https://lets-sheduleit-backend.vercel.app/api/v1/users/change-user-plane?email=${user?.email}`,

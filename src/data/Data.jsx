@@ -9,6 +9,8 @@ import {
   FaHeadset,
   FaRegUser,
 } from "react-icons/fa";
+
+// handle provide the servicesData
 export const servicesData = [
   {
     img: <FaUserFriends />,
@@ -29,6 +31,8 @@ export const servicesData = [
       "No more no-shows: Fire out customized SMS reminders for upcoming bookings.",
   },
 ];
+
+// handle provide the event
 export const event = [
   {
     img: "https://assets.calendly.com/assets/frontend/media/one_on_one-c0ed81ea039b15906953.svg",
@@ -64,6 +68,7 @@ export const event = [
   },
 ];
 
+// handle provide the userDashBoardNavData
 export const userDashBoardNavData = [
   {
     icon: <FaLink />,
@@ -91,6 +96,8 @@ export const userDashBoardNavData = [
     to: "/dashboard/schedule-event",
   },
 ];
+
+// handle provide the adminDashBoardNavData
 export const adminDashBoardNavData = [
   {
     icon: <FaRegUser />,
@@ -104,6 +111,7 @@ export const adminDashBoardNavData = [
   },
 ];
 
+// handle provide the cards data
 export const cards = [
   {
     id: 1,

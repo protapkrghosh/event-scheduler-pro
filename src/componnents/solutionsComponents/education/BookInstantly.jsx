@@ -3,6 +3,7 @@ import EasyScheduleSecondPart from "../../../pages/solutions/solutions/EasySched
 const BookInstantly = () => {
   return (
     <div>
+      {/* send data as a props to handle make the solution page reusable */}
       <EasyScheduleSecondPart
         title="BOOK INSTANTLY"
         span="in just a few clicks "
