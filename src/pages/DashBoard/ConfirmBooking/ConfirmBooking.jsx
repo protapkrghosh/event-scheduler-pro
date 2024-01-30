@@ -8,17 +8,20 @@ import "./ConfirmBooking.css";
 import useSingleEvents from "../../../hooks/useSingleEvents";
 import moment from "moment";
 
-import Loading from "../../../componnents/loading/Loading";
-
 const ConfirmBooking = () => {
   const [scheduleInfo, setScheduleInfo] = useState({});
   const [scheduleDate, setScheduleDate] = useState(null);
   const [disabledTimes, setDisabledTimes] = useState([]);
   const { timeRange, scheduleDate: selectedDate } = scheduleInfo || {};
   const { startDate, endDate } = timeRange || {};
+
+  // get the dynamic id of the schedule
   const { id } = useParams();
+
+  // get the Single event data and it received a id for get the single data
   const { SingleEvent, refetch } = useSingleEvents(id);
 
+  // handle if one user select a date one time then this time another user will not be able to select the date again
   useEffect(() => {
     const fetchDisabledTimes = async () => {
       try {
@@ -67,6 +70,7 @@ const ConfirmBooking = () => {
       "h:mm a dddd, DD/MM/yyyy "
     );
 
+    // this is handle to set date and time which is selected the user
     const response = await axios.patch(
       `https://lets-sheduleit-backend.vercel.app/api/v1/events/update-date-and-time?id=${id}`,
       { date: { dateAndTime: formattedDate } }

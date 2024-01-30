@@ -4,7 +4,10 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const AllEvents = () => {
+  // received allEvents data from useAllSchedule hooks
   const { allEvents, refetch } = useAllSchedule();
+
+  // handle delete a event from database
   const handleDelete = async (id) => {
     try {
       Swal.fire({
@@ -20,6 +23,7 @@ const AllEvents = () => {
           await axios.delete(
             `https://lets-sheduleit-backend.vercel.app/api/v1/events/delete-event?id=${id}`
           );
+          // use refetch to show the current change instantly  withe out page refresh
           refetch();
           Swal.fire({
             title: "Deleted!",

@@ -6,8 +6,11 @@ import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 const SingIn = () => {
+  // import handleGoogleSinin handleFacebookSignUp handleLogin from custom made hook useContexts()
   const { handleGoogleSinin, handleFacebookSignUp, handleLogin } =
     useContexts();
+
+  // call navigate from react useNavigate()
   const navigate = useNavigate();
   const id = uuidv4();
   const {
@@ -17,6 +20,7 @@ const SingIn = () => {
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
+  // handle user login
   const onSubmit = (data) => {
     const { email, password } = data;
     handleLogin(email, password)
@@ -26,6 +30,7 @@ const SingIn = () => {
       .catch((err) => console.error(err));
   };
 
+  // handle user facebook login
   const handleFacebookLogin = () => {
     handleFacebookSignUp()
       .then((res) => {
@@ -34,6 +39,7 @@ const SingIn = () => {
       .catch((err) => console.error(err));
   };
 
+  // handle user google login
   const handleGoogleLogin = () => {
     handleGoogleSinin()
       .then((result) => {
@@ -50,6 +56,8 @@ const SingIn = () => {
           role,
           currentPlane,
         };
+
+        // if the user is firs time sin in in our website then save the user info in our database
         axios
           .post(
             "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",

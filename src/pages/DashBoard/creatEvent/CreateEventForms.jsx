@@ -6,16 +6,22 @@ import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
-const CreateMeet = () => {
-  const nevigat = useNavigate();
+const CreateEventForms = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit, reset, watch, setValue } = useForm();
+
+  // get dynamic eventType from the params
   const { eventType } = useParams();
   const eventTypes = eventType;
   const selectedMethod = watch("method");
+
+  // get user from custom made useContexts() hook
   const { user } = useContexts();
   const email = user?.email;
   const scheduleId = uuidv4();
   const userName = user?.displayName;
+
+  // handle the logic of create new events
   const onSubmit = (data) => {
     const { date, descriptions, duration, eventName, meetLink, method } = data;
     const userEmail = email;
@@ -39,8 +45,9 @@ const CreateMeet = () => {
         }
       )
       .then((data) => {
-        if (data.data.sucsees) {
-          nevigat("/dashboard");
+        console.log(data);
+        if (data.data.data.success) {
+          navigate("/dashboard");
           toast.success("Schedule added!");
           reset();
         }
@@ -210,4 +217,4 @@ const CreateMeet = () => {
   );
 };
 
-export default CreateMeet;
+export default CreateEventForms;

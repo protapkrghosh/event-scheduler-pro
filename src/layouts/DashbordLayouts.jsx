@@ -7,9 +7,10 @@ import Loading from "../componnents/loading/Loading";
 import { FaChartBar } from "react-icons/fa";
 
 const DashboardLayouts = () => {
+  // received isAdmin from src/hooks/useAdmin file
   const { isAdmin } = useAdmin();
+  // use loading stat to handle smooth facing
   <Loading data={isAdmin} />;
-  console.log(isAdmin);
   return (
     <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -20,12 +21,13 @@ const DashboardLayouts = () => {
           </label>
 
           <div className="lg:ml-auto 2xl:mr-10">
-
+            {/* use DasboardNavbar component to make our code more cleaner */}
             <DasboardNavbar />
           </div>
         </div>
         <div className="w-full">
           <div className="px-4 mt-14">
+            {/* outlet is reeved all the children path have in the /dashboard route  */}
             <Outlet />
           </div>
         </div>

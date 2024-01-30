@@ -16,7 +16,7 @@ import Recruiting from "../componnents/solutionsComponents/recruiting/Recruiting
 import Technology from "../componnents/solutionsComponents/technology/Technology";
 import Educations from "../componnents/solutionsComponents/education/Educations";
 import ContactUs from "../pages/ContactUs/ContactUs";
-import CreateMeet from "../pages/DashBoard/creatEvent/CreateMeet";
+import CreateMeet from "../pages/DashBoard/creatEvent/CreateEventForms";
 import CreatRoom from "../pages/DashBoard/creatCustomMeet/CreatRoom";
 import EventDtailsLayouts from "../layouts/EventDtailsLayouts";
 import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
