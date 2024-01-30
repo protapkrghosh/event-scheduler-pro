@@ -35,14 +35,17 @@ const Sinup = () => {
 
         // save the user date in our database
         axios
-          .post("http://localhost:3000/api/v1/users/create-user", {
-            user: {
-              id,
-              email,
-              name,
-              photo,
-            },
-          })
+          .post(
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user",
+            {
+              user: {
+                id,
+                email,
+                name,
+                photo,
+              },
+            }
+          )
           .then((data) => {
             if (data.data.success) {
               navigate("/");
@@ -74,7 +77,7 @@ const Sinup = () => {
         // save the user data in our database
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user",
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user/api/v1/users/create-user",
             {
               user: users,
             }

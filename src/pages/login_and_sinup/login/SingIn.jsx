@@ -23,6 +23,7 @@ const SingIn = () => {
   // handle user login
   const onSubmit = (data) => {
     const { email, password } = data;
+    // call handleLogin funtion to login withe email and password
     handleLogin(email, password)
       .then((result) => {
         navigate("/");
@@ -32,6 +33,7 @@ const SingIn = () => {
 
   // handle user facebook login
   const handleFacebookLogin = () => {
+    // call handleFacebookSignUp funtion to login withe google  
     handleFacebookSignUp()
       .then((res) => {
         navigate("/");
@@ -41,6 +43,8 @@ const SingIn = () => {
 
   // handle user google login
   const handleGoogleLogin = () => {
+
+    // call handleGoogleSinin function to sin in withe google 
     handleGoogleSinin()
       .then((result) => {
         const email = result?.user?.email;
