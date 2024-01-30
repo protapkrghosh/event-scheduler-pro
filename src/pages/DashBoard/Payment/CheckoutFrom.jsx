@@ -19,8 +19,8 @@ const CheckoutForm = ({ price, card }) => {
   const stripe = useStripe();
   const elements = useElements();
   const paymentsId = uuidv4();
-  const userName = user?.displayName;
-  const userEmail = user?.email;
+  const userName = user?.displayName || "anonyms user";
+  const userEmail = user?.email || "anonyms email";
   const navigate = useNavigate();
 
   // create a new payment intent
