@@ -17,7 +17,7 @@ const BookingDetails = () => {
 
   const [meetings, setMeetings] = useState([]);
 
-  // get data
+  // get booked datas using email. only get those datas which he(current user) booked.
   useEffect(() => {
     fetch(
       `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
@@ -61,12 +61,12 @@ const BookingDetails = () => {
         detailsLink,
         email,
       };
-
+      // send email for confirmed the time
       const response = await axios.post(
         "https://lets-sheduleit-backend.vercel.app/api/v1/mail/send-email",
         { emailInfo: emailData }
       );
-
+        // if confirmed the time then he will redirect to this page.
       if (response.data.success === true) {
         navigate(`/confirm-schedule/bookingConfirmed/${scheduleId}`);
         refetch();
@@ -147,6 +147,7 @@ const BookingDetails = () => {
             className="textarea textarea-bordered block w-full"
             {...register("text")}
           />
+          {/* button for confirm the schedule/time */}
           <button className="border bg-blue-600 hover:bg-transparent hover:border-blue-500 text-white hover:text-blue-500 transition-colors duration-200 px-4 py-2 rounded-full mt-5 font-cursive">
             Schedule Event
           </button>

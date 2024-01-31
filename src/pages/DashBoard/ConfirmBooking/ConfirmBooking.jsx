@@ -8,7 +8,6 @@ import "./ConfirmBooking.css";
 import useSingleEvents from "../../../hooks/useSingleEvents";
 import moment from "moment";
 
-import Loading from "../../../componnents/loading/Loading";
 
 const ConfirmBooking = () => {
   const [scheduleInfo, setScheduleInfo] = useState({});
@@ -19,8 +18,7 @@ const ConfirmBooking = () => {
   const { id } = useParams();
   const { SingleEvent, refetch } = useSingleEvents(id);
 
-  console.log("selected date", scheduleDate);
-  console.log("disabledTimes", disabledTimes);
+  // this is for disabled times of specific date. if any user booked a meeting in this time. then in the same time no one can book another meeting.
   useEffect(() => {
     const fetchDisabledTimes = async () => {
       try {

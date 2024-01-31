@@ -2,9 +2,12 @@
 import useContexts from "../../../hooks/useContexts";
 import DetailsModal from "./DetailsModal";
 
+// past meeting coming from scheduleEvent.jsx
 const PastTableContent = ({ pastMeeting }) => {
   const { user } = useContexts();
+  // take some data from pastMeeting to show here
   const { eventName, dateAndTime, method, eventTypes } = pastMeeting;
+// separate the date and time to show.
   const [timePart, datePart] = dateAndTime?.split(",") || [];
   return (
     <tr>
@@ -32,6 +35,7 @@ const PastTableContent = ({ pastMeeting }) => {
         {eventTypes}
       </td>
       <th>
+        {/* show the details modal */}
         <button
           className="btn btn-ghost btn-xs"
           onClick={() => document.getElementById("my_modal_1").showModal()}

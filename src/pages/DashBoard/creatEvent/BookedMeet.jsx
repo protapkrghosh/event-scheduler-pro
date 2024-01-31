@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 const BookedMeet = () => {
   const { events, refetch } = useSingleEventData();
   const [copied, setCopied] = useState(false);
-
+  // copy meeting link/id
   const copyToClipboard = (customLink) => {
     copy(customLink)
       .then(() => {
@@ -23,7 +23,7 @@ const BookedMeet = () => {
         console.error("Failed to copy text: ", err);
       });
   };
-
+  // delete an event
   const handleDeleteEvents = async (id) => {
     try {
       Swal.fire({
@@ -60,6 +60,7 @@ const BookedMeet = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-5">
+      {/* show all events which already created */}
       {events ? (
         events.map((event) => {
           const customLink = `http://localhost:5173/confirm-schedule/${event.scheduleId}`;

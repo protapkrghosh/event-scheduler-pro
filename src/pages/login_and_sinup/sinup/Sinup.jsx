@@ -7,7 +7,8 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
 const Sinup = () => {
-  const {
+  // we used react hook form package. and handle form with that.
+  const { 
     register,
     handleSubmit,
     watch,
@@ -15,9 +16,11 @@ const Sinup = () => {
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  // import the all function from authProvider and call it here.
   const { handleSinup, updateUserProfile, handleGoogleSinin } = useContexts();
   const navigate = useNavigate();
   const id = uuidv4();
+  // this is only for login with email.
   const onSubmit = (data) => {
     const { name, email, password, photo } = data;
     const role = "user";
@@ -49,6 +52,7 @@ const Sinup = () => {
       })
       .catch((err) => console.error(err));
   };
+  // when you will login with the google. this function will take your information and post it in database with post method. After login, you wil redirect to the home page.
   const handleGoogleLogin = () => {
     handleGoogleSinin()
       .then((result) => {
@@ -104,6 +108,7 @@ const Sinup = () => {
           className="card flex-shrink-0 p-4 w-full max-w-md shadow-2xl border "
         >
           <button
+            // this function for google login. if you want to login with google. you can do that
             onClick={handleGoogleLogin}
             className=" btn-nav flex mt-4  gap-4 w-full items-center justify-center"
           >
@@ -123,6 +128,7 @@ const Sinup = () => {
             Continue with facebook
           </button>
           <div className="divider">OR</div>
+          {/* handle submit function */}
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="form-control">
               <label className="label">
@@ -243,6 +249,7 @@ const Sinup = () => {
               </p>
             )}
             <div className="form-control mt-6">
+              {/* submit button for email login */}
               <button className="btn-primary flex  gap-4 w-full items-center justify-center">
                 Sing up
                 <FaSignInAlt />{" "}

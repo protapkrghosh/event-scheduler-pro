@@ -9,7 +9,6 @@ import {
   signOut,
   updateProfile,
   FacebookAuthProvider,
-  deleteUser,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
@@ -22,9 +21,10 @@ const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
   const facebookAuthProvider = new FacebookAuthProvider();
 
-  const handleFacebookSignUp = () => {
+  const handleFacebookSignUp = async () => {
     setLoading(true);
-    return signInWithPopup(auth, facebookAuthProvider);
+    const result = await signInWithPopup(auth, facebookAuthProvider);
+    return result;
   };
 
   const handleSinup = (email, password) => {

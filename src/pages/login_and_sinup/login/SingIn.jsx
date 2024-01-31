@@ -6,17 +6,19 @@ import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 const SingIn = () => {
+  // import the all function from authProvider and call it here.
   const { handleGoogleSinin, handleFacebookSignUp, handleLogin } =
     useContexts();
   const navigate = useNavigate();
   const id = uuidv4();
+  // we used react hook form package. and handle form with that.
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
-
+  // this is only for login with email.
   const onSubmit = (data) => {
     const { email, password } = data;
     handleLogin(email, password)
@@ -26,7 +28,7 @@ const SingIn = () => {
       })
       .catch((err) => console.error(err));
   };
-
+  // when you will login with the facebook, you wil redirect to the home page.
   const handleFacebookLogin = () => {
     handleFacebookSignUp()
       .then((res) => {
@@ -36,6 +38,7 @@ const SingIn = () => {
       .catch((err) => console.error(err));
   };
 
+  // when you will login with the google. this function will take your information and post it in database with post method. After login, you wil redirect to the home page.
   const handleGoogleLogin = () => {
     handleGoogleSinin()
       .then((result) => {
@@ -91,6 +94,7 @@ const SingIn = () => {
           className=" flex-shrink-0 w-full max-w-md p-4 bg-[#ffffff] shadow-2xl  border"
         >
           <button
+            // this function for google login. if you want to login with google. you can do that
             onClick={handleGoogleLogin}
             className=" btn-nav flex  mt-4 gap-4 w-full items-center justify-center"
           >
@@ -102,6 +106,7 @@ const SingIn = () => {
             Continue with google
           </button>
           <button
+            // this function for facebook login. if you want to login with facebook. you can do that
             onClick={handleFacebookLogin}
             className=" btn-nav flex  mt-4 gap-2 w-full items-center justify-center"
           >
@@ -113,6 +118,7 @@ const SingIn = () => {
             Continue with facebook
           </button>
           <div className="divider">OR</div>
+          {/* handle submit function */}
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="form-control">
               <label className="label">
@@ -154,12 +160,14 @@ const SingIn = () => {
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
               </div>
+              {/* error message */}
               {errors.password?.type === "required" && (
                 <p className="text-red-500">password is required</p>
               )}
             </div>
 
             <div className="form-control mt-6">
+              {/* submit button for email login */}
               <button className="btn-primary flex  gap-4 w-full items-center justify-center">
                 Login
                 <FaSignInAlt />{" "}

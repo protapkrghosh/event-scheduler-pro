@@ -1,10 +1,5 @@
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import {
-  FaAngleDown,
-  FaDownload,
-  FaAlignRight,
-  FaCaretDown,
-} from "react-icons/fa";
+import { FaAngleDown, FaCaretDown } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DateRange from "./DateRange";
@@ -25,12 +20,13 @@ const ScheduleEvents = () => {
   const { user } = useContexts();
   const [active, setIsActive] = useState("upcoming");
   const [open, setOpen] = useState(false);
+  // save all meetings. come from database
   const [meetings, setMeetings] = useState([]);
   const [pastMeetings, setPastMeetings] = useState([]);
   const [nextDayMeetings, setNextDayMeetings] = useState([]);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  // get data
+  // get the current user's data by email.
   useEffect(() => {
     fetch(
       `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
@@ -44,36 +40,38 @@ const ScheduleEvents = () => {
         setMeetings(parsedMeetings);
       });
   }, [user?.email]);
-
+  // handle past meetings and next day meetings. In past meetings user will show previous all meetings. but in the upcoming meetings user will show only tomorrow meetings.That's why it's called theNextDayMeetings.
   useEffect(() => {
-    console.log("startDate:", startDate);
-    console.log("endDate:", endDate);
-    console.log("meetings:", meetings);
-
     if (startDate && endDate) {
       // If both startDate and endDate are selected, filter meetings within the date range
       const filteredMeetings = meetings.filter((meeting) => {
+        // separate the date and time part to compare the currentDate and booking Date. If the booking date is already passed from the current date. then it will show in past section.But if the booking date will be held tomorrow then it will show in upcoming section.
+        // date range logic start from here
         const [, datePart] = meeting?.dateAndTime?.split(",") || [];
         if (datePart) {
           const formattedDate = datePart.trim();
+          // parse the date format by date-fns package to compare the today's date and booked date.
           const meetingDate = parse(formattedDate, "dd/MM/yyyy", new Date());
           return (
+            // return past and tomorrows meeting
             isAfter(meetingDate, startDate) && isBefore(meetingDate, endDate)
           );
         }
         return false;
       });
-
-      console.log("filteredMeetings:", filteredMeetings);
+      // date range logic end here
+      // filtered past meeting by dateAndTime Method.
       const pastMeetings = filteredMeetings.filter((meeting) => {
         const meetingDate = parse(
           meeting?.dateAndTime?.split(",")[1]?.trim(),
           "dd/MM/yyyy",
           new Date()
         );
+        // check is it already passed?
         return isBefore(meetingDate, new Date());
       });
 
+      // filtered next day meeting by dateAndTime Method.
       const nextDayMeetings = filteredMeetings.filter((meeting) => {
         const meetingDate = parse(
           meeting?.dateAndTime?.split(",")[1]?.trim(),
@@ -81,9 +79,10 @@ const ScheduleEvents = () => {
           new Date()
         );
         const tomorrow = addDays(new Date(), 1);
+        // check is it the next day meeting?
         return isSameDay(meetingDate, tomorrow);
       });
-
+      // set the past meetings and next meetings
       setPastMeetings(pastMeetings);
       setNextDayMeetings(nextDayMeetings);
     } else {
@@ -290,7 +289,7 @@ const ScheduleEvents = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
-
+                {/* if any meeting has not dateAndTime method that means it's pending now. */}
                 {meetings &&
                   meetings.map((meeting, index) => (
                     <tbody key={index}>
