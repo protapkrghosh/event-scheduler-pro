@@ -46,7 +46,7 @@ const CreateEventForms = () => {
       )
       .then((data) => {
         console.log(data);
-        if (data.data.data.success) {
+        if (data.data.success) {
           navigate("/dashboard");
           toast.success("Schedule added!");
           reset();
