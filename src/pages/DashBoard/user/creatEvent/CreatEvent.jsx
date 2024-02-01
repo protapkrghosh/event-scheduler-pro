@@ -1,10 +1,10 @@
 import { FaAngleDown, FaCreativeCommonsShare, FaSearch } from "react-icons/fa";
-import useContexts from "../../../hooks/useContexts";
 import BookedMeet from "./BookedMeet";
 import { useState } from "react";
-import AddEventModal from "../../../componnents/modal/AddEventModal";
-import useIsBan from "../../../hooks/useIsBan";
 import toast from "react-hot-toast";
+import useIsBan from "../../../../hooks/useIsBan";
+import useContexts from "../../../../hooks/useContexts";
+import AddEventModal from "../../../../componnents/modal/AddEventModal";
 
 const CreateEvent = () => {
   const { user } = useContexts();
@@ -18,16 +18,10 @@ const CreateEvent = () => {
   };
   return (
     <div className="">
-      <h3 className="heading">
-        Event types
-      </h3>
+      <h3 className="heading">Event types</h3>
       <div className="flex flex-col items-start lg:flex-row lg:items-center gap-x-3 mb-12">
         <div className="dropdown">
-          <div
-            tabIndex={0}
-            role="button"
-            className="headBox"
-          >
+          <div tabIndex={0} role="button" className="headBox">
             My Calendly <FaAngleDown></FaAngleDown>
           </div>
           <ul

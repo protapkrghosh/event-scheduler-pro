@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
 import { FaRegClock } from "react-icons/fa";
 import "./ConfirmBooking.css";
-import useSingleEvents from "../../../hooks/useSingleEvents";
+import useSingleEvents from "../../../../hooks/useSingleEvents";
 import moment from "moment";
 
 const ConfirmBooking = () => {

@@ -5,9 +5,9 @@ import SingIn from "../pages/login_and_sinup/login/SingIn";
 import Sinup from "../pages/login_and_sinup/sinup/Sinup";
 import Features from "../pages/features/Features";
 import DashboardLayouts from "../layouts/DashbordLayouts";
-import CreateEvent from "../pages/DashBoard/creatEvent/CreatEvent";
+import CreateEvent from "../pages/DashBoard/user/creatEvent/CreatEvent";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import ScheduleEvents from "../pages/DashBoard/scheduleEvents/ScheduleEvents";
+import ScheduleEvents from "../pages/DashBoard/user/scheduleEvents/ScheduleEvents";
 import Bookings from "../pages/home/home/bookings/Bookings";
 import Sales from "../componnents/solutionsComponents/sales/Sales";
 import Marketing from "../componnents/solutionsComponents/marketing/Marketing";
@@ -16,22 +16,22 @@ import Recruiting from "../componnents/solutionsComponents/recruiting/Recruiting
 import Technology from "../componnents/solutionsComponents/technology/Technology";
 import Educations from "../componnents/solutionsComponents/education/Educations";
 import ContactUs from "../pages/ContactUs/ContactUs";
-import CreateMeet from "../pages/DashBoard/creatEvent/CreateEventForms";
-import CreatRoom from "../pages/DashBoard/creatCustomMeet/CreatRoom";
+import CreateMeet from "../pages/DashBoard/user/creatEvent/CreateEventForms";
+import CreatRoom from "../pages/DashBoard/user/creatCustomMeet/CreatRoom";
 import EventDtailsLayouts from "../layouts/EventDtailsLayouts";
-import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
-import BookingDetails from "../pages/DashBoard/ConfirmBooking/BookingDetails";
-import ScheduleConfirmed from "../pages/DashBoard/ConfirmBooking/ScheduleConfirmed";
+import ConfirmBooking from "../pages/DashBoard/user/ConfirmBooking/ConfirmBooking";
+import BookingDetails from "../pages/DashBoard/user/ConfirmBooking/BookingDetails";
+import ScheduleConfirmed from "../pages/DashBoard/user/ConfirmBooking/ScheduleConfirmed";
 import PrivateRoute from "./privetRoute/PrivateRoute";
 import Overview from "../pages/DashBoard/admin/overview/Overview";
 import AllUser from "../pages/DashBoard/admin/allUser/AllUser";
 import AllEvents from "../pages/DashBoard/admin/allEvents/AllEvents";
-import Payments from "../pages/DashBoard/Payment/Payments";
-import PymentConfirm from "../pages/DashBoard/Payment/PymentConfirm";
-import Workflows from "../pages/DashBoard/Workflows/Workflows";
-import Routing from "../pages/DashBoard/Routing/Routing";
-import Availability from "../pages/DashBoard/Availability/Availability";
-import IntegrationsAndApps from "../pages/DashBoard/IntegrationsAndApps/IntegrationsAndApps";
+import Payments from "../pages/DashBoard/user/Payment/Payments";
+import PymentConfirm from "../pages/DashBoard/user/Payment/PymentConfirm";
+import Workflows from "../pages/DashBoard/user/Workflows/Workflows";
+import Routing from "../pages/DashBoard/user/Routing/Routing";
+import Availability from "../pages/DashBoard/user/Availability/Availability";
+import IntegrationsAndApps from "../pages/DashBoard/user/IntegrationsAndApps/IntegrationsAndApps";
 
 const router = createBrowserRouter([
   {

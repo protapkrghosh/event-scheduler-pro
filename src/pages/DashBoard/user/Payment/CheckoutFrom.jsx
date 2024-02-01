@@ -1,9 +1,9 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import useContexts from "../../../hooks/useContexts";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import useContexts from "../../../../hooks/useContexts";
 
 const CheckoutForm = ({ price, card }) => {
   const [clientSecret, setClientSecret] = useState("");

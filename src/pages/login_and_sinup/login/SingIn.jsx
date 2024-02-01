@@ -2,9 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
-import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import useContexts from "../../../hooks/useContexts";
 const SingIn = () => {
   // import the all function from authProvider and call it here.
   const { handleGoogleSinin, handleFacebookSignUp, handleLogin } =
@@ -32,7 +32,7 @@ const SingIn = () => {
   };
   // when you will login with the facebook, you wil redirect to the home page.
   const handleFacebookLogin = () => {
-    // call handleFacebookSignUp funtion to login withe google  
+    // call handleFacebookSignUp funtion to login withe google
     handleFacebookSignUp()
       .then((res) => {
         navigate("/");
@@ -42,8 +42,7 @@ const SingIn = () => {
 
   // when you will login with the google. this function will take your information and post it in database with post method. After login, you wil redirect to the home page.
   const handleGoogleLogin = () => {
-
-    // call handleGoogleSinin function to sin in withe google 
+    // call handleGoogleSinin function to sin in withe google
     handleGoogleSinin()
       .then((result) => {
         const email = result?.user?.email;
@@ -59,20 +58,14 @@ const SingIn = () => {
           role,
           currentPlane,
         };
-
+        navigate("/");
         // if the user is firs time sin in in our website then save the user info in our database
-        axios
-          .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
-            {
-              user: users,
-            }
-          )
-          .then((data) => {
-            if (data.data.sucsees === true) {
-              navigate("/");
-            }
-          });
+        axios.post(
+          "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+          {
+            user: users,
+          }
+        );
       })
       .catch((err) => console.error(err));
   };

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import useContexts from "../../../hooks/useContexts";
+import useContexts from "../../../../hooks/useContexts";
 import { ImCross } from "react-icons/im";
 
 const DetailsModal = ({ meetingDetails, timePart, datePart }) => {
@@ -38,8 +38,14 @@ const DetailsModal = ({ meetingDetails, timePart, datePart }) => {
               <p className="tracking-wider mb-3 text-lg"> {userEmail}</p>
               <span className="font-bold uppercase">Event Method: </span>
               <p className="tracking-wider mb-3 text-lg">{method}</p>
-              <span className={`font-bold uppercase ${!timePart && "hidden"}`}>Event Time: </span>
-              <p className={`tracking-wider mb-3 text-lg ${!timePart && "hidden"}`}>
+              <span className={`font-bold uppercase ${!timePart && "hidden"}`}>
+                Event Time:{" "}
+              </span>
+              <p
+                className={`tracking-wider mb-3 text-lg ${
+                  !timePart && "hidden"
+                }`}
+              >
                 {timePart}, {datePart}
               </p>
               <span className="font-bold uppercase">Event Name: </span>

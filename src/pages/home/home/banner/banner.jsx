@@ -47,15 +47,15 @@ const Banner = () => {
             selection of experiences, tailor your social calendar, and make
             every moment extraordinary. Ready to redefine the way you celebrate?
           </p>
-          <div className="flex">
+          <div className="flex items-center justify-center">
             {/* if user is not exists/login, then this button will show */}
-          {!user && (
-            <Link to={"/sinup"}>
-              <button className=" btn-primary">
-                Get started with free now
-              </button>
-            </Link>
-          )}
+            {!user && (
+              <Link to={"/sinup"}>
+                <button className=" btn-primary">
+                  Get started with free now
+                </button>
+              </Link>
+            )}
           </div>
           {/* if user is exists/login, then this button will show */}
           {user && (
