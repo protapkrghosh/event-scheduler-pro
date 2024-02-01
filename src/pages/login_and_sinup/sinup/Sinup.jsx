@@ -77,7 +77,7 @@ const Sinup = () => {
         // save the user data in our database
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user/api/v1/users/create-user",
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user",
             {
               user: users,
             }
