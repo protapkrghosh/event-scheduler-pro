@@ -56,6 +56,7 @@ const Banner = () => {
               </button>
             </Link>
           )}
+
           </div>
           {/* if user is exists/login, then this button will show */}
           {user && (

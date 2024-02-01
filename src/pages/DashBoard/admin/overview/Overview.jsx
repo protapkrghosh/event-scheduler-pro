@@ -45,7 +45,7 @@ const Overview = () => {
             {" "}
             Total purchase
           </h1>
-          <p className="mt-4">{`${totalAmount} $`}</p>
+          <p className="mt-4">{`${totalAmount.toFixed(2)} $`}</p>
         </div>
         <div className="border-4 border-white text-white bg-[#0069ff] text-4xl font-bold py-4 shadow-xl shadow-black">
           <FaCalendarAlt className="w-full mx-auto" />
