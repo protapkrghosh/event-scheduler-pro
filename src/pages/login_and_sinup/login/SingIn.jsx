@@ -33,7 +33,7 @@ const SingIn = () => {
 
   // handle user facebook login
   const handleFacebookLogin = () => {
-    // call handleFacebookSignUp funtion to login withe google  
+    // call handleFacebookSignUp funtion to login withe google
     handleFacebookSignUp()
       .then((res) => {
         navigate("/");
@@ -43,8 +43,7 @@ const SingIn = () => {
 
   // handle user google login
   const handleGoogleLogin = () => {
-
-    // call handleGoogleSinin function to sin in withe google 
+    // call handleGoogleSinin function to sin in withe google
     handleGoogleSinin()
       .then((result) => {
         const email = result?.user?.email;
@@ -70,7 +69,7 @@ const SingIn = () => {
             }
           )
           .then((data) => {
-            if (data.data.sucsees === true) {
+            if (data.data.success === true) {
               navigate("/");
             }
           });
