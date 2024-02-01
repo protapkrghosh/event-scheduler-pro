@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import useContexts from "../../../hooks/useContexts";
-import useSinglePayments from "../../../hooks/useSinglePayments";
+import useContexts from "../../../../hooks/useContexts";
+import useSinglePayments from "../../../../hooks/useSinglePayments";
 
 import moment from "moment";
 

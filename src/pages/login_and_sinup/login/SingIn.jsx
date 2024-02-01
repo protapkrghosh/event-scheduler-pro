@@ -2,9 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
-import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import useContexts from "../../../hooks/useContexts";
 const SingIn = () => {
   // import the all function from authProvider and call it here.
   const { handleGoogleSinin, handleFacebookSignUp, handleLogin } =
