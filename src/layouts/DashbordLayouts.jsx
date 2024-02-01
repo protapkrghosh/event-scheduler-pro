@@ -25,12 +25,12 @@ const DashboardLayouts = () => {
             <DasboardNavbar />
           </div>
         </div>
-        <div className="w-full">
-          <div className="px-4 mt-14">
+        {/* <div className="w-full"> */}
+          <div className="px-4 mt-14 w-9/12 mx-auto">
             {/* outlet is reeved all the children path have in the /dashboard route  */}
             <Outlet />
           </div>
-        </div>
+        {/* </div> */}
       </div>
 
       <div className="drawer-side">

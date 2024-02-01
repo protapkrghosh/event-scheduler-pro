@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { cards } from "../../../../data/Data";
 
 const Bookings = () => {
+  // this state for knowing monthly billing or annual billing
   const [open, setOpen] = useState(false);
 
   return (
@@ -23,6 +24,7 @@ const Bookings = () => {
           scheduling app gives your business the freedom to grow.
         </p>
         <div className="flex justify-center items-center gap-x-2 font-semibold mb-4 lg:mb-8">
+          {/* change the colour to know which package I want. */}
           <p className={`${open && "text-gray-500"}`}>Monthly billing</p>
           {/* toggle start*/}
 
@@ -37,9 +39,11 @@ const Bookings = () => {
           </label>
 
           {/* toggle end */}
+          {/* change the colour to know which package I want. */}
           <p className={`${!open && "text-gray-500"}`}>Annual billing</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-5 place-items-center">
+          {/* maps the all card's information from data folder */}
           {cards.map((card) => (
             <div
               key={card.heading}

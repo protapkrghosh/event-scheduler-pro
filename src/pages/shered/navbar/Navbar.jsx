@@ -38,13 +38,15 @@ const Navbar = () => {
       <li>
         <NavLink
           to={"/"}
+          className=" lg:hidden"
         >
-          {" "}
+          
           <img
             src={logo}
             alt="img logo"
-            className="h-10 w-10 rounded-full lg:hidden"
-          />{" "}
+            className="h-10 w-10 rounded-full"
+          />
+          <p>Let's Schedule</p>
         </NavLink>
       </li>
       <li>

@@ -21,10 +21,10 @@ const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
   const facebookAuthProvider = new FacebookAuthProvider();
 
-  // handle create facebook login user
-  const handleFacebookSignUp = () => {
+  const handleFacebookSignUp = async () => {
     setLoading(true);
-    return signInWithPopup(auth, facebookAuthProvider);
+    const result = await signInWithPopup(auth, facebookAuthProvider);
+    return result;
   };
 
   // handle sin up create user withe email and password

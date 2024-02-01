@@ -1,108 +1,20 @@
 import { useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { customerSuccessTabPanel, educationTabPanel, informationTechnologyTabPanel, marketingTabPanel, recruitingTabPanel, salesTabPanel, tabTitles } from "../../../../data/Data";
 
 const ReactTabs = () => {
+  // the sales tab will open default.
   const [active, setIsActive] = useState("Sales");
-  const tabTitles = [
-    "Sales",
-    "Marketing",
-    "Success",
-    "Recruiting",
-    "Technology",
-    "Education",
-  ];
-  const salesTabPanel = [
-    {
-      heading: "Drive more revenue",
-      para: "Book high-value meetings in seconds and turn scheduling into a competitive advantage.",
-    },
-    {
-      heading: "Speed up your sales cycle",
-      para: "Keep your deal momentum high and remove scheduling friction at every stage of your sales cycle.",
-    },
-    {
-      heading: "Close more deals",
-      para: "Customize reminder and follow-up workflows to move deals along, integrate with sales tools, and remove logistical tasks to focus on selling.",
-    },
-  ];
 
-  const marketingTabPanel = [
-    {
-      heading: "Drive more pipeline",
-      para: "Turn marketing leads into booked meetings, faster.",
-    },
-    {
-      heading: "Improve lead response times",
-      para: "Gain a competitive advantage when you qualify, route, and book leads instantly.",
-    },
-    {
-      heading: "Boost conversion rates",
-      para: "Reduce friction in the sales funnel and close more deals.",
-    },
-  ];
-  const customerSuccessTabPanel = [
-    {
-      heading: "Drive more retention",
-      para: "Bring all of your experts together and connect with customers at every stage of their journey to build long-lasting partnerships.",
-    },
-    {
-      heading: "Speed up your response times",
-      para: "Quickly book time to solve customers’ needs and help them self-serve to support their goals.",
-    },
-    {
-      heading: "Improve NPS and customer health",
-      para: "Change the way you schedule meetings to increase customer satisfaction and keep engagement high with reminder and follow-up workflows.",
-    },
-  ];
-  const recruitingTabPanel = [
-    {
-      heading: "Hire more efficiently",
-      para: "Spend less time wrangling calendars and more time meeting candidates.",
-    },
-    {
-      heading: "Speed up your recruiting cycle",
-      para: "Book interviews in seconds and reduce time-to-fill.",
-    },
-    {
-      heading: "Improve the candidate experience",
-      para: "Eliminate friction and make your recruiting process a competitive advantage.",
-    },
-  ];
-  const informationTechnologyTabPanel = [
-    {
-      heading: "Maintain enterprise-grade security with scheduling automation",
-      para: "Stay aligned with your security requirements and reduce risk across the org.",
-    },
-    {
-      heading: "Implement and govern at ease",
-      para: "Eliminate the manual processes of implementing, managing user access and permissions on the platform.",
-    },
-    {
-      heading: "Drive adoption and ROI across teams",
-      para: "Partner with our team to onboard, drive adoption, and identify success metrics to achieve greater value, faster.",
-    },
-  ];
-  const educationTabPanel = [
-    {
-      heading: "Drive more valuable connections with automated scheduling",
-      para: "Spend more quality time supporting students, whether you’re advising, tutoring, career planning, or counseling.",
-    },
-    {
-      heading: "Increase communication and foster coordination",
-      para: "Make your schedule more accessible to students and prospects, allowing them to book time when they need it most.",
-    },
-    {
-      heading: "Deliver a better educational experience",
-      para: "Focus on what matters most: supporting and connecting with your students, so they can succeed.",
-    },
-  ];
   return (
     <div className=" py-16 bg-[#F8FAFC]">
       <h1 className="text-center text-primary pb-24 md:w-10/12 mx-auto">
         Smarter scheduling for teams who{" "}
         <span className="text-[#0069ff]">conduct meetings at scale</span>
       </h1>
+      {/* the whole tabs functionality */}
       <Tabs>
+        {/* tab titles. mapping all tab titles from data folder. */}
         <TabList className="lg:w-10/12 mx-auto grid grid-cols-2 lg:grid-cols-6 place-items-center gap-y-3 mb-24">
           {tabTitles.map((tabTitle) => (
             <Tab
@@ -117,7 +29,8 @@ const ReactTabs = () => {
             </Tab>
           ))}
         </TabList>
-
+        {/* all tab content below there */}
+        {/* sales tab content. mapping all tab content from data folder. */}
         <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
@@ -138,6 +51,7 @@ const ReactTabs = () => {
           </div>
         </TabPanel>
 
+        {/* marketing tab content. mapping all tab content from data folder. */}
         <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
@@ -157,6 +71,8 @@ const ReactTabs = () => {
             />
           </div>
         </TabPanel>
+
+        {/* customerSuccessTabPanel tab content. mapping all tab content from data folder. */}
         <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
@@ -176,6 +92,8 @@ const ReactTabs = () => {
             />
           </div>
         </TabPanel>
+
+        {/* recruitingTabPanel tab content. mapping all tab content from data folder. */}
         <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
@@ -196,6 +114,7 @@ const ReactTabs = () => {
           </div>
         </TabPanel>
 
+        {/* informationTechnologyTabPanel tab content. mapping all tab content from data folder. */}
         <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>
@@ -215,6 +134,7 @@ const ReactTabs = () => {
             />
           </div>
         </TabPanel>
+        {/* educationTabPanel tab content. mapping all tab content from data folder. */}
         <TabPanel className="lg:w-10/12 px-2 mx-auto">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-x-16">
             <div>

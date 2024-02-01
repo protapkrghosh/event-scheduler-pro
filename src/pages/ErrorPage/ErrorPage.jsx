@@ -1,7 +1,7 @@
 const ErrorPage = () => {
   return (
-    <div>
-      <h1>vai vul val page aiso tumi</h1>
+    <div className="flex justify-center items-center text-4xl font-cursive">
+      <h1>No pages found</h1>
     </div>
   );
 };

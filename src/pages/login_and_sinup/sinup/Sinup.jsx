@@ -7,7 +7,8 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
 const Sinup = () => {
-  const {
+  // we used react hook form package. and handle form with that.
+  const { 
     register,
     handleSubmit,
     watch,
@@ -15,14 +16,12 @@ const Sinup = () => {
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  // import handleSinup updateUserProfile handleGoogleSinin from custom met hooks useContexts()
+  // import the all function from authProvider and call it here.
   const { handleSinup, updateUserProfile, handleGoogleSinin } = useContexts();
 
   const navigate = useNavigate();
   const id = uuidv4();
-
-  // handle sin up  to post the data in our database
+  // this is only for login with email.
   const onSubmit = (data) => {
     // destructure the current form data
     const { name, email, password, photo } = data;
@@ -54,8 +53,7 @@ const Sinup = () => {
       })
       .catch((err) => console.error(err));
   };
-
-  // handle google login there are a user can one sin up and login in google so i use only one faction call handleGoogleLogin
+  // when you will login with the google. this function will take your information and post it in database with post method. After login, you wil redirect to the home page.
   const handleGoogleLogin = () => {
     // call the handleGoogleSinin function there and create a google sin up user in our database
     handleGoogleSinin()
@@ -112,6 +110,7 @@ const Sinup = () => {
           className="card flex-shrink-0 p-4 w-full max-w-md shadow-2xl border "
         >
           <button
+            // this function for google login. if you want to login with google. you can do that
             onClick={handleGoogleLogin}
             className=" btn-nav flex mt-4  gap-4 w-full items-center justify-center"
           >
@@ -131,6 +130,7 @@ const Sinup = () => {
             Continue with facebook
           </button>
           <div className="divider">OR</div>
+          {/* handle submit function */}
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="form-control">
               <label className="label">
@@ -251,6 +251,7 @@ const Sinup = () => {
               </p>
             )}
             <div className="form-control mt-6">
+              {/* submit button for email login */}
               <button className="btn-primary flex  gap-4 w-full items-center justify-center">
                 Sing up
                 <FaSignInAlt />{" "}

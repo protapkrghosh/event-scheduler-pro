@@ -9,47 +9,9 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Autoplay } from "swiper/modules";
+import { swiperContents } from "../../../../data/Data";
 
 const Testimonial = () => {
-  const swiperContents = [
-    {
-      verified: true,
-      heading: "Setmore provides awesome  demo",
-      para: "Setting up a preview video call to answer my questions about the rework. ",
-      DOE: "19 December 2023",
-    },
-    {
-      verified: true,
-      heading: "It was great talk and exploration",
-      para: "It was great talk and exploration. Great session.Pranav",
-      DOE: "19 December 2023",
-    },
-    {
-      verified: false,
-      heading: "Thank you for an incredible…",
-      para: "Thank you for an incredible presentation and experience.",
-      DOE: "19 December 2023",
-    },
-    {
-      verified: true,
-      heading: "It was great talk and exploration",
-      para: "It was great talk and exploration. Great session.Pranav",
-      DOE: "19 December 2023",
-    },
-    {
-      verified: true,
-      heading: "Thank you for an incredible…",
-      para: "Thank you for an incredible presentation and experience.",
-      DOE: "19 December 2023",
-    },
-    {
-      verified: false,
-      heading: "Thank you for an incredible…",
-      para: "Thank you for an incredible presentation and experience.",
-      DOE: "19 December 2023",
-    },
-  ];
-
   return (
     <div className="my-12">
       <h1 className="text-center  text-primary font-cursive my-14">
