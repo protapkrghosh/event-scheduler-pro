@@ -59,20 +59,14 @@ const SingIn = () => {
           role,
           currentPlane,
         };
-
+        navigate("/");
         // if the user is firs time sin in in our website then save the user info in our database
-        axios
-          .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
-            {
-              user: users,
-            }
-          )
-          .then((data) => {
-            if (data.data.success === true) {
-              navigate("/");
-            }
-          });
+        axios.post(
+          "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+          {
+            user: users,
+          }
+        );
       })
       .catch((err) => console.error(err));
   };
