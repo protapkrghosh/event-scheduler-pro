@@ -3,8 +3,8 @@ import { FcBusinessman } from "react-icons/fc";
 import { IoVideocamOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import { useParams } from "react-router-dom";
-import useSingleEvents from "../../../hooks/useSingleEvents";
-import Loading from "../../../componnents/loading/Loading";
+import useSingleEvents from "../../../../hooks/useSingleEvents";
+import Loading from "../../../../componnents/loading/Loading";
 
 const ScheduleConfirmed = () => {
   const handleRedirect = () => {

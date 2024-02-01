@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import useContexts from "../../../hooks/useContexts";
+
+import useContexts from "../../../../hooks/useContexts";
 import DetailsModal from "./DetailsModal";
 
 const PendingTableContent = ({ pendingMeeting }) => {
   const { user } = useContexts();
-  const { duration, eventName, method, meetLink, eventTypes } =
-    pendingMeeting;
+  const { duration, eventName, method, meetLink, eventTypes } = pendingMeeting;
   return (
     <tr>
       <td>

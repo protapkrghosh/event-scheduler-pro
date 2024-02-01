@@ -1,10 +1,10 @@
 import { IoMdArrowRoundBack, IoIosTime } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import useSingleEvents from "../../../hooks/useSingleEvents";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Loading from "../../../componnents/loading/Loading";
+import useSingleEvents from "../../../../hooks/useSingleEvents";
+import Loading from "../../../../componnents/loading/Loading";
 
 const BookingDetails = () => {
   // use useParams react hook to get the dynamic schedule id
@@ -56,7 +56,7 @@ const BookingDetails = () => {
         "https://lets-sheduleit-backend.vercel.app/api/v1/mail/send-email",
         { emailInfo: emailData }
       );
-        // if confirmed the time then he will redirect to this page.
+      // if confirmed the time then he will redirect to this page.
       if (response.data.success === true) {
         navigate(`/confirm-schedule/bookingConfirmed/${scheduleId}`);
         refetch();

@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
-import useContexts from "../../../hooks/useContexts";
 import { useEffect, useState } from "react";
 import logo from "../../../assets/logo.png";
+import useContexts from "../../../hooks/useContexts";
 const Navbar = () => {
   const { user, handleLogout } = useContexts();
   const [scrolling, setScrolling] = useState(false);
@@ -25,8 +25,6 @@ const Navbar = () => {
     handleLogout();
   };
 
-
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -36,16 +34,8 @@ const Navbar = () => {
   const navItem = (
     <>
       <li>
-        <NavLink
-          to={"/"}
-          className=" lg:hidden"
-        >
-          
-          <img
-            src={logo}
-            alt="img logo"
-            className="h-10 w-10 rounded-full"
-          />
+        <NavLink to={"/"} className=" lg:hidden">
+          <img src={logo} alt="img logo" className="h-10 w-10 rounded-full" />
           <p>Let's Schedule</p>
         </NavLink>
       </li>
@@ -69,89 +59,85 @@ const Navbar = () => {
           Features
         </NavLink>
       </li>
-      <li
-        className="md:ml-4">
-      <div className={`dropdown cursor-pointer ${isOpen ? 'open' : ''}`}>
-      <p
-        tabIndex={0}
-        onClick={toggleDropdown}
-      >
-        Solutions
-      </p>
-      {isOpen && (
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li className="my-2">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "text-[#0069ff]" : "nothing"
-                }
-                to={"/solutions/sales"}
-                onClick={toggleDropdown}
-              >
-                Sales
-              </NavLink>
-            </li>
-            <li className="my-2">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "text-[#0069ff]" : "nothing"
-                }
-                to={"/solutions/marketing"}
-                onClick={toggleDropdown}
-              >
-                Marketing
-              </NavLink>
-            </li>
-            <li className="my-2">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "text-[#0069ff]" : "nothing"
-                }
-                to={"/solutions/success"}
-                onClick={toggleDropdown}
-              >
-                Success
-              </NavLink>
-            </li>
-            <li className="my-2">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "text-[#0069ff]" : "nothing"
-                }
-                to={"/solutions/recruiting"}
-                onClick={toggleDropdown}
-              >
-                Recruiting
-              </NavLink>
-            </li>
-            <li className="my-2">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "text-[#0069ff]" : "nothing"
-                }
-                to={"/solutions/technology"}
-                onClick={toggleDropdown}
-              >
-                Technology
-              </NavLink>
-            </li>
-            <li className="my-2">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "text-[#0069ff]" : "nothing"
-                }
-                to={"/solutions/education"}
-                onClick={toggleDropdown}
-              >
-                Education
-              </NavLink>
-            </li>
-        </ul>
-      )}
-    </div>
+      <li className="md:ml-4">
+        <div className={`dropdown cursor-pointer ${isOpen ? "open" : ""}`}>
+          <p tabIndex={0} onClick={toggleDropdown}>
+            Solutions
+          </p>
+          {isOpen && (
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li className="my-2">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#0069ff]" : "nothing"
+                  }
+                  to={"/solutions/sales"}
+                  onClick={toggleDropdown}
+                >
+                  Sales
+                </NavLink>
+              </li>
+              <li className="my-2">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#0069ff]" : "nothing"
+                  }
+                  to={"/solutions/marketing"}
+                  onClick={toggleDropdown}
+                >
+                  Marketing
+                </NavLink>
+              </li>
+              <li className="my-2">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#0069ff]" : "nothing"
+                  }
+                  to={"/solutions/success"}
+                  onClick={toggleDropdown}
+                >
+                  Success
+                </NavLink>
+              </li>
+              <li className="my-2">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#0069ff]" : "nothing"
+                  }
+                  to={"/solutions/recruiting"}
+                  onClick={toggleDropdown}
+                >
+                  Recruiting
+                </NavLink>
+              </li>
+              <li className="my-2">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#0069ff]" : "nothing"
+                  }
+                  to={"/solutions/technology"}
+                  onClick={toggleDropdown}
+                >
+                  Technology
+                </NavLink>
+              </li>
+              <li className="my-2">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#0069ff]" : "nothing"
+                  }
+                  to={"/solutions/education"}
+                  onClick={toggleDropdown}
+                >
+                  Education
+                </NavLink>
+              </li>
+            </ul>
+          )}
+        </div>
       </li>
       <li className="md:ml-4">
         <NavLink
@@ -196,7 +182,6 @@ const Navbar = () => {
             {navItem}
           </ul>
         </div>
-
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className=" menu-horizontal px-1 font-bold text-[#0b3558] text-xl">

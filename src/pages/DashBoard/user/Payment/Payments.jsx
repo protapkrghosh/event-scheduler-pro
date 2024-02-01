@@ -3,8 +3,8 @@ import CheckoutFrom from "./CheckoutFrom";
 import { Elements } from "@stripe/react-stripe-js";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { cards } from "../../../data/Data";
 import { TiTick } from "react-icons/ti";
+import { cards } from "../../../../data/Data";
 
 const Payments = () => {
   const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);

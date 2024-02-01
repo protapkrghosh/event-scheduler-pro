@@ -14,7 +14,7 @@ import {
 } from "date-fns";
 import PendingTableContent from "./PendingTableContent";
 import PastTableContent from "./PastTableContent";
-import useContexts from "../../../hooks/useContexts";
+import useContexts from "../../../../hooks/useContexts";
 
 const ScheduleEvents = () => {
   const { user } = useContexts();
@@ -153,16 +153,10 @@ const ScheduleEvents = () => {
 
   return (
     <div>
-      <h1 className="heading">
-        Scheduled events
-      </h1>
+      <h1 className="heading">Scheduled events</h1>
 
       <div className="dropdown mb-5">
-        <div
-          tabIndex={0}
-          role="button"
-          className="headBox"
-        >
+        <div tabIndex={0} role="button" className="headBox">
           My Calendly <FaAngleDown></FaAngleDown>
         </div>
         <ul
