@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import backgroundImage from "../../../assets/new-clouds-2.svg";
+
+// received image, title, span, discriptions as a props from solutions components and handle the all solutions page hero sections dynamic
 const SolutionsHero = ({ image, title, span, discriptions }) => {
   const backgroundStyles = {
     backgroundImage: `url(${backgroundImage})`,
@@ -19,12 +21,14 @@ const SolutionsHero = ({ image, title, span, discriptions }) => {
             {title}
             <span className="text-[#0069ff]">{span}</span>
           </h1>
-          <p className="text-secondary py-6 text-center lg:text-left">{discriptions}</p>
+          <p className="text-secondary py-6 text-center lg:text-left">
+            {discriptions}
+          </p>
           <div className="flex justify-center lg:justify-start">
-          <button className=" btn-primary">Get Started</button>
-          <Link to="/contactUs" className=" btn-fetures text-[#0069ff] ml-4">
-            Contact Us
-          </Link>
+            <button className=" btn-primary">Get Started</button>
+            <Link to="/contactUs" className=" btn-fetures text-[#0069ff] ml-4">
+              Contact Us
+            </Link>
           </div>
         </div>
       </div>

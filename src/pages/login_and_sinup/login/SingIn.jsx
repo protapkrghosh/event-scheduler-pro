@@ -9,6 +9,8 @@ const SingIn = () => {
   // import the all function from authProvider and call it here.
   const { handleGoogleSinin, handleFacebookSignUp, handleLogin } =
     useContexts();
+
+  // call navigate from react useNavigate()
   const navigate = useNavigate();
   const id = uuidv4();
   // we used react hook form package. and handle form with that.
@@ -21,18 +23,18 @@ const SingIn = () => {
   // this is only for login with email.
   const onSubmit = (data) => {
     const { email, password } = data;
+    // call handleLogin funtion to login withe email and password
     handleLogin(email, password)
       .then((result) => {
-        console.log(result.user);
         navigate("/");
       })
       .catch((err) => console.error(err));
   };
   // when you will login with the facebook, you wil redirect to the home page.
   const handleFacebookLogin = () => {
+    // call handleFacebookSignUp funtion to login withe google  
     handleFacebookSignUp()
       .then((res) => {
-        console.log(res.user);
         navigate("/");
       })
       .catch((err) => console.error(err));
@@ -40,9 +42,10 @@ const SingIn = () => {
 
   // when you will login with the google. this function will take your information and post it in database with post method. After login, you wil redirect to the home page.
   const handleGoogleLogin = () => {
+
+    // call handleGoogleSinin function to sin in withe google 
     handleGoogleSinin()
       .then((result) => {
-        console.log(result.user);
         const email = result?.user?.email;
         const name = result?.user?.displayName;
         const photo = result?.user?.photoURL;
@@ -56,6 +59,8 @@ const SingIn = () => {
           role,
           currentPlane,
         };
+
+        // if the user is firs time sin in in our website then save the user info in our database
         axios
           .post(
             "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
@@ -64,7 +69,6 @@ const SingIn = () => {
             }
           )
           .then((data) => {
-            console.log(data.data);
             if (data.data.sucsees === true) {
               navigate("/");
             }

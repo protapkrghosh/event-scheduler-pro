@@ -18,34 +18,35 @@ const Sinup = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   // import the all function from authProvider and call it here.
   const { handleSinup, updateUserProfile, handleGoogleSinin } = useContexts();
+
   const navigate = useNavigate();
   const id = uuidv4();
   // this is only for login with email.
   const onSubmit = (data) => {
+    // destructure the current form data
     const { name, email, password, photo } = data;
-    const role = "user";
-    const currentPlane = "free";
+
+    // call the handleSinup function and create a user in the firebase
     handleSinup(email, password)
       .then((result) => {
-        console.log(result.user);
+        // update the current user name and photo url
         updateUserProfile(name, photo);
+
+        // save the user date in our database
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user",
             {
               user: {
                 id,
                 email,
                 name,
                 photo,
-                role,
-                currentPlane,
               },
             }
           )
           .then((data) => {
-            console.log(data.data.massage);
-            if (data.data.sucsees === true) {
+            if (data.data.success) {
               navigate("/");
             }
           });
@@ -54,10 +55,9 @@ const Sinup = () => {
   };
   // when you will login with the google. this function will take your information and post it in database with post method. After login, you wil redirect to the home page.
   const handleGoogleLogin = () => {
+    // call the handleGoogleSinin function there and create a google sin up user in our database
     handleGoogleSinin()
       .then((result) => {
-        console.log(result.user);
-
         const email = result?.user?.email;
         const name = result?.user?.displayName;
         const photo = result?.user?.photoURL;
@@ -71,16 +71,18 @@ const Sinup = () => {
           role,
           currentPlane,
         };
+
+        // save the user data in our database
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user/api/v1/users/create-user",
             {
               user: users,
             }
           )
           .then((data) => {
-            console.log(data.data.massage);
-            if (data.data.sucsees === true) {
+            console.log(data);
+            if (data.data.success === true) {
               navigate("/");
             }
           });

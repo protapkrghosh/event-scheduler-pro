@@ -16,7 +16,7 @@ import Recruiting from "../componnents/solutionsComponents/recruiting/Recruiting
 import Technology from "../componnents/solutionsComponents/technology/Technology";
 import Educations from "../componnents/solutionsComponents/education/Educations";
 import ContactUs from "../pages/ContactUs/ContactUs";
-import CreateMeet from "../pages/DashBoard/creatEvent/CreateMeet";
+import CreateMeet from "../pages/DashBoard/creatEvent/CreateEventForms";
 import CreatRoom from "../pages/DashBoard/creatCustomMeet/CreatRoom";
 import EventDtailsLayouts from "../layouts/EventDtailsLayouts";
 import ConfirmBooking from "../pages/DashBoard/ConfirmBooking/ConfirmBooking";
@@ -28,6 +28,10 @@ import AllUser from "../pages/DashBoard/admin/allUser/AllUser";
 import AllEvents from "../pages/DashBoard/admin/allEvents/AllEvents";
 import Payments from "../pages/DashBoard/Payment/Payments";
 import PymentConfirm from "../pages/DashBoard/Payment/PymentConfirm";
+import Workflows from "../pages/DashBoard/Workflows/Workflows";
+import Routing from "../pages/DashBoard/Routing/Routing";
+import Availability from "../pages/DashBoard/Availability/Availability";
+import IntegrationsAndApps from "../pages/DashBoard/IntegrationsAndApps/IntegrationsAndApps";
 
 const router = createBrowserRouter([
   {
@@ -141,6 +145,22 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/all-events",
         element: <AllEvents />,
+      },
+      {
+        path: "/dashboard/workflows",
+        element: <Workflows></Workflows>,
+      },
+      {
+        path: "/dashboard/routing",
+        element: <Routing></Routing>,
+      },
+      {
+        path: "/dashboard/availability",
+        element: <Availability></Availability>,
+      },
+      {
+        path: "/dashboard/integrations",
+        element: <IntegrationsAndApps></IntegrationsAndApps>,
       },
     ],
   },

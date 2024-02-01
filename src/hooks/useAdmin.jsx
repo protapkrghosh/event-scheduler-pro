@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import useContexts from "./useContexts";
 import axios from "axios";
 
+// help to fech the isAdmin data
+
 const useAdmin = () => {
   const { user } = useContexts();
 

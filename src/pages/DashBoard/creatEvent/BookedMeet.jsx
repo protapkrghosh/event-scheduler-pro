@@ -52,8 +52,9 @@ const BookedMeet = () => {
     }
   };
 
+  // it will handle the redirect when user click vew details button
   const handleRedirect = (id) => {
-    const curentUrl = `http://localhost:5173/confirm-schedule/${id}`;
+    const curentUrl = `https://let-s-scheduled-frontend.vercel.app/confirm-schedule/${id}`;
 
     window.open(curentUrl, "_blank");
   };
@@ -63,7 +64,8 @@ const BookedMeet = () => {
       {/* show all events which already created */}
       {events ? (
         events.map((event) => {
-          const customLink = `http://localhost:5173/confirm-schedule/${event.scheduleId}`;
+          // this is custom schedule which is creating the user
+          const customLink = `https://let-s-scheduled-frontend.vercel.app/confirm-schedule/${event.scheduleId}`;
 
           return (
             <div

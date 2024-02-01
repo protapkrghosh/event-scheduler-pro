@@ -8,7 +8,12 @@ import {
   FaQuestion,
   FaHeadset,
   FaRegUser,
+  FaShareAlt,
 } from "react-icons/fa";
+import { CiRoute } from "react-icons/ci";
+import { RiApps2Line } from "react-icons/ri";
+
+// handle provide the servicesData
 export const servicesData = [
   {
     img: <FaUserFriends />,
@@ -29,6 +34,8 @@ export const servicesData = [
       "No more no-shows: Fire out customized SMS reminders for upcoming bookings.",
   },
 ];
+
+// handle provide the event
 export const event = [
   {
     img: "https://assets.calendly.com/assets/frontend/media/one_on_one-c0ed81ea039b15906953.svg",
@@ -64,6 +71,7 @@ export const event = [
   },
 ];
 
+// handle provide the userDashBoardNavData
 export const userDashBoardNavData = [
   {
     icon: <FaLink />,
@@ -76,14 +84,29 @@ export const userDashBoardNavData = [
     to: "/dashboard/schedule-event",
   },
   {
+    icon: <FaShareAlt />,
+    name: "Workflows",
+    to: "/dashboard/workflows",
+  },
+  {
+    icon: <CiRoute />,
+    name: "Routing",
+    to: "/dashboard/routing",
+  },
+  {
     icon: <FaRegClock />,
     name: "Availability",
-    to: "/dashboard/schedule-event",
+    to: "/dashboard/availability",
+  },
+  {
+    icon: <RiApps2Line />,
+    name: "IntegrationsAndApps",
+    to: "/dashboard/integrations",
   },
   {
     icon: <FaQuestion />,
     name: " Help",
-    to: "/dashboard/schedule-event",
+    to: "/dashboard/help",
   },
   {
     icon: <FaHeadset />,
@@ -91,6 +114,8 @@ export const userDashBoardNavData = [
     to: "/dashboard/schedule-event",
   },
 ];
+
+// handle provide the adminDashBoardNavData
 export const adminDashBoardNavData = [
   {
     icon: <FaRegUser />,
@@ -104,6 +129,7 @@ export const adminDashBoardNavData = [
   },
 ];
 
+// handle provide the cards data
 export const cards = [
   {
     id: 1,

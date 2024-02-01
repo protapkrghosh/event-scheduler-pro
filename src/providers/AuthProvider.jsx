@@ -27,28 +27,38 @@ const AuthProvider = ({ children }) => {
     return result;
   };
 
+  // handle sin up create user withe email and password
   const handleSinup = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
+  // handle sin in withe email and password
   const handleLogin = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+
+  // handle logout
   const handleLogout = () => {
     setLoading(true);
     signOut(auth);
   };
+
+  // handle update user display name and user photo url
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });
   };
+
+  // handle sing in withe google
   const handleGoogleSinin = () => {
     return signInWithPopup(auth, provider);
   };
 
+  // set current user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       setUser(loggedUser);
@@ -59,6 +69,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  // send auth details as a object for provider value
   const authInfo = {
     handleFacebookSignUp,
     handleSinup,
