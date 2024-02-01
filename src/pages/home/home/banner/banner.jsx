@@ -46,14 +46,14 @@ const Banner = () => {
             selection of experiences, tailor your social calendar, and make
             every moment extraordinary. Ready to redefine the way you celebrate?
           </p>
-          <div className="flex">
-          {!user && (
-            <Link to={"/sinup"}>
-              <button className=" btn-primary">
-                Get started with free now
-              </button>
-            </Link>
-          )}
+          <div className="flex item-center justify-center">
+            {!user && (
+              <Link to={"/sinup"}>
+                <button className=" btn-primary">
+                  Get started with free now
+                </button>
+              </Link>
+            )}
           </div>
           {user && (
             <Link to={"/dashboard"}>
