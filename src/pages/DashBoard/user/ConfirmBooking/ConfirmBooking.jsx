@@ -46,6 +46,7 @@ const ConfirmBooking = () => {
               "HH:mm"
             )
           );
+          console.log(bookedTimes);
         setDisabledTimes(bookedTimes);
       } catch (error) {
         console.error("Error fetching disabled times:", error.message);
