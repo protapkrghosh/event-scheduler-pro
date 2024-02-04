@@ -108,11 +108,6 @@ export const userDashBoardNavData = [
     name: " Help",
     to: "/dashboard/help",
   },
-  {
-    icon: <FaHeadset />,
-    name: " contact us",
-    to: "/dashboard/schedule-event",
-  },
 ];
 
 // handle provide the adminDashBoardNavData
