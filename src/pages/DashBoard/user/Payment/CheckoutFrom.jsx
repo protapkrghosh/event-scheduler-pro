@@ -1,21 +1,29 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import useContexts from "../../../hooks/useContexts";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import useContexts from "../../../../hooks/useContexts";
 
 const CheckoutForm = ({ price, card }) => {
   const [clientSecret, setClientSecret] = useState("");
+
+  // get user from custom met hook useContexts()
   const { user } = useContexts();
+
+  // take the heading data from the props
   const { heading } = card;
   const [isPaymentIntent, setIsPaymentIntent] = useState(false);
+
+  // get stripe information there
   const stripe = useStripe();
   const elements = useElements();
   const paymentsId = uuidv4();
-  const userName = user?.displayName;
-  const userEmail = user?.email;
+  const userName = user?.displayName || "anonyms user";
+  const userEmail = user?.email || "anonyms email";
   const navigate = useNavigate();
+
+  // create a new payment intent
   useEffect(() => {
     if (!isPaymentIntent) {
       axios
@@ -27,11 +35,12 @@ const CheckoutForm = ({ price, card }) => {
         )
         .then((res) => {
           setClientSecret(res.data.data.clientSecret);
-
           setIsPaymentIntent(true);
         });
     }
   }, [price, isPaymentIntent]);
+
+  // handle to make a successful payment
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -54,20 +63,18 @@ const CheckoutForm = ({ price, card }) => {
     } else {
       console.log(paymentMethod.id);
     }
-    console.log(card);
-    const { paymentIntent, error: confirmError } =
-      await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: card,
-          billing_details: {
-            name: user?.displayName,
-          },
+    const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: card,
+        billing_details: {
+          name: user?.displayName,
         },
-      });
+      },
+    });
     const transitionId = paymentMethod.id;
     const date = new Date();
     const amount = price;
-    console.log(paymentIntent);
+
     if (paymentIntent.status === "succeeded") {
       const payments = {
         paymentsId,
@@ -79,15 +86,19 @@ const CheckoutForm = ({ price, card }) => {
         amount,
         packages: heading,
       };
+
+      // save the payment data in the database
       const res = await axios.post(
         "https://lets-sheduleit-backend.vercel.app/api/v1/payments/save-payment-history",
         { paymentsData: payments }
       );
-      if (res.data.sucsees === true) {
+      // if the payment datails is saved successfully in the database then change the current plane to user selected plane
+      if (res.data.success === true) {
         const res = await axios.patch(
           `https://lets-sheduleit-backend.vercel.app/api/v1/users/change-user-plane?email=${user?.email}`,
           { plane: heading }
         );
+
         if (res.data.success === true) {
           navigate(`/payment-success/${paymentsId}`);
         }
@@ -103,7 +114,6 @@ const CheckoutForm = ({ price, card }) => {
               base: {
                 fontSize: "16px",
                 color: "#0069ff",
-                padding: "24px",
                 "::placeholder": {
                   color: "",
                 },
@@ -117,7 +127,7 @@ const CheckoutForm = ({ price, card }) => {
         <button
           className="btn-primary w-full mt-8"
           type="submit"
-          disabled={!stripe || !clientSecret}
+          disabled={!stripe}
         >
           Purchase
         </button>

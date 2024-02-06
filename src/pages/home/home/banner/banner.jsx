@@ -6,6 +6,7 @@ import HomePageDegainTwo from "../../../../componnents/HomePageDegainTwo";
 import useContexts from "../../../../hooks/useContexts";
 const Banner = () => {
   const { user } = useContexts();
+  // call this function in style property for looking simple. Line No: 19
   const backgroundStyles = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
@@ -46,18 +47,23 @@ const Banner = () => {
             selection of experiences, tailor your social calendar, and make
             every moment extraordinary. Ready to redefine the way you celebrate?
           </p>
-          {!user && (
-            <Link to={"/sinup"}>
-              <button className=" btn-primary">
-                Get started with free now
-              </button>
-            </Link>
-          )}
+          <div className="flex items-center justify-center">
+            {/* if user is not exists/login, then this button will show */}
+            {!user && (
+              <Link to={"/sinup"}>
+                <button className=" btn-primary">
+                  Get started with free now
+                </button>
+              </Link>
+            )}
+          </div>
+          {/* if user is exists/login, then this button will show */}
           {user && (
             <Link to={"/dashboard"}>
               <button className=" btn-primary">my account</button>
             </Link>
           )}
+          {/* if user is exists/login, then this button will show */}
           {user && (
             <Link to={"/dashboard"}>
               <button className=" btn-fetures ml-4">

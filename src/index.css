@@ -2,34 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.bookingBg {
-  position: relative;
-  background-color: #F4F5F7;
+.heading {
+  @apply font-prompt text-3xl font-semibold mb-8 lg:mb-16 mt-5
 }
-
-.bookingBg::before {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #F4F5F7;
-  rotate: 2deg;
-  z-index: -10;
-}
-
-.bookingBg::after {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #F4F5F7;
-  rotate: -2deg;
-  z-index: -10;
+.headBox {
+  @apply w-full flex items-center gap-x-2 bg-gray-50 py-2 px-5 rounded-md font-prompt border border-gray-400 m-1
 }
 
 .react-tabs {
@@ -42,11 +19,14 @@
   @apply border ml-4  text-xl border-[#FFF] hover:border-blue-600  font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
 }
 .btn-fetures {
-  @apply border ml-4  text-xl border-[#0069ff] hover:border-blue-600  font-bold py-4 px-4 rounded-md shadow-lg transition duration-100 ease-in-out;
+  @apply border text-xl border-[#0069ff] hover:border-blue-600  font-bold py-4 px-2 rounded-md shadow-lg transition duration-100 ease-in-out;
 }
 
 .btn-primary {
-  @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-4  px-5 rounded-md  border-0 transition duration-100 ease-in-out;
+  @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-4  px-3 rounded-md  border-0 transition duration-100 ease-in-out;
+}
+.btn-dashboard {
+  @apply bg-[#0069ff] hover:bg-blue-600 text-white font-bold text-xl py-2  px-3 rounded-full  border-0 transition duration-100 ease-in-out;
 }
 .text-primary {
   @apply text-4xl md:text-6xl xl:text-7xl font-bold text-[#0b3558] font-prompt;

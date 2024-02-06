@@ -6,7 +6,7 @@ const useSinglePayments = (id) => {
     queryKey: ["payments", id],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:3000/api/v1/payments/single-user-payments?paymentsId=${id}`
+        `https://lets-sheduleit-backend.vercel.app/api/v1/payments/single-user-payments?paymentsId=${id}`
       );
       return res.data;
     },

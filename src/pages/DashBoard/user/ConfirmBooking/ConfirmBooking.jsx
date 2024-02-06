@@ -5,10 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
 import { FaRegClock } from "react-icons/fa";
 import "./ConfirmBooking.css";
-import useSingleEvents from "../../../hooks/useSingleEvents";
+import useSingleEvents from "../../../../hooks/useSingleEvents";
 import moment from "moment";
-
-import Loading from "../../../componnents/loading/Loading";
 
 const ConfirmBooking = () => {
   const [scheduleInfo, setScheduleInfo] = useState({});
@@ -16,11 +14,14 @@ const ConfirmBooking = () => {
   const [disabledTimes, setDisabledTimes] = useState([]);
   const { timeRange, scheduleDate: selectedDate } = scheduleInfo || {};
   const { startDate, endDate } = timeRange || {};
+
+  // get the dynamic id of the schedule
   const { id } = useParams();
+
+  // get the Single event data and it received a id for get the single data
   const { SingleEvent, refetch } = useSingleEvents(id);
 
-  console.log("selected date", scheduleDate);
-  console.log("disabledTimes", disabledTimes);
+  // handle if one user select a date one time then this time another user will not be able to select the date again
   useEffect(() => {
     const fetchDisabledTimes = async () => {
       try {
@@ -35,7 +36,6 @@ const ConfirmBooking = () => {
               "h:mm a dddd, DD/MM/YYYY ",
               true
             );
-            console.log("eventMoment", eventMoment);
             return (
               eventMoment.isValid() &&
               eventMoment.isSame(moment(scheduleDate).startOf("day"), "day")
@@ -46,9 +46,8 @@ const ConfirmBooking = () => {
               "HH:mm"
             )
           );
+          console.log(bookedTimes);
         setDisabledTimes(bookedTimes);
-        console.log("Booked Times for selected date:", bookedTimes);
-        console.log("disabledTimes", disabledTimes);
       } catch (error) {
         console.error("Error fetching disabled times:", error.message);
       }
@@ -72,12 +71,12 @@ const ConfirmBooking = () => {
       "h:mm a dddd, DD/MM/yyyy "
     );
 
+    // this is handle to set date and time which is selected the user
     const response = await axios.patch(
       `https://lets-sheduleit-backend.vercel.app/api/v1/events/update-date-and-time?id=${id}`,
       { date: { dateAndTime: formattedDate } }
     );
     refetch();
-    console.log(response.data);
   };
 
   return (

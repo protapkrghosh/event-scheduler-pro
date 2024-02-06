@@ -1,22 +1,25 @@
-import { useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import useContexts from "../../../hooks/useContexts";
-import useSinglePayments from "../../../hooks/useSinglePayments";
+import { useParams } from "react-router-dom";
+import useContexts from "../../../../hooks/useContexts";
+import useSinglePayments from "../../../../hooks/useSinglePayments";
 
-import html2canvas from "html2canvas";
-import jspdf from "jspdf";
-import { FaDownload } from "react-icons/fa";
-import Loading from "../../../componnents/loading/Loading";
 import moment from "moment";
 
 const PymentConfirm = () => {
+  // get the user from the custom made hook useContexts()
   const { user } = useContexts();
+
+  // get the daynamic id which payment is made successfully
   const { id } = useParams();
+
+  // get the single payment data from the custom made hook useSinglePayments() and send the argument id of the dynamic id we received in the params
   const { SinglePayments } = useSinglePayments(id);
-  console.log(SinglePayments);
+
+  // if the single payment is undefine or null then it will show a loading statement there
   if (!SinglePayments) {
     return <span className="loading loading-dots loading-lg"></span>;
   }
+
+  // destructure the singlePayments data
   const { amount, transitionId, paymentsId, date, packages } =
     SinglePayments.data;
   const formattedDate = moment(date).format("MMMM DD, YYYY");

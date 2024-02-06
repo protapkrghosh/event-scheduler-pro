@@ -1,8 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-// ... (your imports)
-
+// my MyModal is received 3 props from the components which use tis modal isOpen, setIsOpen, children
 const MyModal = ({ isOpen, setIsOpen, children }) => {
   function closeModal() {
     setIsOpen(false);

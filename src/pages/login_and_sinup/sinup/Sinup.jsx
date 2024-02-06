@@ -2,11 +2,12 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
-import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import useContexts from "../../../hooks/useContexts";
 
 const Sinup = () => {
+  // we used react hook form package. and handle form with that.
   const {
     register,
     handleSubmit,
@@ -15,45 +16,48 @@ const Sinup = () => {
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  // import the all function from authProvider and call it here.
   const { handleSinup, updateUserProfile, handleGoogleSinin } = useContexts();
+
   const navigate = useNavigate();
   const id = uuidv4();
+  // this is only for login with email.
   const onSubmit = (data) => {
+    // destructure the current form data
     const { name, email, password, photo } = data;
-    const role = "user";
-    const currentPlane = "free";
+
+    // call the handleSinup function and create a user in the firebase
     handleSinup(email, password)
       .then((result) => {
-        console.log(result.user);
+        // update the current user name and photo url
         updateUserProfile(name, photo);
+
+        // save the user date in our database
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user",
             {
               user: {
                 id,
                 email,
                 name,
                 photo,
-                role,
-                currentPlane,
               },
             }
           )
           .then((data) => {
-            console.log(data.data.massage);
-            if (data.data.sucsees === true) {
+            if (data.data.success) {
               navigate("/");
             }
           });
       })
       .catch((err) => console.error(err));
   };
+  // when you will login with the google. this function will take your information and post it in database with post method. After login, you wil redirect to the home page.
   const handleGoogleLogin = () => {
+    // call the handleGoogleSinin function there and create a google sin up user in our database
     handleGoogleSinin()
       .then((result) => {
-        console.log(result.user);
-
         const email = result?.user?.email;
         const name = result?.user?.displayName;
         const photo = result?.user?.photoURL;
@@ -67,16 +71,18 @@ const Sinup = () => {
           role,
           currentPlane,
         };
+
+        // save the user data in our database
         axios
           .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+            "https://lets-sheduleit-backend.vercel.app/api/v1/users/create-user",
             {
               user: users,
             }
           )
           .then((data) => {
-            console.log(data.data.massage);
-            if (data.data.sucsees === true) {
+            console.log(data);
+            if (data.data.success === true) {
               navigate("/");
             }
           });
@@ -104,6 +110,7 @@ const Sinup = () => {
           className="card flex-shrink-0 p-4 w-full max-w-md shadow-2xl border "
         >
           <button
+            // this function for google login. if you want to login with google. you can do that
             onClick={handleGoogleLogin}
             className=" btn-nav flex mt-4  gap-4 w-full items-center justify-center"
           >
@@ -123,6 +130,7 @@ const Sinup = () => {
             Continue with facebook
           </button>
           <div className="divider">OR</div>
+          {/* handle submit function */}
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="form-control">
               <label className="label">
@@ -243,6 +251,7 @@ const Sinup = () => {
               </p>
             )}
             <div className="form-control mt-6">
+              {/* submit button for email login */}
               <button className="btn-primary flex  gap-4 w-full items-center justify-center">
                 Sing up
                 <FaSignInAlt />{" "}

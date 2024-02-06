@@ -1,10 +1,10 @@
 import { FaAngleDown, FaCreativeCommonsShare, FaSearch } from "react-icons/fa";
-import useContexts from "../../../hooks/useContexts";
 import BookedMeet from "./BookedMeet";
 import { useState } from "react";
-import AddEventModal from "../../../componnents/modal/AddEventModal";
-import useIsBan from "../../../hooks/useIsBan";
 import toast from "react-hot-toast";
+import useIsBan from "../../../../hooks/useIsBan";
+import useContexts from "../../../../hooks/useContexts";
+import AddEventModal from "../../../../componnents/modal/AddEventModal";
 
 const CreateEvent = () => {
   const { user } = useContexts();
@@ -18,17 +18,11 @@ const CreateEvent = () => {
   };
   return (
     <div className="">
-      <h3 className="font-prompt text-3xl font-semibold mb-8 lg:mb-16 mt-5">
-        Event types
-      </h3>
+      <h3 className="heading">Event types</h3>
       <div className="flex flex-col items-start lg:flex-row lg:items-center gap-x-3 mb-12">
         <div className="dropdown">
-          <div
-            tabIndex={0}
-            role="button"
-            className="w-full flex items-center gap-x-2 bg-gray-50 py-2 px-5 rounded-md font-prompt border border-gray-400 m-1"
-          >
-            my schedule <FaAngleDown></FaAngleDown>
+          <div tabIndex={0} role="button" className="headBox">
+            My Calendly <FaAngleDown></FaAngleDown>
           </div>
           <ul
             tabIndex={0}

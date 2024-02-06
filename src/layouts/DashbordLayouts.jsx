@@ -7,7 +7,9 @@ import Loading from "../componnents/loading/Loading";
 import { FaChartBar } from "react-icons/fa";
 
 const DashboardLayouts = () => {
+  // received isAdmin from src/hooks/useAdmin file
   const { isAdmin } = useAdmin();
+  // use loading stat to handle smooth facing
   <Loading data={isAdmin} />;
   return (
     <div className="drawer lg:drawer-open ">
@@ -17,15 +19,18 @@ const DashboardLayouts = () => {
           <label htmlFor="my-drawer-2" className=" drawer-button lg:hidden">
             <FaAlignJustify className="text-2xl" />
           </label>
-          <div className="">
+
+          <div className="lg:ml-auto 2xl:mr-10">
+            {/* use DasboardNavbar component to make our code more cleaner */}
             <DasboardNavbar />
           </div>
         </div>
-        <div className="w-full">
-          <div className="    px-4">
-            <Outlet />
-          </div>
+        {/* <div className="w-full"> */}
+        <div className="px-12 mt-14 w-9/12 mx-auto">
+          {/* outlet is reeved all the children path have in the /dashboard route  */}
+          <Outlet />
         </div>
+        {/* </div> */}
       </div>
 
       <div className="drawer-side">

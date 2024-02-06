@@ -2,44 +2,49 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
-import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import useContexts from "../../../hooks/useContexts";
 const SingIn = () => {
+  // import the all function from authProvider and call it here.
   const { handleGoogleSinin, handleFacebookSignUp, handleLogin } =
     useContexts();
+
+  // call navigate from react useNavigate()
   const navigate = useNavigate();
   const id = uuidv4();
+  // we used react hook form package. and handle form with that.
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
-
+  // this is only for login with email.
   const onSubmit = (data) => {
     const { email, password } = data;
+    // call handleLogin funtion to login withe email and password
     handleLogin(email, password)
       .then((result) => {
-        console.log(result.user);
         navigate("/");
       })
       .catch((err) => console.error(err));
   };
-
+  // when you will login with the facebook, you wil redirect to the home page.
   const handleFacebookLogin = () => {
+    // call handleFacebookSignUp funtion to login withe google
     handleFacebookSignUp()
       .then((res) => {
-        console.log(res.user);
         navigate("/");
       })
       .catch((err) => console.error(err));
   };
 
+  // when you will login with the google. this function will take your information and post it in database with post method. After login, you wil redirect to the home page.
   const handleGoogleLogin = () => {
+    // call handleGoogleSinin function to sin in withe google
     handleGoogleSinin()
       .then((result) => {
-        console.log(result.user);
         const email = result?.user?.email;
         const name = result?.user?.displayName;
         const photo = result?.user?.photoURL;
@@ -53,19 +58,14 @@ const SingIn = () => {
           role,
           currentPlane,
         };
-        axios
-          .post(
-            "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
-            {
-              user: users,
-            }
-          )
-          .then((data) => {
-            console.log(data.data);
-            if (data.data.sucsees === true) {
-              navigate("/");
-            }
-          });
+        navigate("/");
+        // if the user is firs time sin in in our website then save the user info in our database
+        axios.post(
+          "https://lets-sheduleit-backend.vercel.app/api/v1/users/creat-user",
+          {
+            user: users,
+          }
+        );
       })
       .catch((err) => console.error(err));
   };
@@ -91,6 +91,7 @@ const SingIn = () => {
           className=" flex-shrink-0 w-full max-w-md p-4 bg-[#ffffff] shadow-2xl  border"
         >
           <button
+            // this function for google login. if you want to login with google. you can do that
             onClick={handleGoogleLogin}
             className=" btn-nav flex  mt-4 gap-4 w-full items-center justify-center"
           >
@@ -102,6 +103,7 @@ const SingIn = () => {
             Continue with google
           </button>
           <button
+            // this function for facebook login. if you want to login with facebook. you can do that
             onClick={handleFacebookLogin}
             className=" btn-nav flex  mt-4 gap-2 w-full items-center justify-center"
           >
@@ -113,6 +115,7 @@ const SingIn = () => {
             Continue with facebook
           </button>
           <div className="divider">OR</div>
+          {/* handle submit function */}
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="form-control">
               <label className="label">
@@ -154,12 +157,14 @@ const SingIn = () => {
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
               </div>
+              {/* error message */}
               {errors.password?.type === "required" && (
                 <p className="text-red-500">password is required</p>
               )}
             </div>
 
             <div className="form-control mt-6">
+              {/* submit button for email login */}
               <button className="btn-primary flex  gap-4 w-full items-center justify-center">
                 Login
                 <FaSignInAlt />{" "}

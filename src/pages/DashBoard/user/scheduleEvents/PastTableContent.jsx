@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
-import useContexts from "../../../hooks/useContexts";
+
+import useContexts from "../../../../hooks/useContexts";
 import DetailsModal from "./DetailsModal";
 
-const UpcomingTableContent = ({ nextDayMeeting }) => {
+// past meeting coming from scheduleEvent.jsx
+const PastTableContent = ({ pastMeeting }) => {
   const { user } = useContexts();
-  const { method, dateAndTime, eventTypes } = nextDayMeeting;
+  // take some data from pastMeeting to show here
+  const { eventName, dateAndTime, method, eventTypes } = pastMeeting;
+  // separate the date and time to show.
   const [timePart, datePart] = dateAndTime?.split(",") || [];
   return (
     <tr>
@@ -22,22 +26,31 @@ const UpcomingTableContent = ({ nextDayMeeting }) => {
         </div>
       </td>
       <td className="font-semibold">
-        {datePart}
+        {timePart}
         <br />
-        <span>{timePart}</span>
+        <span>{datePart}</span>
       </td>
-      <td className="font-semibold">{eventTypes}</td>
+      <td className="font-semibold">
+        {eventName}
+        <br />
+        {eventTypes}
+      </td>
       <th>
+        {/* show the details modal */}
         <button
           className="btn btn-ghost btn-xs"
           onClick={() => document.getElementById("my_modal_1").showModal()}
         >
           details
         </button>
-        <DetailsModal meetingDetails={nextDayMeeting} timePart={timePart} datePart={datePart}></DetailsModal>
+        <DetailsModal
+          meetingDetails={pastMeeting}
+          timePart={timePart}
+          datePart={datePart}
+        ></DetailsModal>
       </th>
     </tr>
   );
 };
 
-export default UpcomingTableContent;
+export default PastTableContent;
