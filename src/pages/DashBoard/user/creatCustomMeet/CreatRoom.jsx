@@ -2,7 +2,10 @@ import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
 import { useParams } from "react-router-dom";
 
 const CreatRoom = () => {
+  // get the daynamic room id
   const { roomID } = useParams();
+
+  // create the custom meet logic there
   const myMeeting = async (element) => {
     const appID = 1669259197;
     const serverSecret = "beb58ff89926213161d53b407af53994";

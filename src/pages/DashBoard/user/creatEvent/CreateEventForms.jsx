@@ -2,20 +2,26 @@ import { useForm } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactDatePicker from "react-datepicker";
 import { useNavigate, useParams } from "react-router-dom";
-import useContexts from "../../../hooks/useContexts";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
-const CreateMeet = () => {
-  const nevigat = useNavigate();
+import useContexts from "../../../../hooks/useContexts";
+const CreateEventForms = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit, reset, watch, setValue } = useForm();
+
+  // get dynamic eventType from the params
   const { eventType } = useParams();
   const eventTypes = eventType;
   const selectedMethod = watch("method");
+
+  // get user from custom made useContexts() hook
   const { user } = useContexts();
   const email = user?.email;
   const scheduleId = uuidv4();
   const userName = user?.displayName;
+
+  // handle the logic of create new events
   const onSubmit = (data) => {
     const { date, descriptions, duration, eventName, meetLink, method } = data;
     const userEmail = email;
@@ -31,7 +37,6 @@ const CreateMeet = () => {
       eventName,
       userName,
     };
-    console.log(events);
     axios
       .post(
         "https://lets-sheduleit-backend.vercel.app/api/v1/events/creat-event",
@@ -40,9 +45,9 @@ const CreateMeet = () => {
         }
       )
       .then((data) => {
-        console.log(data.data.sucsees);
-        if (data.data.sucsees) {
-          nevigat("/dashboard");
+        console.log(data);
+        if (data.data.success) {
+          navigate("/dashboard");
           toast.success("Schedule added!");
           reset();
         }
@@ -212,4 +217,4 @@ const CreateMeet = () => {
   );
 };
 
-export default CreateMeet;
+export default CreateEventForms;

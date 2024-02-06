@@ -5,6 +5,7 @@ import SolutionsHero from "./solutions/SolutionsHero";
 const Solutions = () => {
   return (
     <div>
+      {/* render all the section of the solution page have */}
       <SolutionsHero />
       <EasyScheduleFirstPart></EasyScheduleFirstPart>
       <EasyScheduleSecondPart></EasyScheduleSecondPart>

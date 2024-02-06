@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import useContexts from "../../../hooks/useContexts";
+
+import useContexts from "../../../../hooks/useContexts";
 import DetailsModal from "./DetailsModal";
 
-const PastTableContent = ({ pastMeeting }) => {
+const UpcomingTableContent = ({ nextDayMeeting }) => {
   const { user } = useContexts();
-  const { eventName, dateAndTime, method, eventTypes } = pastMeeting;
+  const { method, dateAndTime, eventTypes } = nextDayMeeting;
   const [timePart, datePart] = dateAndTime?.split(",") || [];
   return (
     <tr>
@@ -22,15 +23,11 @@ const PastTableContent = ({ pastMeeting }) => {
         </div>
       </td>
       <td className="font-semibold">
-        { timePart}
+        {datePart}
         <br />
-        <span>{datePart}</span>
+        <span>{timePart}</span>
       </td>
-      <td className="font-semibold">
-        {eventName}
-        <br />
-        {eventTypes}
-      </td>
+      <td className="font-semibold">{eventTypes}</td>
       <th>
         <button
           className="btn btn-ghost btn-xs"
@@ -38,10 +35,14 @@ const PastTableContent = ({ pastMeeting }) => {
         >
           details
         </button>
-        <DetailsModal meetingDetails={pastMeeting} timePart={timePart} datePart={datePart}></DetailsModal>
+        <DetailsModal
+          meetingDetails={nextDayMeeting}
+          timePart={timePart}
+          datePart={datePart}
+        ></DetailsModal>
       </th>
     </tr>
   );
 };
 
-export default PastTableContent;
+export default UpcomingTableContent;

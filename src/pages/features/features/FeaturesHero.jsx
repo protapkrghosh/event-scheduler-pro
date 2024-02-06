@@ -12,7 +12,7 @@ const FeaturesHero = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="md:w-[50%]">
           <img
-            src="https://www.appointlet.com/wp-content/uploads/2022/10/Features.png"
+            src="https://assets.setmore.com/website/images/features/booking-features.webp"
             className=" w-full h-full"
           />
         </div>
@@ -26,10 +26,10 @@ const FeaturesHero = () => {
             book time with people outside your organization
           </p>
           <div className="flex justify-center lg:justify-start items-center">
-          <button className=" btn-primary">Get Started</button>
-          <button className=" btn-fetures text-[#0069ff] ml-4">
-            Contact Us
-          </button>
+            <button className=" btn-primary">Get Started</button>
+            <button className=" btn-fetures text-[#0069ff] ml-4">
+              Contact Us
+            </button>
           </div>
         </div>
       </div>

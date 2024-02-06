@@ -8,7 +8,7 @@ const DashBoardNavbarComponnets = () => {
     handleLogout();
   };
   return (
-    <div>
+    <div className="flex">
       <div className="navbar-end">
         {user ? (
           <div className="dropdown dropdown-end">
@@ -19,7 +19,7 @@ const DashBoardNavbarComponnets = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
+                  alt=""
                   src={
                     user?.photoURL
                       ? user?.photoURL
@@ -32,6 +32,11 @@ const DashBoardNavbarComponnets = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
+              <li>
+                <Link to={"/dashboard/create-event"} className="justify-between">
+                  My Accounts
+                </Link>
+              </li>
               <li>
                 <a>Settings</a>
               </li>

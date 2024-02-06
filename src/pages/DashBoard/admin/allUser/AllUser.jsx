@@ -4,28 +4,35 @@ import Loading from "../../../../componnents/loading/Loading";
 import axios from "axios";
 
 const AllUser = () => {
+  // received all user from db using useAllUsers() hooks
   const { allUser, refetch } = useAllUsers();
+  // use Loading state component to handle faching data more smoothly
   <Loading data={allUser} />;
 
+  // handle make a simple user to admin
   const handleMakeAdmin = async (email) => {
     const res = await axios.get(
       `https://lets-sheduleit-backend.vercel.app/api/v1/users/make-admin?email=${email}`
     );
-    console.log(res.data);
+    // use refetch to handel the state instantly not need to refresh the page
     refetch();
   };
+
+  // handle make a user ban
   const handleBanUser = async (email) => {
     const res = await axios.get(
       `https://lets-sheduleit-backend.vercel.app/api/v1/users/make-ban?email=${email}`
     );
-    console.log(res.data);
+    // use refetch to handel the state instantly not need to refresh the page
     refetch();
   };
+
+  // handle a ban user and admin as a simple user
   const handleMakeUser = async (email) => {
     const res = await axios.get(
       `https://lets-sheduleit-backend.vercel.app/api/v1/users/make-user?email=${email}`
     );
-    console.log(res.data);
+    // use refetch to handel the state instantly not need to refresh the page
     refetch();
   };
   return (

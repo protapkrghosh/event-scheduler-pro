@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
-import useContexts from "../../../hooks/useContexts";
+
+import useContexts from "../../../../hooks/useContexts";
 import DetailsModal from "./DetailsModal";
 
 const PendingTableContent = ({ pendingMeeting }) => {
   const { user } = useContexts();
-  const { duration, eventName, method, meetLink, eventTypes } =
-    pendingMeeting;
+  const { duration, eventName, method, meetLink, eventTypes } = pendingMeeting;
   return (
     <tr>
       <td>
         <div className="flex items-center gap-3">
           <div className="avatar">
             <div className="mask mask-squircle w-12 h-12 rounded-full">
-              <img src={user.photoURL} alt="Avatar Tailwind CSS Component" />
+              <img src={user.photoURL} alt="" />
             </div>
           </div>
           <div>

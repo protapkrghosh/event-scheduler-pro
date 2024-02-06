@@ -6,7 +6,7 @@ const BannerVideo = () => {
         loop
         muted
         className="w-[1000px] mx-auto h-[500px] "
-        poster="https://storage.googleapis.com/zcal-us-central-1/resources/hero_invite_1280_820_720.jpg" // Use the correct poster image URL
+        poster="https://storage.googleapis.com/zcal-us-central-1/resources/hero_invite_1280_820_720.jpg"
       >
         <source
           src="https://storage.googleapis.com/zcal-us-central-1/resources/hero_invite_1280_820_720.mp4"

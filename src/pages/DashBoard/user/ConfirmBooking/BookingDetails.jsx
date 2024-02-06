@@ -1,40 +1,25 @@
 import { IoMdArrowRoundBack, IoIosTime } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import useSingleEvents from "../../../hooks/useSingleEvents";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import useContexts from "../../../hooks/useContexts";
-import Loading from "../../../componnents/loading/Loading";
+import useSingleEvents from "../../../../hooks/useSingleEvents";
+import Loading from "../../../../componnents/loading/Loading";
 
 const BookingDetails = () => {
+  // use useParams react hook to get the dynamic schedule id
   const { id } = useParams();
-  const { user } = useContexts();
+
+  // get the single event data from useSingleEvents() build in hook and it received a unique id to fetch the data
   const { SingleEvent, refetch } = useSingleEvents(id);
+
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
-  const [meetings, setMeetings] = useState([]);
-
-  // get data
-  useEffect(() => {
-    fetch(
-      `https://lets-sheduleit-backend.vercel.app/api/v1/events/get-event?email=${user?.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        const parsedMeetings = data.map((meeting) => ({
-          ...meeting,
-          dateAndTime: meeting?.dateAndTime,
-        }));
-        setMeetings(parsedMeetings);
-      });
-  }, [user?.email]);
-
+  // handle fetch the Single data smoothly use loading
   <Loading data={SingleEvent} />;
 
-
+  // destructure the all  information from the single events
   const {
     duration,
     eventName,
@@ -46,7 +31,10 @@ const BookingDetails = () => {
     scheduleId,
   } = SingleEvent;
 
+  // this is initial schedule link which schedule has been crated by the user
   const detailsLink = `https://let-s-scheduled-frontend.vercel.app/confirm-schedule/${id}`;
+
+  // handle the logic of booking schedule
   const onSubmit = async (data) => {
     try {
       const { name, email } = data;
@@ -63,21 +51,18 @@ const BookingDetails = () => {
         email,
       };
 
+      // this response will save in our database and send a email to the user who book this schedule
       const response = await axios.post(
         "https://lets-sheduleit-backend.vercel.app/api/v1/mail/send-email",
         { emailInfo: emailData }
       );
-
+      // if confirmed the time then he will redirect to this page.
       if (response.data.success === true) {
         navigate(`/confirm-schedule/bookingConfirmed/${scheduleId}`);
         refetch();
       }
-      console.log(response.data);
-
-      // Handle the response or any other logic after sending the email
     } catch (error) {
       console.error("Error sending email:", error);
-      // Handle the error, maybe show an error message to the user
     }
   };
 
@@ -148,6 +133,7 @@ const BookingDetails = () => {
             className="textarea textarea-bordered block w-full"
             {...register("text")}
           />
+          {/* button for confirm the schedule/time */}
           <button className="border bg-blue-600 hover:bg-transparent hover:border-blue-500 text-white hover:text-blue-500 transition-colors duration-200 px-4 py-2 rounded-full mt-5 font-cursive">
             Schedule Event
           </button>

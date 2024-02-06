@@ -4,16 +4,20 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { event } from "../../data/Data";
 import { Link } from "react-router-dom";
 
+// received isOpen and setIsOpen state as a props where the modal is use
 const AddEventModal = ({ isOpen, setIsOpen }) => {
   return (
     <div>
+      {/* my modal is the reusable modal which received isOpen and setIsOpen as a props and handle open modal */}
       <MyModal isOpen={isOpen} setIsOpen={setIsOpen}>
+        {/*  modal body which is show the content of modal body its show as a children of the modal */}
         <div className="w-full px-4 py-16">
           <div className="mx-auto w-full max-w-xl">
             <RadioGroup>
               <RadioGroup.Label className="sr-only">
                 Server size
               </RadioGroup.Label>
+              {/* create a custom event data in the data/data.jsx files and use map to render show the  data of events */}
               <div className="space-y-2">
                 {event.map((plan) => (
                   <RadioGroup.Option key={plan.title}>

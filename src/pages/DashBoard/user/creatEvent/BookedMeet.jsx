@@ -5,14 +5,14 @@ import { CiSettings } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdContentCopy, MdModeEdit, MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
-import useSingleEventData from "../../../hooks/useSingleEventData";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import useSingleEventData from "../../../../hooks/useSingleEventData";
 
 const BookedMeet = () => {
   const { events, refetch } = useSingleEventData();
   const [copied, setCopied] = useState(false);
-
+  // copy meeting link/id
   const copyToClipboard = (customLink) => {
     copy(customLink)
       .then(() => {
@@ -23,7 +23,7 @@ const BookedMeet = () => {
         console.error("Failed to copy text: ", err);
       });
   };
-
+  // delete an event
   const handleDeleteEvents = async (id) => {
     try {
       Swal.fire({
@@ -52,17 +52,20 @@ const BookedMeet = () => {
     }
   };
 
+  // it will handle the redirect when user click vew details button
   const handleRedirect = (id) => {
-    const curentUrl = `http://localhost:5173/confirm-schedule/${id}`;
+    const curentUrl = `https://let-s-scheduled-frontend.vercel.app/confirm-schedule/${id}`;
 
     window.open(curentUrl, "_blank");
   };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-5">
+      {/* show all events which already created */}
       {events ? (
         events.map((event) => {
-          const customLink = `http://localhost:5173/confirm-schedule/${event.scheduleId}`;
+          // this is custom schedule which is creating the user
+          const customLink = `https://let-s-scheduled-frontend.vercel.app/confirm-schedule/${event.scheduleId}`;
 
           return (
             <div
